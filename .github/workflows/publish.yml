@@ -1,9 +1,9 @@
 name: "Publish"
 
 on:
-  push:
-    tags:
-      - "release-*" # Simple wildcard pattern
+  workflow_run:
+    workflows: ["Bump"]
+    types: [completed]
 permissions:
   contents: read
   id-token: write # Required for OIDC
@@ -12,11 +12,14 @@ jobs:
     name: "Publish"
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: "Checkout source code"
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
       - name: Setup Node.js
-        uses: actions/setup-node@v4 # v6 doesn't exist yet
+        uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: "npm"
@@ -28,6 +31,11 @@ jobs:
       - name: Publish
         run: |
           VERSION=$(node -p "require('./package.json').version")
+          PACKAGE=$(node -p "require('./package.json').name")
+          if npm show "${PACKAGE}@${VERSION}" version > /dev/null 2>&1; then
+            echo "Version ${VERSION} already published, skipping."
+            exit 0
+          fi
           if [[ "$VERSION" == *-* ]]; then
             npm publish --access public --tag prerelease --provenance
           else

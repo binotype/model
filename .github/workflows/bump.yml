@@ -22,7 +22,7 @@ jobs:
       - name: "Checkout source code"
         uses: "actions/checkout@v4"
         with:
-          token: ${{ secrets.PAT }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0 # Fetch full history for tagging
       - name: "Setup Node"
         uses: "actions/setup-node@v4"
@@ -41,4 +41,4 @@ jobs:
           major-wording: "BREAKING CHANGE,major"
           patch-wording: "fix,patch,bugfix"
         env:
-          GITHUB_TOKEN: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
