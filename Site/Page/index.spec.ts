@@ -1,4 +1,3 @@
-import { describe, expect, it } from "vitest"
 import { binotype } from "../../index"
 
 describe("binotype.Site.Page", () => {
