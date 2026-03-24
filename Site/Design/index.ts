@@ -15,7 +15,7 @@ export interface Design {
 	}
 }
 export namespace Design {
-	export const { is, flawed, type } = isly
+	export const { is, flawed, type }: { is: any; flawed: any; type: any } = isly
 		.object<Design>(
 			{
 				logotype: isly.string().optional(),

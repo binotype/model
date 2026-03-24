@@ -8,7 +8,7 @@ export interface Section {
 	content: string
 }
 export namespace Section {
-	export const { is, flawed, type } = isly
+	export const { is, flawed, type }: { is: any; flawed: any; type: any } = isly
 		.object<Section>(
 			{
 				weight: isly.number().optional(),
