@@ -17,7 +17,7 @@ export interface Site {
 export namespace Site {
 	export import Design = _Design
 	export import Page = _Page
-	export const { is, flawed, type }: { is: any; flawed: any; type: any } = isly
+	export const { is, flawed, type } = isly
 		.object<Site>(
 			{
 				url: isly.string(),

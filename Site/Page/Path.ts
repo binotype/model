@@ -59,7 +59,7 @@ export class Path {
 	}
 }
 export namespace Path {
-	export const { is, flawed, type }: { is: any; flawed: any; type: any } = isly
+	export const { is, flawed, type } = isly
 		.object<Path>(
 			{
 				empty: isly.boolean().readonly(),
