@@ -1,4 +1,4 @@
-import { binotype } from "../../index"
+import { binotype } from "../../../index"
 
 describe("binotype.Context.Article.Header", () => {
 	it.each([
@@ -19,8 +19,8 @@ describe("binotype.Context.Article.Header", () => {
 			page: {
 				title: "Sample Article",
 				author: "John Doe",
-				published: "2024-01-01T08:00:00Z" as binotype.isoly.DateTime,
-				changed: "2024-01-02T10:00:00Z" as binotype.isoly.DateTime,
+				published: "2024-01-01T08:00:00Z",
+				changed: "2024-01-02T10:00:00Z",
 				content: "This is a sample article with some content that has multiple words in it.",
 			},
 			expected: {

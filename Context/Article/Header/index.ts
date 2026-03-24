@@ -1,5 +1,5 @@
 import { isoly } from "isoly"
-import { Site } from "../../Site"
+import { Site } from "../../../Site"
 
 export interface Header {
 	title: string

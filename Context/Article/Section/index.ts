@@ -1,4 +1,4 @@
-import { Site } from "../../Site"
+import { Site } from "../../../Site"
 
 export interface Section {
 	id: string
