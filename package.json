@@ -14,7 +14,6 @@
 	},
 	"homepage": "https://github.com/binotype/model",
 	"type": "module",
-	"main": "./dist/cjs/index.js",
 	"module": "./dist/mjs/index.js",
 	"types": "./dist/types/index.d.ts",
 	"exports": {
@@ -22,10 +21,6 @@
 			"import": {
 				"types": "./dist/types/index.d.ts",
 				"default": "./dist/mjs/index.js"
-			},
-			"require": {
-				"types": "./dist/types/index.d.ts",
-				"default": "./dist/cjs/index.js"
 			}
 		}
 	},
@@ -39,9 +34,7 @@
 		"lint": "eslint --max-warnings=0 '**/*.{ts,tsx}'",
 		"fix": "eslint '**/*.{ts,tsx}' --fix",
 		"prebuild": "rimraf dist/*",
-		"build": "npm run build:esm && npm run build:cjs",
-		"build:esm": "tsc -p tsconfig.mjs.json",
-		"build:cjs": "tsc -p tsconfig.cjs.json",
+		"build": "tsc -p tsconfig.build.json",
 		"test": "vitest --run",
 		"coverage": "vitest --coverage",
 		"prepare": "npm run build",
