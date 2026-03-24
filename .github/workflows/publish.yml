@@ -16,9 +16,11 @@ jobs:
       - name: "Checkout source code"
         uses: actions/checkout@v5
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v4 # v6 doesn't exist yet
         with:
           node-version: 24
+          cache: "npm"
+          registry-url: "https://registry.npmjs.org/"
       - name: Install
         run: npm ci
       - name: Build
@@ -27,8 +29,8 @@ jobs:
         run: |
           VERSION=$(node -p "require('./package.json').version")
           if [[ "$VERSION" == *-* ]]; then
-            npm publish --access public --tag prerelease
+            npm publish --access public --tag prerelease --provenance
           else
-            npm publish --access public
+            npm publish --access public --provenance
           fi
         shell: bash
