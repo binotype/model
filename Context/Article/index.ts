@@ -1,6 +1,6 @@
 import { isoly } from "isoly"
 import { Site } from "../../Site"
-import { Header } from "./Header"
+import { Header as _Header } from "./Header"
 import { Mode as _Mode } from "./Mode"
 import { Section as _Section } from "./Section"
 
@@ -8,7 +8,7 @@ export interface Article {
 	mode: Article.Mode
 	id: string
 	link?: string
-	header?: Header
+	header?: Article.Header
 	image?: string
 	summary?: string
 	content?: string
@@ -16,6 +16,7 @@ export interface Article {
 	articles?: Article[]
 }
 export namespace Article {
+	export import Header = _Header
 	export import Mode = _Mode
 	export import Section = _Section
 	export function load(
