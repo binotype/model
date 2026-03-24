@@ -1,0 +1,221 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`binotype.Context > create(site, /) 1`] = `
+{
+  "article": {
+    "articles": undefined,
+    "content": "The requested page was not found.",
+    "header": {
+      "author": undefined,
+      "changed": undefined,
+      "published": undefined,
+      "readingTime": 1,
+      "title": "Not Found",
+      "wordCount": 6,
+    },
+    "id": "",
+    "link": "/",
+    "mode": "full",
+    "sections": undefined,
+  },
+  "base": "https://example.com",
+  "description": undefined,
+  "design": {
+    "home": {
+      "mode": "header",
+      "section": "article",
+    },
+    "icon": "/favicon.ico",
+    "list": {
+      "mode": "summary",
+    },
+    "logotype": "/logo.svg",
+    "navigation": "header",
+    "scripts": [
+      "/script.js",
+    ],
+    "styles": [
+      "/style.css",
+    ],
+  },
+  "image": undefined,
+  "menu": {
+    "items": [
+      {
+        "items": [],
+        "label": "About",
+        "selected": undefined,
+        "url": "/about",
+      },
+    ],
+  },
+  "tagline": undefined,
+  "title": "Test Site",
+  "url": "https://example.com/",
+}
+`;
+
+exports[`binotype.Context > create(site, /about) 1`] = `
+{
+  "article": {
+    "articles": undefined,
+    "content": "<p>About page content</p>",
+    "header": {
+      "author": undefined,
+      "changed": undefined,
+      "published": undefined,
+      "readingTime": 1,
+      "title": "About",
+      "wordCount": 3,
+    },
+    "id": "about",
+    "link": "/about",
+    "mode": "full",
+    "sections": undefined,
+  },
+  "base": "https://example.com",
+  "description": undefined,
+  "design": {
+    "home": {
+      "mode": "header",
+      "section": "article",
+    },
+    "icon": "/favicon.ico",
+    "list": {
+      "mode": "summary",
+    },
+    "logotype": "/logo.svg",
+    "navigation": "header",
+    "scripts": [
+      "/script.js",
+    ],
+    "styles": [
+      "/style.css",
+    ],
+  },
+  "image": undefined,
+  "menu": {
+    "items": [
+      {
+        "items": [],
+        "label": "About",
+        "selected": "current",
+        "url": "/about",
+      },
+    ],
+  },
+  "tagline": undefined,
+  "title": "Test Site",
+  "url": "https://example.com/about",
+}
+`;
+
+exports[`binotype.Context > create(site, /nonexistent) 1`] = `
+{
+  "article": {
+    "articles": undefined,
+    "content": "The requested page was not found.",
+    "header": {
+      "author": undefined,
+      "changed": undefined,
+      "published": undefined,
+      "readingTime": 1,
+      "title": "Not Found",
+      "wordCount": 6,
+    },
+    "id": "nonexistent",
+    "link": "/nonexistent",
+    "mode": "full",
+    "sections": undefined,
+  },
+  "base": "https://example.com",
+  "description": undefined,
+  "design": {
+    "home": {
+      "mode": "header",
+      "section": "article",
+    },
+    "icon": "/favicon.ico",
+    "list": {
+      "mode": "summary",
+    },
+    "logotype": "/logo.svg",
+    "navigation": "header",
+    "scripts": [
+      "/script.js",
+    ],
+    "styles": [
+      "/style.css",
+    ],
+  },
+  "image": undefined,
+  "menu": {
+    "items": [
+      {
+        "items": [],
+        "label": "About",
+        "selected": undefined,
+        "url": "/about",
+      },
+    ],
+  },
+  "tagline": undefined,
+  "title": "Test Site",
+  "url": "https://example.com/nonexistent",
+}
+`;
+
+exports[`binotype.Context > create(site, invalid-path) 1`] = `
+{
+  "article": {
+    "articles": undefined,
+    "content": "The requested page was not found.",
+    "header": {
+      "author": undefined,
+      "changed": undefined,
+      "published": undefined,
+      "readingTime": 1,
+      "title": "Not Found",
+      "wordCount": 6,
+    },
+    "id": "invalid-path",
+    "link": "/invalid-path",
+    "mode": "full",
+    "sections": undefined,
+  },
+  "base": "https://example.com",
+  "description": undefined,
+  "design": {
+    "home": {
+      "mode": "header",
+      "section": "article",
+    },
+    "icon": "/favicon.ico",
+    "list": {
+      "mode": "summary",
+    },
+    "logotype": "/logo.svg",
+    "navigation": "header",
+    "scripts": [
+      "/script.js",
+    ],
+    "styles": [
+      "/style.css",
+    ],
+  },
+  "image": undefined,
+  "menu": {
+    "items": [
+      {
+        "items": [],
+        "label": "About",
+        "selected": undefined,
+        "url": "/about",
+      },
+    ],
+  },
+  "tagline": undefined,
+  "title": "Test Site",
+  "url": "https://example.com/invalid-path",
+}
+`;
