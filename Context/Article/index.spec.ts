@@ -169,9 +169,9 @@ describe("binotype.Context.Article", () => {
 			page: {
 				title: "Limited Sections",
 				content: {
-					section1: { title: "Section 1", weight: 1 },
-					section2: { title: "Section 2", weight: 2 },
-					section3: { title: "Section 3", weight: 3 },
+					section1: { title: "Section 1", weight: 1, content: "Content 1" },
+					section2: { title: "Section 2", weight: 2, content: "Content 2" },
+					section3: { title: "Section 3", weight: 3, content: "Content 3" },
 				},
 				path: binotype.Site.Page.Path.parse("/limited"),
 				mode: "full" as binotype.Context.Article.Mode,
@@ -192,19 +192,22 @@ describe("binotype.Context.Article", () => {
 				image: undefined,
 			},
 		},
-	])("load($name)", ({ page, design, count, expected }) => {
-		const article = binotype.Context.Article.load(page, design, count)
+	] as const satisfies ReadonlyArray<{
+		name: string
+		page: binotype.Site.Page & { path: binotype.Site.Page.Path; mode: binotype.Context.Article.Mode }
+		design: binotype.Site.Design
+		count?: number
+		expected: any
+	}>)("load($name)", ({ page, design, count, expected }) => {
+		const article = binotype.Context.Article.load(page as binotype.Site.Page & { path: binotype.Site.Page.Path; mode: binotype.Context.Article.Mode }, design, count)
 		expect(article).toEqual(expected)
 
 		// Additional specific checks for array lengths when count is specified
 		if (count !== undefined) {
-			if (article.sections) {
+			if (article.sections)
 				expect(article.sections).toHaveLength(Math.min(count, Object.keys(page.content as object).length))
-			}
-			if (article.articles) {
-				const nonDraftPages = Object.values(page.pages || {}).filter(p => !p.draft).length
-				expect(article.articles).toHaveLength(Math.min(count, nonDraftPages))
-			}
+			if (article.articles)
+				expect(article.articles).toHaveLength(Math.min(count, Object.values(page.pages || {}).filter((p: any) => !p.draft).length))
 		}
 	})
 })
