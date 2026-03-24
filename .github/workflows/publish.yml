@@ -6,7 +6,7 @@ on:
       - "release-*"
 permissions:
   contents: read
-  id-token: write   # Required for OIDC
+  id-token: write # Required for OIDC
 jobs:
   publish:
     name: "Publish"
