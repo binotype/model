@@ -26,16 +26,16 @@ This directory contains domain-specific coding guidelines for AI agents and deve
 | Implementing value objects | TypeScript     | Private constructor + static methods |
 | Writing tests              | Testing        | Snapshot + parameterized testing     |
 | Organizing module exports  | Module Exports | Alias imports + namespace re-exports |
-| Setting up test data       | Testing        | `it.each()` with data arrays         |
 
 ### 📋 Quick Reference
 
 #### TypeScript Core Patterns
 
 - **Primary**: Interface + Namespace (data + behavior)
-- **Value Objects**: Private constructor + static factories
+- **Value Objects**: Private constructor + static factories  
 - **Type Validation**: Use `isly` library
 - **Factories**: Always name them `load()`
+- **Returns**: Prefer single return, allow early returns for guards
 
 #### Testing Essentials
 
@@ -43,6 +43,7 @@ This directory contains domain-specific coding guidelines for AI agents and deve
 - **Import pattern**: `import { binotype } from "../index"`
 - **Primary approach**: Snapshot testing
 - **Edge cases**: Test empty, root, malformed inputs
+- **Coverage target**: 90%+ for statements, functions, branches
 
 #### Module Organization
 

@@ -168,31 +168,50 @@ export namespace Article {
 
 ### Control Flow Statements
 
-**Never use braces for single statements after if, while, for, etc.**
+**Prefer braceless single statements for brevity, but use braces for clarity when needed.**
 
 ```typescript
-// ✅ Correct - no braces for single statements
+// ✅ Preferred - clean single statements
 if (condition) return early
-
 while (items.length > 0) processItem(items.shift())
 
-// ❌ Avoid - unnecessary braces
+// ✅ Acceptable - braces for clarity or team standards
 if (condition) {
 	return early
 }
 
-while (items.length > 0) {
-	processItem(items.shift())
-}
-```
-
-**Use braces only for multi-statement blocks:**
-
-```typescript
-// ✅ Correct - braces for multiple statements
+// ✅ Required - braces for multiple statements
 if (condition) {
 	const result = process()
 	return result
+}
+```
+
+### Return Statements
+
+**Prefer single return statements when practical, but allow early returns for guard clauses.**
+
+**Use the variable name `result` for computed return values.**
+
+```typescript
+// ✅ Preferred - single return for computed values
+function processItem(item: Item): ProcessResult {
+	const result = item.isValid()
+		? { status: "success", data: item.process() }
+		: { status: "error", message: "Invalid item" }
+	return result
+}
+
+// ✅ Acceptable - early return for guard clauses
+function processItem(item: Item): ProcessResult {
+	if (!item.isValid())
+		return { status: "error", message: "Invalid item" }
+	return { status: "success", data: item.process() }
+}
+
+// ✅ Direct return for simple cases
+function getUserName(user: User): string {
+	return user.profile?.name ?? "Anonymous"
 }
 ```
 

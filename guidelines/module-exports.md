@@ -215,30 +215,20 @@ export namespace Status {
 ### ❌ Avoid These Patterns
 
 ```typescript
-// DON'T: Export * - loses type safety and clutters IntelliSense
-export * from "./SubModule"
-
-// DON'T: Default exports - breaks namespace pattern
-export default class Context {}
-
-// DON'T: Mixing named and namespace exports inconsistently
-export class Context {}
+export * from "./SubModule" // Loses type safety
+export default class Context {} // Breaks namespace pattern
 export function loadContext() {} // Should be Context.load()
-
-// DON'T: Direct re-export without alias
-import { Header } from "./Header"
-export { Header } // Can cause naming conflicts
 ```
 
-### ✅ Do This Instead
+### ✅ Use Instead
 
 ```typescript
-// DO: Explicit alias imports and namespace exports
 import { Header as _Header } from "./Header"
 export namespace Context {
 	export import Header = _Header
 	export function load(): Context {}
 }
+```
 ```
 
 ## Testing Considerations

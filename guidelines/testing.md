@@ -2,7 +2,6 @@
 title: "Testing Guidelines"
 applyTo:
   - "**/*.spec.ts"
-  - "**/*.test.ts"
 triggerWords: ["test", "spec", "describe", "it", "expect", "snapshot"]
 priority: high
 contextSize: medium
@@ -14,7 +13,7 @@ contextSize: medium
 
 ### Naming Convention
 
-- Test files: `*.spec.ts` (not `*.test.ts`)
+- Test files: `*.spec.ts`
 - Place alongside source files: `Component/index.ts` → `Component/index.spec.ts`
 - Import from root: `import { binotype } from "../index"`
 
@@ -68,7 +67,7 @@ describe("Path.empty", () => {
 
 ### 3. Data-Driven Testing
 
-**Define comprehensive test datasets in test files.**
+**Define comprehensive test datasets for complex scenarios.**
 
 ```typescript
 const pathTestData = [
@@ -76,14 +75,6 @@ const pathTestData = [
 	{ input: "simple", head: "simple", tail: "" },
 	{ input: "", head: "", tail: "" },
 ] as const
-
-describe("Path operations", () => {
-	it.each(pathTestData)("should parse $input correctly", ({ input, head, tail }) => {
-		const path = Path.parse(input)
-		expect(path.head).toBe(head)
-		expect(path.tail).toBe(tail)
-	})
-})
 ```
 
 ## Test Coverage Areas
@@ -214,9 +205,8 @@ describe("error handling", () => {
 
 ## Coverage Goals
 
-- **Statements**: 100%
+- **Statements**: 90%+
+- **Functions**: 90%+
 - **Branches**: 90%+ (allow for defensive programming)
-- **Functions**: 100%
-- **Lines**: 90%+
 
 Focus on testing public APIs and critical business logic paths.
