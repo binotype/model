@@ -164,6 +164,38 @@ export namespace Article {
 - Use `??` for null coalescing
 - Prefer type safety over runtime checks
 
+## Code Style
+
+### Control Flow Statements
+
+**Never use braces for single statements after if, while, for, etc.**
+
+```typescript
+// ✅ Correct - no braces for single statements
+if (condition) return early
+
+while (items.length > 0) processItem(items.shift())
+
+// ❌ Avoid - unnecessary braces
+if (condition) {
+	return early
+}
+
+while (items.length > 0) {
+	processItem(items.shift())
+}
+```
+
+**Use braces only for multi-statement blocks:**
+
+```typescript
+// ✅ Correct - braces for multiple statements
+if (condition) {
+	const result = process()
+	return result
+}
+```
+
 ## Performance Considerations
 
 ### Lazy Loading
