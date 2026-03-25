@@ -229,7 +229,8 @@ export namespace Context {
 	export function load(): Context {}
 }
 ```
-```
+
+````
 
 ## Testing Considerations
 
@@ -243,6 +244,6 @@ import { binotype } from "../index" // Always root import
 
 // Use fully qualified names
 const article = binotype.Context.Article.load(testData)
-```
+````
 
 This ensures tests validate the complete export hierarchy and catch breaking changes in the module structure.

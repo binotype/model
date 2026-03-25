@@ -172,41 +172,44 @@ export namespace Article {
 
 ```typescript
 // ✅ Preferred - clean single statements
-if (condition) return early
+if (condition) processItem()
 while (items.length > 0) processItem(items.shift())
 
 // ✅ Acceptable - braces for clarity or team standards
-if (condition) {
-	return early
-}
+if (condition) processItem()
 
 // ✅ Required - braces for multiple statements
 if (condition) {
-	const result = process()
-	return result
+	process(item)
+	store(item)
 }
 ```
 
 ### Return Statements
 
-**Prefer single return statements when practical, but allow early returns for guard clauses.**
+**Never use more than one return statement in a function or method.**
 
-**Use the variable name `result` for computed return values.**
+**Use the variable name `result` only when additional operations are needed before return. If assigned once and used once immediately, inline the expression.**
 
 ```typescript
-// ✅ Preferred - single return for computed values
+// ✅ Correct - direct return for simple conditional
 function processItem(item: Item): ProcessResult {
-	const result = item.isValid()
-		? { status: "success", data: item.process() }
-		: { status: "error", message: "Invalid item" }
-	return result
+	return item.isValid() ? { status: "success", data: item.process() } : { status: "error", message: "Invalid item" }
 }
 
-// ✅ Acceptable - early return for guard clauses
+// ✅ Correct - direct return with guard clause logic
 function processItem(item: Item): ProcessResult {
-	if (!item.isValid())
-		return { status: "error", message: "Invalid item" }
-	return { status: "success", data: item.process() }
+	return !item.isValid() ? { status: "error", message: "Invalid item" } : { status: "success", data: item.process() }
+}
+
+// ✅ Correct - use `result` when additional operations needed
+function calculateTotal(items: Item[]): number {
+	let result = 0
+	for (const item of items) {
+		result += item.value
+	}
+	result = Math.round(result * 100) / 100 // Additional operation
+	return result
 }
 
 // ✅ Direct return for simple cases

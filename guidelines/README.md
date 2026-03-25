@@ -32,10 +32,10 @@ This directory contains domain-specific coding guidelines for AI agents and deve
 #### TypeScript Core Patterns
 
 - **Primary**: Interface + Namespace (data + behavior)
-- **Value Objects**: Private constructor + static factories  
+- **Value Objects**: Private constructor + static factories
 - **Type Validation**: Use `isly` library
 - **Factories**: Always name them `load()`
-- **Returns**: Prefer single return, allow early returns for guards
+- **Returns**: Always single return statement, use `result` variable
 
 #### Testing Essentials
 
