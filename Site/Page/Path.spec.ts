@@ -84,7 +84,7 @@ describe("binotype.Site.Page.Path", () => {
 		{ path: binotype.Site.Page.Path.empty, fragment: "section", expected: "/#section" },
 		{ path: binotype.Site.Page.Path.parse("/home"), fragment: "top", expected: "/home#top" },
 		{ path: binotype.Site.Page.Path.parse("/home/user"), fragment: "content", expected: "/home/user#content" },
-		{ path: binotype.Site.Page.Path.parse("/home#old"), fragment: "new", expected: "/home#new" },
+		{ path: binotype.Site.Page.Path.parse("/home#old"), fragment: "new", expected: "/home#old_new" },
 	])("appendFragment('$path', '$fragment') == '$expected'", ({ path, fragment, expected }) =>
 		expect(path.appendFragment(fragment).toString()).toBe(expected)
 	)

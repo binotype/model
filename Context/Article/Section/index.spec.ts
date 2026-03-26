@@ -37,13 +37,14 @@ describe("binotype.Context.Article.Section", () => {
 			name: "minimal section with only required properties",
 			section: {
 				path: binotype.Site.Page.Path.parse("/page#section1"),
+				content: {},
 			},
 			expected: {
 				id: "section1",
 				link: "/page#section1",
 				type: undefined,
 				title: undefined,
-				content: undefined,
+				content: [],
 			},
 		},
 		{
@@ -62,7 +63,49 @@ describe("binotype.Context.Article.Section", () => {
 				content: "Content with <strong>HTML</strong>",
 			},
 		},
-	] as const)("load($name)", ({ section, expected }) =>
+		{
+			name: "section with nested sections",
+			section: {
+				title: "Parent Section",
+				type: "container",
+				path: binotype.Site.Page.Path.parse("/blog/article#parent"),
+				content: {
+					child1: {
+						title: "Child Section 1",
+						type: "text",
+						content: "This is the first child section.",
+					},
+					child2: {
+						title: "Child Section 2",
+						type: "text",
+						content: "This is the second child section.",
+					},
+				},
+			},
+			expected: {
+				id: "parent",
+				link: "/blog/article#parent",
+				type: "container",
+				title: "Parent Section",
+				content: [
+     {
+      "content": "This is the first child section.",
+      "id": "parent_child1",
+      "link": "/blog/article#parent_child1",
+      "title": "Child Section 1",
+      "type": "text",
+    },
+     {
+      "content": "This is the second child section.",
+      "id": "parent_child2",
+      "link": "/blog/article#parent_child2",
+      "title": "Child Section 2",
+      "type": "text",
+    },],
+			},
+
+		}
+	] as { name: string, section: binotype.Site.Page.Section & { path: binotype.Site.Page.Path }, expected: binotype.Context.Article.Section }[] )("load($name)", ({ section, expected }) =>
 		expect(binotype.Context.Article.Section.load(section)).toEqual(expected)
 	)
 })

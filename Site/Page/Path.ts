@@ -24,7 +24,7 @@ export class Path {
 		return new Path([...this.parts, Path.getId(id, "snake")])
 	}
 	appendFragment(fragment: string): Path {
-		return new Path(this.parts, fragment)
+		return new Path(this.parts, [this.fragment, fragment].filter(Boolean).join("_"))
 	}
 	toString(): string {
 		return `/${this.parts.join("/")}${this.fragment ? `#${this.fragment}` : ""}`
