@@ -42,6 +42,7 @@ exports[`binotype.Context > create(site, /) 1`] = `
   "menu": {
     "items": [
       {
+        "description": undefined,
         "items": [],
         "label": "About",
         "selected": undefined,
@@ -97,6 +98,7 @@ exports[`binotype.Context > create(site, /about) 1`] = `
   "menu": {
     "items": [
       {
+        "description": undefined,
         "items": [],
         "label": "About",
         "selected": "current",
@@ -152,6 +154,7 @@ exports[`binotype.Context > create(site, /nonexistent) 1`] = `
   "menu": {
     "items": [
       {
+        "description": undefined,
         "items": [],
         "label": "About",
         "selected": undefined,
@@ -207,6 +210,7 @@ exports[`binotype.Context > create(site, invalid-path) 1`] = `
   "menu": {
     "items": [
       {
+        "description": undefined,
         "items": [],
         "label": "About",
         "selected": undefined,

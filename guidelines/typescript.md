@@ -218,6 +218,36 @@ function getUserName(user: User): string {
 }
 ```
 
+## Comparison Operators
+
+### Equality Operators
+
+**Use `==` and `!=` by default. Only use strict equality `===` and `!==` when type coercion must be explicitly avoided.**
+
+```typescript
+// ✅ Preferred - loose equality for standard comparisons
+function validateInput(value: string | undefined): boolean {
+	return value != null && value != ""
+}
+
+// ✅ Preferred - loose equality handles type coercion naturally
+function checkStatus(status: string | number): boolean {
+	return status == "active" || status == 1
+}
+
+// ✅ Only use strict equality when type coercion is problematic
+function isExactType(value: unknown): boolean {
+	return typeof value === "string" // Type checking requires strict equality
+}
+
+// ✅ Strict equality for preventing 0/""/false coercion when distinction matters
+function hasExplicitValue(value: boolean | undefined): boolean {
+	return value === true // Distinguish true from truthy values
+}
+```
+
+**Rationale:** JavaScript's loose equality operators handle common type coercion scenarios naturally (`null`/`undefined` equivalence, string/number comparisons). Strict equality should only be used when preventing type coercion is essential for correctness.
+
 ## Performance Considerations
 
 ### Lazy Loading

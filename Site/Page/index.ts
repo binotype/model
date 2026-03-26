@@ -5,7 +5,7 @@ import { Section as _Section } from "./Section"
 
 export interface Page {
 	weight?: number
-	title?: string
+	title?: string | { short: string, long: string }
 	author?: string
 	published?: isoly.DateTime
 	changed?: isoly.DateTime
@@ -20,7 +20,7 @@ export namespace Page {
 	export import Section = _Section
 	export const type: isly.Type<Page> = isly.object<Page>({
 		weight: isly.number().optional(),
-		title: isly.string().optional(),
+		title: isly.union(isly.string(), isly.object({ short: isly.string(), long: isly.string() })).optional(),
 		author: isly.string().optional(),
 		published: isoly.DateTime.type.optional() as any,
 		changed: isoly.DateTime.type.optional() as any,
@@ -39,7 +39,9 @@ export namespace Page {
 	export function locate(page: Page | undefined, path: Path): Page | undefined {
 		return path.empty ? page : page?.pages ? locate(page.pages[path.getId("camel")], path.tail) : undefined
 	}
-	export function getTitle(page: Page): string {
-		return page.title ?? "(untitled)"
+	export function getTitle(page: Page, preference: "short" | "long" | "short-long" | "long-short" = "short-long"): string | undefined {
+		const p = preference.split("-", 2) as ["short" | "long", "short" | "long" | undefined]
+		const t: { short?: string; long?: string } = !page.title || typeof page.title == "string" ? { short: page.title } : page.title
+		return t[p[0]] ?? (p[1] && t[p[1]])
 	}
 }

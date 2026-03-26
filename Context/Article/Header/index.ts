@@ -13,7 +13,7 @@ export interface Header {
 export namespace Header {
 	export function load(page: Site.Page): Header {
 		return {
-			title: Site.Page.getTitle(page),
+			title: Site.Page.getTitle(page, "long-short") ?? "(untitled)",
 			author: page.author,
 			published: page.published,
 			changed: page.changed,

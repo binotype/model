@@ -2,6 +2,7 @@ import { Site } from "../../Site"
 
 export interface Item {
 	label: string
+	description?: string
 	url: string
 	selected: "current" | "parent" | undefined
 	items: Item[]
@@ -11,7 +12,8 @@ export namespace Item {
 		return page.menu === false
 			? undefined
 			: {
-					label: Site.Page.getTitle(page),
+					label: Site.Page.getTitle(page) ?? "(untitled)",
+					description: Site.Page.getTitle(page, "long"),
 					url: path.toString(),
 					selected:
 						current == path.toString() ? "current" : current.startsWith(path.toString() + "/") ? "parent" : undefined,
