@@ -8,7 +8,7 @@ export interface Design {
 	scripts?: string[]
 	home?: {
 		mode: "body" | "full" | "header" | "list" | "summary"
-		section: string
+		section?: string
 	}
 	list?: {
 		mode: "body" | "full" | "header" | "list" | "summary"
@@ -26,7 +26,7 @@ export namespace Design {
 				home: isly
 					.object({
 						mode: isly.string("value", "body", "full", "header", "list", "summary"),
-						section: isly.string(),
+						section: isly.string().optional(),
 					})
 					.optional(),
 				list: isly
