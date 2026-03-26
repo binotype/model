@@ -5,7 +5,8 @@ export interface Section {
 	link?: string
 	type?: string
 	title?: string
-	content?: string | Section[]
+	content?: string
+	sections?: Section[]
 }
 export namespace Section {
 	export function load(section: Site.Page.Section & { path: Site.Page.Path }): Section {
@@ -14,12 +15,15 @@ export namespace Section {
 			link: section.path.toString(),
 			type: section.type,
 			title: Site.Page.Title.get(section),
-			content: section.content == undefined || typeof section.content == "string" ? section.content : Object.entries(section.content)
-				.sort(
-					(left, right) =>
-						(right[1].weight ?? 100) - (left[1].weight ?? 100)
-				)
-				.map(([id, s]: [string, Site.Page.Section]) => Section.load({ ...s, path: section.path.appendFragment(id) }))
+			content: section.content == undefined || typeof section.content == "string" ? section.content : undefined,
+			sections: typeof section.content == "object"
+				? Object.entries(section.content)
+						.sort(
+							(left, right) =>
+								(right[1].weight ?? 100) - (left[1].weight ?? 100)
+						)
+						.map(([id, s]: [string, Site.Page.Section]) => Section.load({ ...s, path: section.path.appendFragment(id) }))
+				: undefined
 		}
 	}
 }

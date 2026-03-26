@@ -16,6 +16,7 @@ describe("binotype.Context.Article.Section", () => {
 				type: "text",
 				title: "Introduction",
 				content: "This is the introduction section.",
+				sections: undefined,
 			},
 		},
 		{
@@ -31,6 +32,7 @@ describe("binotype.Context.Article.Section", () => {
 				type: undefined,
 				title: "Main Content",
 				content: "<p>Main content here</p>",
+				sections: undefined,
 			},
 		},
 		{
@@ -44,7 +46,8 @@ describe("binotype.Context.Article.Section", () => {
 				link: "/page#section1",
 				type: undefined,
 				title: undefined,
-				content: [],
+				content: undefined,
+				sections: [],
 			},
 		},
 		{
@@ -61,6 +64,7 @@ describe("binotype.Context.Article.Section", () => {
 				type: "html",
 				title: "Complex Section",
 				content: "Content with <strong>HTML</strong>",
+				sections: undefined,
 			},
 		},
 		{
@@ -87,7 +91,8 @@ describe("binotype.Context.Article.Section", () => {
 				link: "/blog/article#parent",
 				type: "container",
 				title: "Parent Section",
-				content: [
+				content: undefined,
+				sections: [
      {
       "content": "This is the first child section.",
       "id": "parent_child1",
