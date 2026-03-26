@@ -13,7 +13,7 @@ export namespace Section {
 			id: section.path.fragment ?? "",
 			link: section.path.toString(),
 			type: section.type,
-			title: section.title,
+			title: Site.Page.Title.get(section),
 			content: section.content,
 		}
 	}

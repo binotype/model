@@ -81,7 +81,7 @@ describe("binotype.Context.Article.Header", () => {
 			name: "page without explicit title (should use Site.Page.getTitle)",
 			page: {},
 			expected: {
-				title: "(untitled)", // Site.Page.getTitle returns this for pages without title
+				title: undefined,
 				author: undefined,
 				published: undefined,
 				changed: undefined,

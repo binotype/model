@@ -12,8 +12,8 @@ export namespace Item {
 		return page.menu === false
 			? undefined
 			: {
-					label: Site.Page.getTitle(page) ?? "(untitled)",
-					description: Site.Page.getTitle(page, "long"),
+					label: Site.Page.Title.get(page, "short-long") ?? "(untitled)",
+					description: Site.Page.Title.get(page, "long"),
 					url: path.toString(),
 					selected:
 						current == path.toString() ? "current" : current.startsWith(path.toString() + "/") ? "parent" : undefined,

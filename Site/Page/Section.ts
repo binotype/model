@@ -1,8 +1,9 @@
 import { isly } from "isly"
+import { Title } from "./Title"
 
 export interface Section {
 	weight?: number
-	title?: string
+	title?: Title
 	menu?: false
 	type?: string
 	content: string
@@ -12,7 +13,7 @@ export namespace Section {
 		.object<Section>(
 			{
 				weight: isly.number().optional(),
-				title: isly.string().optional(),
+				title: Title.type.optional(),
 				menu: isly.boolean(false).optional(),
 				type: isly.string().optional(),
 				content: isly.string(),
