@@ -2,6 +2,7 @@ import { isoly } from "isoly"
 import { isly } from "isly"
 import { Design as _Design } from "./Design"
 import { Page as _Page } from "./Page"
+import { Meta } from "../Meta"
 
 export interface Site {
 	url: string
@@ -11,6 +12,7 @@ export interface Site {
 	description?: string
 	keywords?: string[]
 	author?: string
+	meta?: Meta
 	design: Site.Design
 	page: Site.Page
 }
@@ -27,6 +29,7 @@ export namespace Site {
 				description: isly.string().optional(),
 				keywords: isly.array(isly.string()).optional(),
 				author: isly.string().optional(),
+				meta: Meta.type.optional(),
 				design: Design.type,
 				page: Page.type,
 			},

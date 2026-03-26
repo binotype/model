@@ -3,11 +3,13 @@ import { isly } from "isly"
 import { Path as _Path } from "./Path"
 import { Section as _Section } from "./Section"
 import { Title as _Title } from "./Title"
+import { Meta } from "../../Meta"
 
 export interface Page {
 	weight?: number
 	title?: Page.Title
 	author?: string
+	meta?: Meta
 	published?: isoly.DateTime
 	changed?: isoly.DateTime
 	menu?: false
@@ -24,6 +26,7 @@ export namespace Page {
 		weight: isly.number().optional(),
 		title: Title.type.optional(),
 		author: isly.string().optional(),
+		meta: Meta.type.optional(),
 		published: isoly.DateTime.type.optional() as any,
 		changed: isoly.DateTime.type.optional() as any,
 		menu: isly.boolean(false).optional(),
