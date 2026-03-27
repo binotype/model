@@ -1,0 +1,87 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`binotype.Context.Article.Section > load('basic section with all properties') 1`] = `
+{
+  "class": [],
+  "content": "This is the introduction section.",
+  "id": "intro",
+  "link": "/blog/article#intro",
+  "meta": {},
+  "sections": undefined,
+  "title": "Introduction",
+  "type": "text",
+}
+`;
+
+exports[`binotype.Context.Article.Section > load('minimal section with only required pr…') 1`] = `
+{
+  "class": [],
+  "content": undefined,
+  "id": "section1",
+  "link": "/page#section1",
+  "meta": {},
+  "sections": [],
+  "title": undefined,
+  "type": undefined,
+}
+`;
+
+exports[`binotype.Context.Article.Section > load('section with complex path') 1`] = `
+{
+  "class": [],
+  "content": "Content with <strong>HTML</strong>",
+  "id": "conclusion",
+  "link": "/articles/2024/sample-post#conclusion",
+  "meta": {},
+  "sections": undefined,
+  "title": "Complex Section",
+  "type": "html",
+}
+`;
+
+exports[`binotype.Context.Article.Section > load('section with nested sections') 1`] = `
+{
+  "class": [],
+  "content": undefined,
+  "id": "parent",
+  "link": "/blog/article#parent",
+  "meta": {},
+  "sections": [
+    {
+      "class": [],
+      "content": "This is the first child section.",
+      "id": "parent_child1",
+      "link": "/blog/article#parent_child1",
+      "meta": {},
+      "sections": undefined,
+      "title": "Child Section 1",
+      "type": "text",
+    },
+    {
+      "class": [],
+      "content": "This is the second child section.",
+      "id": "parent_child2",
+      "link": "/blog/article#parent_child2",
+      "meta": {},
+      "sections": undefined,
+      "title": "Child Section 2",
+      "type": "text",
+    },
+  ],
+  "title": "Parent Section",
+  "type": "container",
+}
+`;
+
+exports[`binotype.Context.Article.Section > load('section without fragment (empty id)') 1`] = `
+{
+  "class": [],
+  "content": "<p>Main content here</p>",
+  "id": "",
+  "link": "/blog/article",
+  "meta": {},
+  "sections": undefined,
+  "title": "Main Content",
+  "type": undefined,
+}
+`;

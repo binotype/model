@@ -4,8 +4,9 @@ import { Site } from "../../../Site"
 export interface Section {
 	id: string
 	link?: string
-	type?: string
 	meta: Meta
+	type?: string
+	class: string[]
 	title?: string
 	content?: string
 	sections?: Section[]
@@ -15,8 +16,9 @@ export namespace Section {
 		return {
 			id: section.path.fragment ?? "",
 			link: section.path.toString(),
-			type: section.type,
 			meta: section.meta ?? {},
+			type: section.type,
+			class: section.class ?? [],
 			title: Site.Page.Title.get(section),
 			content: section.content == undefined || typeof section.content == "string" ? section.content : undefined,
 			sections: typeof section.content == "object"

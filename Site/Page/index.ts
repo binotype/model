@@ -10,6 +10,8 @@ export interface Page {
 	title?: Page.Title
 	author?: string
 	meta?: Meta
+	type?: string
+	class?: string[]
 	published?: isoly.DateTime
 	changed?: isoly.DateTime
 	menu?: false
@@ -27,6 +29,8 @@ export namespace Page {
 		title: Title.type.optional(),
 		author: isly.string().optional(),
 		meta: Meta.type.optional(),
+		type: isly.string().optional(),
+		class: isly.array(isly.string()).optional(),
 		published: isoly.DateTime.type.optional() as any,
 		changed: isoly.DateTime.type.optional() as any,
 		menu: isly.boolean(false).optional(),

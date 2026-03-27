@@ -10,6 +10,8 @@ export interface Article {
 	id: string
 	link?: string
 	meta: Meta
+	type?: string
+	class: string[]
 	header?: Article.Header
 	image?: string
 	summary?: string
@@ -31,6 +33,8 @@ export namespace Article {
 			id: page.path.head ?? "",
 			link: page.path.toString(),
 			meta: page.meta ?? {},
+			type: page.type,
+			class: page.class ?? [],
 			header: Header.load(page),
 			// summary: page.content ? String(page.content).slice(0, 200) : "",
 			content:

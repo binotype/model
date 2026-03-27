@@ -10,15 +10,6 @@ describe("binotype.Context.Article.Section", () => {
 				type: "text",
 				path: binotype.Site.Page.Path.parse("/blog/article#intro"),
 			},
-			expected: {
-				id: "intro",
-				link: "/blog/article#intro",
-				meta: {},
-				type: "text",
-				title: "Introduction",
-				content: "This is the introduction section.",
-				sections: undefined,
-			},
 		},
 		{
 			name: "section without fragment (empty id)",
@@ -27,30 +18,12 @@ describe("binotype.Context.Article.Section", () => {
 				content: "<p>Main content here</p>",
 				path: binotype.Site.Page.Path.parse("/blog/article"),
 			},
-			expected: {
-				id: "",
-				link: "/blog/article",
-				meta: {},
-				type: undefined,
-				title: "Main Content",
-				content: "<p>Main content here</p>",
-				sections: undefined,
-			},
 		},
 		{
 			name: "minimal section with only required properties",
 			section: {
 				path: binotype.Site.Page.Path.parse("/page#section1"),
 				content: {},
-			},
-			expected: {
-				id: "section1",
-				link: "/page#section1",
-				meta: {},
-				type: undefined,
-				title: undefined,
-				content: undefined,
-				sections: [],
 			},
 		},
 		{
@@ -60,15 +33,6 @@ describe("binotype.Context.Article.Section", () => {
 				content: "Content with <strong>HTML</strong>",
 				type: "html",
 				path: binotype.Site.Page.Path.parse("/articles/2024/sample-post#conclusion"),
-			},
-			expected: {
-				id: "conclusion",
-				link: "/articles/2024/sample-post#conclusion",
-				meta: {},
-				type: "html",
-				title: "Complex Section",
-				content: "Content with <strong>HTML</strong>",
-				sections: undefined,
 			},
 		},
 		{
@@ -90,36 +54,8 @@ describe("binotype.Context.Article.Section", () => {
 					},
 				},
 			},
-			expected: {
-				id: "parent",
-				link: "/blog/article#parent",
-				meta: {},
-				type: "container",
-				title: "Parent Section",
-				content: undefined,
-				sections: [
-     {
-      "content": "This is the first child section.",
-      "id": "parent_child1",
-      "link": "/blog/article#parent_child1",
-			meta: {},
-			sections: undefined,
-      "title": "Child Section 1",
-      "type": "text",
-    },
-     {
-      "content": "This is the second child section.",
-      "id": "parent_child2",
-      "link": "/blog/article#parent_child2",
-			meta: {},
-			sections: undefined,
-      "title": "Child Section 2",
-      "type": "text",
-    },],
-			},
-
 		}
-	] as { name: string, section: binotype.Site.Page.Section & { path: binotype.Site.Page.Path }, expected: binotype.Context.Article.Section }[] )("load($name)", ({ section, expected }) =>
-		expect(binotype.Context.Article.Section.load(section)).toEqual(expected)
+	] as { name: string, section: binotype.Site.Page.Section & { path: binotype.Site.Page.Path } }[] )("load($name)", ({ section }) =>
+		expect(binotype.Context.Article.Section.load(section)).toMatchSnapshot()
 	)
 })
