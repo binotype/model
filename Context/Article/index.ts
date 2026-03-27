@@ -3,11 +3,13 @@ import { Site } from "../../Site"
 import { Header as _Header } from "./Header"
 import { Mode as _Mode } from "./Mode"
 import { Section as _Section } from "./Section"
+import { Meta } from "../../Meta"
 
 export interface Article {
 	mode: Article.Mode
 	id: string
 	link?: string
+	meta: Meta
 	header?: Article.Header
 	image?: string
 	summary?: string
@@ -28,6 +30,7 @@ export namespace Article {
 			mode: page.mode ?? (page.pages ? "list" : "full"),
 			id: page.path.head ?? "",
 			link: page.path.toString(),
+			meta: page.meta ?? {},
 			header: Header.load(page),
 			// summary: page.content ? String(page.content).slice(0, 200) : "",
 			content:

@@ -1,9 +1,11 @@
+import { Meta } from "../../../Meta"
 import { Site } from "../../../Site"
 
 export interface Section {
 	id: string
 	link?: string
 	type?: string
+	meta: Meta
 	title?: string
 	content?: string
 	sections?: Section[]
@@ -14,6 +16,7 @@ export namespace Section {
 			id: section.path.fragment ?? "",
 			link: section.path.toString(),
 			type: section.type,
+			meta: section.meta ?? {},
 			title: Site.Page.Title.get(section),
 			content: section.content == undefined || typeof section.content == "string" ? section.content : undefined,
 			sections: typeof section.content == "object"

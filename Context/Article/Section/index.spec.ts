@@ -13,6 +13,7 @@ describe("binotype.Context.Article.Section", () => {
 			expected: {
 				id: "intro",
 				link: "/blog/article#intro",
+				meta: {},
 				type: "text",
 				title: "Introduction",
 				content: "This is the introduction section.",
@@ -29,6 +30,7 @@ describe("binotype.Context.Article.Section", () => {
 			expected: {
 				id: "",
 				link: "/blog/article",
+				meta: {},
 				type: undefined,
 				title: "Main Content",
 				content: "<p>Main content here</p>",
@@ -44,6 +46,7 @@ describe("binotype.Context.Article.Section", () => {
 			expected: {
 				id: "section1",
 				link: "/page#section1",
+				meta: {},
 				type: undefined,
 				title: undefined,
 				content: undefined,
@@ -61,6 +64,7 @@ describe("binotype.Context.Article.Section", () => {
 			expected: {
 				id: "conclusion",
 				link: "/articles/2024/sample-post#conclusion",
+				meta: {},
 				type: "html",
 				title: "Complex Section",
 				content: "Content with <strong>HTML</strong>",
@@ -89,6 +93,7 @@ describe("binotype.Context.Article.Section", () => {
 			expected: {
 				id: "parent",
 				link: "/blog/article#parent",
+				meta: {},
 				type: "container",
 				title: "Parent Section",
 				content: undefined,
@@ -97,6 +102,8 @@ describe("binotype.Context.Article.Section", () => {
       "content": "This is the first child section.",
       "id": "parent_child1",
       "link": "/blog/article#parent_child1",
+			meta: {},
+			sections: undefined,
       "title": "Child Section 1",
       "type": "text",
     },
@@ -104,6 +111,8 @@ describe("binotype.Context.Article.Section", () => {
       "content": "This is the second child section.",
       "id": "parent_child2",
       "link": "/blog/article#parent_child2",
+			meta: {},
+			sections: undefined,
       "title": "Child Section 2",
       "type": "text",
     },],

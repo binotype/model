@@ -1,3 +1,4 @@
+import { Meta } from "../Meta"
 import { Site } from "../Site"
 import { Article as _Article } from "./Article"
 import { Header as _Header } from "./Header"
@@ -16,6 +17,9 @@ export class Context {
 	}
 	get url(): string {
 		return this.site.url + this.path.toString()
+	}
+	get meta(): Meta {
+		return this.site.meta ?? {}
 	}
 	get design(): Site.Design {
 		return this.site.design
