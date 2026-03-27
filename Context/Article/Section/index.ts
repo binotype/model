@@ -25,7 +25,7 @@ export namespace Section {
 				? Object.entries(section.content)
 						.sort(
 							(left, right) =>
-								(right[1].weight ?? 100) - (left[1].weight ?? 100)
+								(left[1].weight ?? 100) - (right[1].weight ?? 100)
 						)
 						.map(([id, s]: [string, Site.Page.Section]) => Section.load({ ...s, path: section.path.appendFragment(id) }))
 				: undefined

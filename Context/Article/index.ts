@@ -44,7 +44,7 @@ export namespace Article {
 					? Object.entries(page.content)
 							.sort(
 								(left, right) =>
-									(right[1].weight ?? 100) - (left[1].weight ?? 100)
+									(left[1].weight ?? 100) - (right[1].weight ?? 100)
 							)
 							.slice(0, count ?? Number.MAX_SAFE_INTEGER)
 							.map(([id, section]: [string, Site.Page.Section]) =>
@@ -60,7 +60,7 @@ export namespace Article {
 					.filter(([, page]) => !page.draft && (!page.published || page.published <= isoly.DateTime.now()))
 					.sort((left, right) => (right[1].published ?? "z").localeCompare(left[1].published ?? "z"))
 					.sort(
-						(left, right) => (right[1].weight ?? 100) - (left[1].weight ?? 100)
+						(left, right) => (left[1].weight ?? 100) - (right[1].weight ?? 100)
 					)
 					.slice(0, count ?? Number.MAX_SAFE_INTEGER)
 					.map(([id, subpage]: [string, Site.Page]) =>
