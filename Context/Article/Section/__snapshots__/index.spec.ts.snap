@@ -9,6 +9,7 @@ exports[`binotype.Context.Article.Section > load('basic section with all propert
   "meta": {},
   "mode": "full",
   "sections": undefined,
+  "subtitle": undefined,
   "title": "Introduction",
   "type": "text",
 }
@@ -23,6 +24,7 @@ exports[`binotype.Context.Article.Section > load('minimal section with only requ
   "meta": {},
   "mode": "full",
   "sections": [],
+  "subtitle": undefined,
   "title": undefined,
   "type": undefined,
 }
@@ -37,6 +39,7 @@ exports[`binotype.Context.Article.Section > load('section with complex path') 1`
   "meta": {},
   "mode": "full",
   "sections": undefined,
+  "subtitle": undefined,
   "title": "Complex Section",
   "type": "html",
 }
@@ -59,6 +62,7 @@ exports[`binotype.Context.Article.Section > load('section with nested sections')
       "meta": {},
       "mode": "full",
       "sections": undefined,
+      "subtitle": undefined,
       "title": "Child Section 1",
       "type": "text",
     },
@@ -70,10 +74,12 @@ exports[`binotype.Context.Article.Section > load('section with nested sections')
       "meta": {},
       "mode": "full",
       "sections": undefined,
+      "subtitle": undefined,
       "title": "Child Section 2",
       "type": "text",
     },
   ],
+  "subtitle": undefined,
   "title": "Parent Section",
   "type": "container",
 }
@@ -88,6 +94,7 @@ exports[`binotype.Context.Article.Section > load('section without fragment (empt
   "meta": {},
   "mode": "full",
   "sections": undefined,
+  "subtitle": undefined,
   "title": "Main Content",
   "type": undefined,
 }

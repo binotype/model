@@ -3,6 +3,7 @@ import { Site } from "../../../Site"
 
 export interface Header {
 	title?: string
+	subtitle?: string
 	published?: isoly.DateTime
 	changed?: isoly.DateTime
 	wordCount?: number
@@ -14,6 +15,7 @@ export namespace Header {
 	export function load(page: Site.Page): Header {
 		return {
 			title: Site.Page.Title.get(page),
+			subtitle: page.subtitle,
 			author: page.author,
 			published: page.published,
 			changed: page.changed,

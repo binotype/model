@@ -10,6 +10,7 @@ export interface Section {
 	type?: string
 	class: string[]
 	title?: string
+	subtitle?: string
 	content?: string
 	sections?: Section[]
 }
@@ -24,6 +25,7 @@ export namespace Section {
 			type: section.type,
 			class: section.class ?? [],
 			title: Site.Page.Title.get(section),
+			subtitle: section.subtitle,
 			content: typeof section.content == "string" && (mode == "full" || mode == "body") ? section.content : undefined,
 			sections: typeof section.content == "object" && (mode == "full" || mode == "body")
 				? Object.entries(section.content)

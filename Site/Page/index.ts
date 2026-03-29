@@ -9,6 +9,7 @@ import { Mode } from "../../Mode"
 export interface Page {
 	weight?: number
 	title?: Page.Title
+	subtitle?: string
 	author?: string
 	meta?: Meta
 	mode?: Mode
@@ -29,6 +30,7 @@ export namespace Page {
 	export const type: isly.Type<Page> = isly.object<Page>({
 		weight: isly.number().optional(),
 		title: Title.type.optional(),
+		subtitle: isly.string().optional(),
 		author: isly.string().optional(),
 		meta: Meta.type.optional(),
 		mode: Mode.type.optional(),

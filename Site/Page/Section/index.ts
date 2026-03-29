@@ -6,6 +6,7 @@ import { Mode } from "../../../Mode"
 export interface Section {
 	weight?: number
 	title?: Title
+	subtitle?: string
 	meta?: Meta
 	mode?: Mode
 	type?: string
@@ -19,6 +20,7 @@ export namespace Section {
 			{
 				weight: isly.number().optional(),
 				title: Title.type.optional(),
+				subtitle: isly.string().optional(),
 				meta: Meta.type.optional(),
 				mode: Mode.type.optional(),
 				type: isly.string().optional(),
