@@ -4,12 +4,14 @@ import { Path as _Path } from "./Path"
 import { Section as _Section } from "./Section"
 import { Title as _Title } from "./Title"
 import { Meta } from "../../Meta"
+import { Mode } from "../../Mode"
 
 export interface Page {
 	weight?: number
 	title?: Page.Title
 	author?: string
 	meta?: Meta
+	mode?: Mode
 	type?: string
 	class?: string[]
 	published?: isoly.DateTime
@@ -29,6 +31,7 @@ export namespace Page {
 		title: Title.type.optional(),
 		author: isly.string().optional(),
 		meta: Meta.type.optional(),
+		mode: Mode.type.optional(),
 		type: isly.string().optional(),
 		class: isly.array(isly.string()).optional(),
 		published: isoly.DateTime.type.optional() as any,

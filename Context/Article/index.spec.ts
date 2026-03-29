@@ -12,7 +12,7 @@ describe("binotype.Context.Article", () => {
 				title: "Test Article",
 				content: "This is the article content.",
 				path: binotype.Site.Page.Path.parse("/test"),
-				mode: "full" as binotype.Context.Article.Mode,
+				mode: "full" as binotype.Mode,
 			},
 			design: basicDesign,
 		},
@@ -33,7 +33,7 @@ describe("binotype.Context.Article", () => {
 					},
 				},
 				path: binotype.Site.Page.Path.parse("/sections"),
-				mode: "full" as binotype.Context.Article.Mode,
+				mode: "full" as binotype.Mode,
 			},
 			design: basicDesign,
 		},
@@ -59,7 +59,7 @@ describe("binotype.Context.Article", () => {
 					},
 				},
 				path: binotype.Site.Page.Path.parse("/blog"),
-				mode: "list" as binotype.Context.Article.Mode,
+				mode: "list" as binotype.Mode,
 			},
 			design: basicDesign,
 		},
@@ -69,7 +69,7 @@ describe("binotype.Context.Article", () => {
 				title: "Body Article",
 				content: "This content should be shown.",
 				path: binotype.Site.Page.Path.parse("/body"),
-				mode: "body" as binotype.Context.Article.Mode,
+				mode: "body" as binotype.Mode,
 			},
 			design: basicDesign,
 		},
@@ -79,7 +79,7 @@ describe("binotype.Context.Article", () => {
 				title: "Header Only",
 				content: "This content should not be shown.",
 				path: binotype.Site.Page.Path.parse("/header"),
-				mode: "header" as binotype.Context.Article.Mode,
+				mode: "header" as binotype.Mode,
 			},
 			design: basicDesign,
 		},
@@ -93,21 +93,21 @@ describe("binotype.Context.Article", () => {
 					section3: { title: "Section 3", weight: 3, content: "Content 3" },
 				},
 				path: binotype.Site.Page.Path.parse("/limited"),
-				mode: "full" as binotype.Context.Article.Mode,
+				mode: "full" as binotype.Mode,
 			},
 			design: basicDesign,
 			count: 2,
 		},
 	] as const satisfies ReadonlyArray<{
 		name: string
-		page: binotype.Site.Page & { path: binotype.Site.Page.Path; mode: binotype.Context.Article.Mode }
+		page: binotype.Site.Page & { path: binotype.Site.Page.Path; mode: binotype.Mode }
 		design: binotype.Site.Design
 		count?: number
 	}>)("load($name)", ({ page, design, count }) => {
-		const article = binotype.Context.Article.load(page as binotype.Site.Page & { path: binotype.Site.Page.Path; mode: binotype.Context.Article.Mode }, design, count)
+		const article = binotype.Context.Article.load(page as binotype.Site.Page & { path: binotype.Site.Page.Path; mode: binotype.Mode }, design, count)
 		expect(article).toMatchSnapshot()
 		// Additional specific checks for array lengths when count is specified
-		if (count !== undefined) {
+		if (article && count !== undefined) {
 			if (article.sections)
 				expect(article.sections).toHaveLength(Math.min(count, Object.keys(page.content as object).length))
 			if (article.articles)

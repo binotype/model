@@ -1,4 +1,5 @@
 import { Meta } from "../Meta"
+import { Mode } from "../Mode"
 import { Site } from "../Site"
 import { Article as _Article } from "./Article"
 import { Header as _Header } from "./Header"
@@ -29,7 +30,7 @@ export class Context {
 		return (this._menu ??= Context.Menu.load(this.site, this.path.toString()))
 	}
 	private _article: Context.Article | undefined
-	get article(): Context.Article {
+	get article(): Context.Article | undefined {
 		return (this._article ??=
 			this.load(this.path) ??
 			Context.Article.load(
@@ -47,7 +48,7 @@ export class Context {
 	}
 	load(
 		path: Site.Page.Path | string | undefined,
-		mode: Context.Article.Mode = "full",
+		mode: Mode = "full",
 		count?: number
 	): Context.Article | undefined {
 		if (!(path instanceof Site.Page.Path))
@@ -61,7 +62,7 @@ export class Context {
 				{
 					...page,
 					path,
-					mode: mode,
+					mode,
 				},
 				this.site.design,
 				count

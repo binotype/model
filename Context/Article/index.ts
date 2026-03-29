@@ -1,15 +1,15 @@
 import { isoly } from "isoly"
 import { Site } from "../../Site"
 import { Header as _Header } from "./Header"
-import { Mode as _Mode } from "./Mode"
+import { Mode } from "../../Mode"
 import { Section as _Section } from "./Section"
 import { Meta } from "../../Meta"
 
 export interface Article {
-	mode: Article.Mode
 	id: string
 	link?: string
 	meta: Meta
+	mode: Mode
 	type?: string
 	class: string[]
 	header?: Article.Header
@@ -21,15 +21,15 @@ export interface Article {
 }
 export namespace Article {
 	export import Header = _Header
-	export import Mode = _Mode
 	export import Section = _Section
 	export function load(
-		page: Site.Page & { path: Site.Page.Path; mode: Article.Mode },
+		page: Site.Page & { path: Site.Page.Path; mode?: Mode },
 		design: Site.Design,
 		count?: number
-	): Article {
-		return {
-			mode: page.mode ?? (page.pages ? "list" : "full"),
+	): Article | undefined {
+		const mode = Mode.reduce(page.mode, page.pages ? "list" : "full")
+		return mode && {
+			mode,
 			id: page.path.head ?? "",
 			link: page.path.toString(),
 			meta: page.meta ?? {},
@@ -38,9 +38,9 @@ export namespace Article {
 			header: Header.load(page),
 			// summary: page.content ? String(page.content).slice(0, 200) : "",
 			content:
-				typeof page.content == "string" && (page.mode == "full" || page.mode == "body") ? page.content : undefined,
+				typeof page.content == "string" && (mode == "full" || mode == "body") ? page.content : undefined,
 			sections:
-				typeof page.content == "object"
+				typeof page.content == "object" && (mode == "full" || mode == "body")
 					? Object.entries(page.content)
 							.sort(
 								(left, right) =>
@@ -52,11 +52,11 @@ export namespace Article {
 									...section,
 									path: page.path.appendFragment(id),
 								})
-							)
+							).filter((s): s is Article.Section => !!s)
 					: undefined,
 			articles:
-				page.pages &&
-				Object.entries(page.pages)
+				page.pages && mode == "list"
+				? Object.entries(page.pages)
 					.filter(([, page]) => !page.draft && (!page.published || page.published <= isoly.DateTime.now()))
 					.sort((left, right) => (right[1].published ?? "z").localeCompare(left[1].published ?? "z"))
 					.sort(
@@ -72,7 +72,7 @@ export namespace Article {
 							},
 							design
 						)
-					),
+					).filter((article): article is Article => !!article) : undefined,
 		}
 	}
 }
