@@ -5,25 +5,19 @@ exports[`binotype.Context > create(site, /) 1`] = `
   "article": {
     "articles": undefined,
     "class": [],
-    "content": "The requested page was not found.",
-    "header": {
-      "author": undefined,
-      "changed": undefined,
-      "published": undefined,
-      "readingTime": 1,
-      "subtitle": undefined,
-      "title": "Not Found",
-      "wordCount": 6,
-    },
+    "content": undefined,
     "id": "",
     "link": "/",
     "meta": {},
-    "mode": "full",
+    "mode": "list",
     "sections": undefined,
-    "type": undefined,
+    "subtitle": undefined,
+    "title": {
+      "formatted": "Not Found",
+      "plain": "Not Found",
+    },
   },
   "base": "https://example.com",
-  "description": undefined,
   "design": {
     "home": {
       "mode": "header",
@@ -42,19 +36,9 @@ exports[`binotype.Context > create(site, /) 1`] = `
       "/style.css",
     ],
   },
-  "image": undefined,
   "menu": {
-    "items": [
-      {
-        "description": undefined,
-        "items": [],
-        "label": "About",
-        "selected": undefined,
-        "url": "/about",
-      },
-    ],
+    "items": [],
   },
-  "tagline": undefined,
   "title": "Test Site",
   "url": "https://example.com/",
 }
@@ -65,25 +49,27 @@ exports[`binotype.Context > create(site, /about) 1`] = `
   "article": {
     "articles": undefined,
     "class": [],
-    "content": "<p>About page content</p>",
-    "header": {
-      "author": undefined,
-      "changed": undefined,
-      "published": undefined,
-      "readingTime": 1,
-      "subtitle": undefined,
-      "title": "About",
-      "wordCount": 3,
+    "content": {
+      "attributes": {},
+      "children": [
+        {
+          "text": "About page content",
+        },
+      ],
+      "tag": "p",
     },
-    "id": "about",
+    "id": "",
     "link": "/about",
     "meta": {},
-    "mode": "full",
+    "mode": "list",
     "sections": undefined,
-    "type": undefined,
+    "subtitle": undefined,
+    "title": {
+      "formatted": "About",
+      "plain": "About",
+    },
   },
   "base": "https://example.com",
-  "description": undefined,
   "design": {
     "home": {
       "mode": "header",
@@ -102,19 +88,9 @@ exports[`binotype.Context > create(site, /about) 1`] = `
       "/style.css",
     ],
   },
-  "image": undefined,
   "menu": {
-    "items": [
-      {
-        "description": undefined,
-        "items": [],
-        "label": "About",
-        "selected": "current",
-        "url": "/about",
-      },
-    ],
+    "items": [],
   },
-  "tagline": undefined,
   "title": "Test Site",
   "url": "https://example.com/about",
 }
@@ -125,25 +101,19 @@ exports[`binotype.Context > create(site, /nonexistent) 1`] = `
   "article": {
     "articles": undefined,
     "class": [],
-    "content": "The requested page was not found.",
-    "header": {
-      "author": undefined,
-      "changed": undefined,
-      "published": undefined,
-      "readingTime": 1,
-      "subtitle": undefined,
-      "title": "Not Found",
-      "wordCount": 6,
-    },
-    "id": "nonexistent",
+    "content": undefined,
+    "id": "",
     "link": "/nonexistent",
     "meta": {},
-    "mode": "full",
+    "mode": "list",
     "sections": undefined,
-    "type": undefined,
+    "subtitle": undefined,
+    "title": {
+      "formatted": "Not Found",
+      "plain": "Not Found",
+    },
   },
   "base": "https://example.com",
-  "description": undefined,
   "design": {
     "home": {
       "mode": "header",
@@ -162,19 +132,9 @@ exports[`binotype.Context > create(site, /nonexistent) 1`] = `
       "/style.css",
     ],
   },
-  "image": undefined,
   "menu": {
-    "items": [
-      {
-        "description": undefined,
-        "items": [],
-        "label": "About",
-        "selected": undefined,
-        "url": "/about",
-      },
-    ],
+    "items": [],
   },
-  "tagline": undefined,
   "title": "Test Site",
   "url": "https://example.com/nonexistent",
 }
@@ -185,25 +145,19 @@ exports[`binotype.Context > create(site, invalid-path) 1`] = `
   "article": {
     "articles": undefined,
     "class": [],
-    "content": "The requested page was not found.",
-    "header": {
-      "author": undefined,
-      "changed": undefined,
-      "published": undefined,
-      "readingTime": 1,
-      "subtitle": undefined,
-      "title": "Not Found",
-      "wordCount": 6,
-    },
-    "id": "invalid-path",
+    "content": undefined,
+    "id": "",
     "link": "/invalid-path",
     "meta": {},
-    "mode": "full",
+    "mode": "list",
     "sections": undefined,
-    "type": undefined,
+    "subtitle": undefined,
+    "title": {
+      "formatted": "Not Found",
+      "plain": "Not Found",
+    },
   },
   "base": "https://example.com",
-  "description": undefined,
   "design": {
     "home": {
       "mode": "header",
@@ -222,19 +176,9 @@ exports[`binotype.Context > create(site, invalid-path) 1`] = `
       "/style.css",
     ],
   },
-  "image": undefined,
   "menu": {
-    "items": [
-      {
-        "description": undefined,
-        "items": [],
-        "label": "About",
-        "selected": undefined,
-        "url": "/about",
-      },
-    ],
+    "items": [],
   },
-  "tagline": undefined,
   "title": "Test Site",
   "url": "https://example.com/invalid-path",
 }

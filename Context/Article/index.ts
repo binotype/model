@@ -1,78 +1,46 @@
 import { isoly } from "isoly"
-import { Site } from "../../Site"
-import { Header as _Header } from "./Header"
 import { Mode } from "../../Mode"
-import { Section as _Section } from "./Section"
-import { Meta } from "../../Meta"
+import { Section } from "../Section"
+import { Path } from "../../Path"
+import { Page } from "../../Page"
+import { Content } from "../../Content"
+import { Block } from "../../Block"
 
-export interface Article {
-	id: string
-	link?: string
-	meta: Meta
-	mode: Mode
-	type?: string
-	class: string[]
-	header?: Article.Header
-	image?: string
-	summary?: string
-	content?: string
-	sections?: Article.Section[]
-	articles?: Article[]
+export interface Article<C = Content> extends Section<C> {
+	author?: string
+	published?: isoly.DateTime
+	changed?: isoly.DateTime
+	// wordCount?: number
+	// readingTime?: number
+	articles?: Article<C>[]
 }
 export namespace Article {
-	export import Header = _Header
-	export import Section = _Section
-	export function load(
-		page: Site.Page & { path: Site.Page.Path; mode?: Mode },
-		design: Site.Design,
-		count?: number
-	): Article | undefined {
-		const mode = Mode.reduce(page.mode, page.pages ? "list" : "full")
-		return mode && {
-			mode,
-			id: page.path.head ?? "",
-			link: page.path.toString(),
-			meta: page.meta ?? {},
-			type: page.type,
-			class: page.class ?? [],
-			header: Header.load(page),
-			// summary: page.content ? String(page.content).slice(0, 200) : "",
-			content:
-				typeof page.content == "string" && (mode == "full" || mode == "body") ? page.content : undefined,
-			sections:
-				typeof page.content == "object" && (mode == "full" || mode == "body")
-					? Object.entries(page.content)
-							.sort(
-								(left, right) =>
-									(left[1].weight ?? 100) - (right[1].weight ?? 100)
-							)
-							.slice(0, count ?? Number.MAX_SAFE_INTEGER)
-							.map(([id, section]: [string, Site.Page.Section]) =>
-								Section.load({
-									...section,
-									path: page.path.appendFragment(id),
-								})
-							).filter((s): s is Article.Section => !!s)
-					: undefined,
-			articles:
-				page.pages && mode == "list"
-				? Object.entries(page.pages)
-					.filter(([, page]) => !page.draft && (!page.published || page.published <= isoly.DateTime.now()))
-					.sort((left, right) => (right[1].published ?? "z").localeCompare(left[1].published ?? "z"))
-					.sort(
-						(left, right) => (left[1].weight ?? 100) - (right[1].weight ?? 100)
-					)
-					.slice(0, count ?? Number.MAX_SAFE_INTEGER)
-					.map(([id, subpage]: [string, Site.Page]) =>
-						Article.load(
-							{
-								...subpage,
-								path: page.path.append(id),
-								mode: typeof page.content == "object" ? "full" : design.list?.mode || "list",
-							},
-							design
-						)
-					).filter((article): article is Article => !!article) : undefined,
+	export function load(page: Page, path: Path, reduction?: Mode): Article
+	export function load(page: Page | undefined, path: Path, reduction?: Mode): Article | undefined
+	export function load(page: Record<string, Page> | undefined, path: Path, reduction?: Mode): Article[] | undefined
+	export function load(page: Page | Record<string, Page> | undefined, path: Path, reduction?: Mode): Article | Article[] | undefined {
+		let result: Article | Article[] | undefined
+		if (!page)
+			result = undefined
+		else if (Block.isBlocks(page))
+			result = page && Page.toArray(page).map(p => Article.load(p, path.appendFragment(p.id), reduction))
+		else {
+			const mode = Mode.reduce(page.mode, reduction ?? page.pages ? "list" : "full")
+			result = mode && Object.fromEntries(Object.entries({
+				...Section.load(page, path, mode),
+				author: page.author,
+				published: page.published,
+				changed: page.changed,
+				// wordCount: page.content ? String(page.content).split(/\s+/).length : undefined,
+				// readingTime: page.content ? Math.ceil(String(page.content).split(/\s+/).length / 200) : undefined,
+				...((mode == "list") ? {
+					articles: load(page.pages, path, mode),
+				} : {})
+			} satisfies Article).filter(([_, value]) => value !== undefined)) as Article
 		}
+		return result
+	}
+	export function toObject(article: Article): Article<Content.Object | Content.Object[] | null> {
+		return { ...Section.toObject(article), articles: article.articles?.map(Article.toObject) }
 	}
 }

@@ -1,0 +1,129 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`binotype.Context.Section > load('basic block with all properties') 1`] = `
+{
+  "class": [],
+  "content": {
+    "attributes": {},
+    "children": [
+      {
+        "text": "This is the introduction section.",
+      },
+    ],
+  },
+  "id": "intro",
+  "link": "/blog/article#intro",
+  "meta": {},
+  "mode": "full",
+  "sections": undefined,
+  "subtitle": undefined,
+  "title": {
+    "formatted": "Introduction",
+    "plain": "Introduction",
+  },
+  "type": "text",
+}
+`;
+
+exports[`binotype.Context.Section > load('minimal section with only required pr…') 1`] = `
+{
+  "0": {
+    "class": [],
+    "id": "section1_content",
+    "link": "/page#section1_content",
+    "meta": {},
+    "mode": "full",
+    "title": {
+      "formatted": "[section1_content]",
+      "plain": "[section1_content]",
+    },
+  },
+  "content": undefined,
+  "sections": undefined,
+  "subtitle": undefined,
+}
+`;
+
+exports[`binotype.Context.Section > load('section with complex path') 1`] = `
+{
+  "class": [],
+  "content": {
+    "attributes": {},
+    "children": [
+      {
+        "text": "Content with ",
+      },
+      {
+        "attributes": {
+          "class": "mark",
+        },
+        "children": [
+          {
+            "text": "HTML",
+          },
+        ],
+        "tag": "strong",
+      },
+    ],
+  },
+  "id": "conclusion",
+  "link": "/articles/2024/sample-post#conclusion",
+  "meta": {},
+  "mode": "full",
+  "sections": undefined,
+  "subtitle": undefined,
+  "title": {
+    "formatted": "Complex Section",
+    "plain": "Complex Section",
+  },
+  "type": "html",
+}
+`;
+
+exports[`binotype.Context.Section > load('section with nested sections') 1`] = `
+{
+  "class": [],
+  "content": {},
+  "id": "parent",
+  "link": "/blog/article#parent",
+  "meta": {},
+  "mode": "full",
+  "sections": undefined,
+  "subtitle": undefined,
+  "title": {
+    "formatted": "Parent Section",
+    "plain": "Parent Section",
+  },
+  "type": "container",
+}
+`;
+
+exports[`binotype.Context.Section > load('section without fragment (empty id)') 1`] = `
+{
+  "class": [],
+  "content": {
+    "attributes": {},
+    "children": [
+      {
+        "attributes": {},
+        "children": [
+          {
+            "text": "Main content here",
+          },
+        ],
+        "tag": "p",
+      },
+    ],
+  },
+  "id": "",
+  "link": "/blog/article",
+  "meta": {},
+  "mode": "full",
+  "sections": undefined,
+  "subtitle": undefined,
+  "title": {
+    "formatted": "Main Content",
+    "plain": "Main Content",
+  },
+}
+`;

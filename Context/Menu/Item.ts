@@ -1,31 +1,41 @@
-import { Site } from "../../Site"
+import { Block } from "../../Block"
+import { Content } from "../../Content"
+import { Page } from "../../Page"
+import { Path } from "../../Path"
+import { Title } from "../../Title"
 
-export interface Item {
+export interface Item<C = Content> {
 	label: string
-	description?: string
+	description: C
 	url: string
 	selected: "current" | "parent" | undefined
-	items: Item[]
+	items: Item<C>[]
 }
 export namespace Item {
-	export function load(page: Site.Page, path: Site.Page.Path, current: string): Item | undefined {
-		return page.menu === false
+	export function load(block: Block, path: Path, current: string): Item
+	export function load(block: Block | undefined, path: Path, current: string): Item | undefined
+	export function load(block: Record<string, Block>, path: Path, current: string, type?: "block" | "page"): Item[]
+	export function load(block: Record<string, Block> | undefined, path: Path, current: string, type?: "block" | "page"): Item[] | undefined
+	export function load(block: Block | Record<string, Block> | undefined, path: Path, current: string, type?: "block" | "page"): Item | Item[] | undefined {
+		return !block
 			? undefined
-			: {
-					label: Site.Page.Title.get(page, "short-long") ?? "(untitled)",
-					description: Site.Page.Title.get(page, "long"),
+			: Block.isBlocks(block)
+			? (type == "block" ? Block.toArray<Block>(block) : Page.toArray(block)).map(p => Item.load(p, (type == "block" ? path.appendFragment(p.id) : path.append(p.id)), current)).filter((item): item is Item => item != undefined)
+			: block.menu === undefined
+			? {
+					label: Title.get(block.title, "short"),
+					description: Title.get(block.title, "long-short"),
 					url: path.toString(),
 					selected:
 						current == path.toString() ? "current" : current.startsWith(path.toString() + "/") ? "parent" : undefined,
 					items: [
-						...Object.entries(page.pages ?? {}).map(([key, child]) => [path.append(key), child] as const),
-						...Object.entries(typeof page.content == "object" && page.content ? page.content : {}).map(
-							([key, child]) => [path.appendFragment(key), child] as const
-						),
+						...load(block.blocks, path, current, "block") ?? [],
+						...Page.hasPages(block) ? load(block.pages, path, current, "page") : [],
 					]
-						.sort((left, right) => (left[1].weight ?? 100) - (right[1].weight ?? 100))
-						.map(([path, child]) => Item.load(child, path, current))
-						.filter((item): item is Item => item != undefined),
 			  }
+			: undefined
+	}
+	export function toObject(item: Item): Item<Content.Object | Content.Object[] | null> {
+		return { ...item, description: item.description && Content.to(item.description), items: item.items && item.items.map(Item.toObject) }
 	}
 }

@@ -1,12 +1,16 @@
+import { Design } from "../Design"
 import { Meta } from "../Meta"
 import { Mode } from "../Mode"
+import { Page } from "../Page"
+import { Path } from "../Path"
 import { Site } from "../Site"
 import { Article as _Article } from "./Article"
-import { Header as _Header } from "./Header"
+import { Label as _Label } from "./Label"
 import { Menu as _Menu } from "./Menu"
+import { Section as _Section } from "./Section"
 
 export class Context {
-	path: Site.Page.Path
+	path: Path
 	get title(): string {
 		return this.site.title
 	}
@@ -22,7 +26,7 @@ export class Context {
 	get meta(): Meta {
 		return this.site.meta ?? {}
 	}
-	get design(): Site.Design {
+	get design(): Design {
 		return this.site.design
 	}
 	private _menu: Context.Menu | undefined
@@ -35,42 +39,37 @@ export class Context {
 			this.load(this.path) ??
 			Context.Article.load(
 				{
-					path: this.path,
-					mode: "full",
 					title: "Not Found",
-					content: "The requested page was not found.",
+					content: undefined,
 				},
-				this.site.design
+				this.path,
+				"full",
 			))
 	}
-	private constructor(private readonly site: Site, path: Site.Page.Path | string) {
-		this.path = typeof path == "string" ? Site.Page.Path.parse(path) : path
+	private constructor(private readonly site: Site, path: Path | string) {
+		this.path = typeof path == "string" ? Path.parse(path) : path
 	}
 	load(
-		path: Site.Page.Path | string | undefined,
+		path: Path | string | undefined,
 		mode: Mode = "full",
 		count?: number
 	): Context.Article | undefined {
-		if (!(path instanceof Site.Page.Path))
-			path = Site.Page.Path.parse(path ?? "")
+		if (!(path instanceof Path))
+			path = Path.parse(path ?? "")
 		if (path.empty && this.site.design.home?.section)
-			path = Site.Page.Path.parse(this.site.design.home.section)
-		const page = Site.Page.locate(this.site.page, path)
+			path = Path.parse(this.site.design.home.section)
+		const page = Page.locate(this.site.page, path)
 		return (
 			page &&
 			Context.Article.load(
-				{
-					...page,
-					path,
-					mode,
-				},
-				this.site.design,
-				count
+				page, path, mode,
+//				this.site.design,
+//				count
 			)
 		)
 	}
 	toJSON() {
-		return {
+		return Object.fromEntries(Object.entries({
 			title: this.title,
 			tagline: this.tagline,
 			image: this.image,
@@ -78,16 +77,17 @@ export class Context {
 			base: this.base,
 			url: this.url,
 			design: this.design,
-			menu: this.menu,
-			article: this.article,
-		}
+			menu: Context.Menu.toObject(this.menu),
+			article: this.article && Context.Article.toObject(this.article),
+		}).filter(([_, value]) => value !== undefined))
 	}
-	static create(site: Site, path: Site.Page.Path | string): Context {
+	static create(site: Site, path: Path | string): Context {
 		return new Context(site, path)
 	}
 }
 export namespace Context {
 	export import Article = _Article
-	export import Header = _Header
+	export import Label = _Label
 	export import Menu = _Menu
+	export import Section = _Section
 }

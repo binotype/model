@@ -1,0 +1,313 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`binotype.Context.Menu > Menu.load > load(''empty site'', ''/'') 1`] = `
+{
+  "items": [],
+}
+`;
+
+exports[`binotype.Context.Menu > Menu.load > load(''site with blocks and pages'', ''/'') 1`] = `
+{
+  "items": [
+    {
+      "description": "Welcome",
+      "items": [],
+      "label": "Welcome",
+      "selected": undefined,
+      "url": "/#hero",
+    },
+    {
+      "description": "Features",
+      "items": [],
+      "label": "Features",
+      "selected": undefined,
+      "url": "/#features",
+    },
+    {
+      "description": "About",
+      "items": [],
+      "label": "About",
+      "selected": undefined,
+      "url": "/about",
+    },
+  ],
+}
+`;
+
+exports[`binotype.Context.Menu > Menu.load > load(''site with menu disabled blocks'', ''/'') 1`] = `
+{
+  "items": [
+    {
+      "description": "Features",
+      "items": [],
+      "label": "Features",
+      "selected": undefined,
+      "url": "/#features",
+    },
+    {
+      "description": "About",
+      "items": [],
+      "label": "About",
+      "selected": undefined,
+      "url": "/about",
+    },
+  ],
+}
+`;
+
+exports[`binotype.Context.Menu > Menu.load > load(''site with multiple pages, current at …'', ''/'') 1`] = `
+{
+  "items": [
+    {
+      "description": "About",
+      "items": [],
+      "label": "About",
+      "selected": undefined,
+      "url": "/about",
+    },
+    {
+      "description": "Contact Us",
+      "items": [],
+      "label": "Contact Us",
+      "selected": undefined,
+      "url": "/contact",
+    },
+    {
+      "description": "Blog",
+      "items": [
+        {
+          "description": "First Post",
+          "items": [],
+          "label": "First Post",
+          "selected": undefined,
+          "url": "/blog/first-post",
+        },
+      ],
+      "label": "Blog",
+      "selected": undefined,
+      "url": "/blog",
+    },
+  ],
+}
+`;
+
+exports[`binotype.Context.Menu > Menu.load > load(''site with nested pages, current at ab…'', ''/about'') 1`] = `
+{
+  "items": [
+    {
+      "description": "About",
+      "items": [],
+      "label": "About",
+      "selected": "current",
+      "url": "/about",
+    },
+    {
+      "description": "Contact Us",
+      "items": [],
+      "label": "Contact Us",
+      "selected": undefined,
+      "url": "/contact",
+    },
+    {
+      "description": "Blog",
+      "items": [
+        {
+          "description": "First Post",
+          "items": [],
+          "label": "First Post",
+          "selected": undefined,
+          "url": "/blog/first-post",
+        },
+        {
+          "description": "Second Post",
+          "items": [],
+          "label": "Second Post",
+          "selected": undefined,
+          "url": "/blog/second-post",
+        },
+      ],
+      "label": "Blog",
+      "selected": undefined,
+      "url": "/blog",
+    },
+  ],
+}
+`;
+
+exports[`binotype.Context.Menu > Menu.load > load(''site with nested pages, current at bl…'', ''/blog/first-post'') 1`] = `
+{
+  "items": [
+    {
+      "description": "About",
+      "items": [],
+      "label": "About",
+      "selected": undefined,
+      "url": "/about",
+    },
+    {
+      "description": "Blog",
+      "items": [
+        {
+          "description": "First Post",
+          "items": [],
+          "label": "First Post",
+          "selected": "current",
+          "url": "/blog/first-post",
+        },
+        {
+          "description": "Second Post",
+          "items": [],
+          "label": "Second Post",
+          "selected": undefined,
+          "url": "/blog/second-post",
+        },
+      ],
+      "label": "Blog",
+      "selected": "parent",
+      "url": "/blog",
+    },
+  ],
+}
+`;
+
+exports[`binotype.Context.Menu > Menu.load > load(''site with single page'', ''/'') 1`] = `
+{
+  "items": [
+    {
+      "description": "About",
+      "items": [],
+      "label": "About",
+      "selected": undefined,
+      "url": "/about",
+    },
+  ],
+}
+`;
+
+exports[`binotype.Context.Menu > Menu.load > should load menu for 'empty site' with current ''/'' 1`] = `
+{
+  "items": [],
+}
+`;
+
+exports[`binotype.Context.Menu > Menu.load > should load menu for 'site with multiple pages, current at …' with current ''/'' 1`] = `
+{
+  "items": [],
+}
+`;
+
+exports[`binotype.Context.Menu > Menu.load > should load menu for 'site with nested pages, current at ab…' with current ''/about'' 1`] = `
+{
+  "items": [],
+}
+`;
+
+exports[`binotype.Context.Menu > Menu.load > should load menu for 'site with nested pages, current at bl…' with current ''/blog/first-post'' 1`] = `
+{
+  "items": [],
+}
+`;
+
+exports[`binotype.Context.Menu > Menu.load > should load menu for 'site with single page' with current ''/'' 1`] = `
+{
+  "items": [],
+}
+`;
+
+exports[`binotype.Context.Menu > Menu.toObject > should convert to object for 'empty menu' 1`] = `
+{
+  "items": [],
+}
+`;
+
+exports[`binotype.Context.Menu > Menu.toObject > should convert to object for 'menu with items' 1`] = `
+{
+  "items": [
+    {
+      "description": {},
+      "items": [],
+      "label": "About",
+      "selected": undefined,
+      "url": "/about",
+    },
+    {
+      "description": {},
+      "items": [],
+      "label": "Contact",
+      "selected": "current",
+      "url": "/contact",
+    },
+  ],
+}
+`;
+
+exports[`binotype.Context.Menu > Menu.toObject > should convert to object for 'menu with nested items' 1`] = `
+{
+  "items": [
+    {
+      "description": {},
+      "items": [
+        {
+          "description": {},
+          "items": [],
+          "label": "First Post",
+          "selected": "current",
+          "url": "/blog/first-post",
+        },
+      ],
+      "label": "Blog",
+      "selected": "parent",
+      "url": "/blog",
+    },
+  ],
+}
+`;
+
+exports[`binotype.Context.Menu > Menu.toObject > toObject(''empty menu'') 1`] = `
+{
+  "items": [],
+}
+`;
+
+exports[`binotype.Context.Menu > Menu.toObject > toObject(''menu with items'') 1`] = `
+{
+  "items": [
+    {
+      "description": {},
+      "items": [],
+      "label": "About",
+      "selected": undefined,
+      "url": "/about",
+    },
+    {
+      "description": {},
+      "items": [],
+      "label": "Contact",
+      "selected": "current",
+      "url": "/contact",
+    },
+  ],
+}
+`;
+
+exports[`binotype.Context.Menu > Menu.toObject > toObject(''menu with nested items'') 1`] = `
+{
+  "items": [
+    {
+      "description": {},
+      "items": [
+        {
+          "description": {},
+          "items": [],
+          "label": "First Post",
+          "selected": "current",
+          "url": "/blog/first-post",
+        },
+      ],
+      "label": "Blog",
+      "selected": "parent",
+      "url": "/blog",
+    },
+  ],
+}
+`;

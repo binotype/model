@@ -1,7 +1,7 @@
 import { isoly } from "isoly"
 import { isly } from "isly"
-import { Design as _Design } from "./Design"
-import { Page as _Page } from "./Page"
+import { Design } from "../Design"
+import { Page } from "../Page"
 import { Meta } from "../Meta"
 
 export interface Site {
@@ -13,12 +13,10 @@ export interface Site {
 	keywords?: string[]
 	author?: string
 	meta?: Meta
-	design: Site.Design
-	page: Site.Page
+	design: Design
+	page: Page
 }
 export namespace Site {
-	export import Design = _Design
-	export import Page = _Page
 	export const { is, flawed, type } = isly
 		.object<Site>(
 			{

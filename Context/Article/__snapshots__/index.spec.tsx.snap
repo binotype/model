@@ -1,0 +1,284 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`binotype.Context.Article > load('basic page with string content') 1`] = `
+{
+  "articles": undefined,
+  "class": [],
+  "content": {
+    "attributes": {},
+    "children": [
+      {
+        "text": "This is the article content.",
+      },
+    ],
+  },
+  "id": "",
+  "link": "/test",
+  "meta": {},
+  "mode": "list",
+  "sections": undefined,
+  "subtitle": undefined,
+  "title": {
+    "formatted": "Test Article",
+    "plain": "Test Article",
+  },
+}
+`;
+
+exports[`binotype.Context.Article > load('page with both string content and mod…') 1`] = `
+{
+  "articles": undefined,
+  "class": [],
+  "content": {
+    "attributes": {},
+    "children": [
+      {
+        "text": "This content should be shown.",
+      },
+    ],
+  },
+  "id": "",
+  "link": "/body",
+  "meta": {},
+  "mode": "list",
+  "sections": undefined,
+  "subtitle": undefined,
+  "title": {
+    "formatted": "Body Article",
+    "plain": "Body Article",
+  },
+}
+`;
+
+exports[`binotype.Context.Article > load('page with count limit for sections') 1`] = `
+{
+  "articles": undefined,
+  "class": [],
+  "content": undefined,
+  "id": "",
+  "link": "/limited",
+  "meta": {},
+  "mode": "list",
+  "sections": [
+    {
+      "class": [],
+      "content": {
+        "attributes": {},
+        "children": [
+          {
+            "text": "Content 1",
+          },
+        ],
+      },
+      "id": "section1",
+      "link": "/limited#section1",
+      "meta": {},
+      "mode": "list",
+      "sections": undefined,
+      "subtitle": undefined,
+      "title": {
+        "formatted": "Section 1",
+        "plain": "Section 1",
+      },
+    },
+    {
+      "class": [],
+      "content": {
+        "attributes": {},
+        "children": [
+          {
+            "text": "Content 2",
+          },
+        ],
+      },
+      "id": "section2",
+      "link": "/limited#section2",
+      "meta": {},
+      "mode": "list",
+      "sections": undefined,
+      "subtitle": undefined,
+      "title": {
+        "formatted": "Section 2",
+        "plain": "Section 2",
+      },
+    },
+    {
+      "class": [],
+      "content": {
+        "attributes": {},
+        "children": [
+          {
+            "text": "Content 3",
+          },
+        ],
+      },
+      "id": "section3",
+      "link": "/limited#section3",
+      "meta": {},
+      "mode": "list",
+      "sections": undefined,
+      "subtitle": undefined,
+      "title": {
+        "formatted": "Section 3",
+        "plain": "Section 3",
+      },
+    },
+  ],
+  "subtitle": undefined,
+  "title": {
+    "formatted": "Limited Sections",
+    "plain": "Limited Sections",
+  },
+}
+`;
+
+exports[`binotype.Context.Article > load('page with mode header (no content sho…') 1`] = `
+{
+  "articles": undefined,
+  "class": [],
+  "content": {
+    "attributes": {},
+    "children": [
+      {
+        "text": "This content should not be shown.",
+      },
+    ],
+  },
+  "id": "",
+  "link": "/header",
+  "meta": {},
+  "mode": "list",
+  "sections": undefined,
+  "subtitle": undefined,
+  "title": {
+    "formatted": "Header Only",
+    "plain": "Header Only",
+  },
+}
+`;
+
+exports[`binotype.Context.Article > load('page with object content (sections)') 1`] = `
+{
+  "articles": undefined,
+  "class": [],
+  "content": undefined,
+  "id": "",
+  "link": "/sections",
+  "meta": {},
+  "mode": "list",
+  "sections": [
+    {
+      "class": [],
+      "content": {
+        "attributes": {},
+        "children": [
+          {
+            "text": "Intro content",
+          },
+        ],
+      },
+      "id": "intro",
+      "link": "/sections#intro",
+      "meta": {},
+      "mode": "list",
+      "sections": undefined,
+      "subtitle": undefined,
+      "title": {
+        "formatted": "Introduction",
+        "plain": "Introduction",
+      },
+    },
+    {
+      "class": [],
+      "content": {
+        "attributes": {},
+        "children": [
+          {
+            "text": "Main content",
+          },
+        ],
+      },
+      "id": "main",
+      "link": "/sections#main",
+      "meta": {},
+      "mode": "list",
+      "sections": undefined,
+      "subtitle": undefined,
+      "title": {
+        "formatted": "Main Section",
+        "plain": "Main Section",
+      },
+    },
+  ],
+  "subtitle": undefined,
+  "title": {
+    "formatted": "Page with Sections",
+    "plain": "Page with Sections",
+  },
+}
+`;
+
+exports[`binotype.Context.Article > load('page with sub-pages (articles)') 1`] = `
+{
+  "articles": [
+    {
+      "articles": undefined,
+      "class": [],
+      "content": {
+        "attributes": {},
+        "children": [
+          {
+            "text": "Second post content",
+          },
+        ],
+      },
+      "id": "post2",
+      "link": "/blog#post2",
+      "meta": {},
+      "mode": "list",
+      "published": "2024-01-02T10:00:00Z",
+      "sections": undefined,
+      "subtitle": undefined,
+      "title": {
+        "formatted": "Second Post",
+        "plain": "Second Post",
+      },
+    },
+    {
+      "articles": undefined,
+      "class": [],
+      "content": {
+        "attributes": {},
+        "children": [
+          {
+            "text": "First post content",
+          },
+        ],
+      },
+      "id": "post1",
+      "link": "/blog#post1",
+      "meta": {},
+      "mode": "list",
+      "published": "2024-01-01T10:00:00Z",
+      "sections": undefined,
+      "subtitle": undefined,
+      "title": {
+        "formatted": "First Post",
+        "plain": "First Post",
+      },
+    },
+  ],
+  "class": [],
+  "content": undefined,
+  "id": "",
+  "link": "/blog",
+  "meta": {},
+  "mode": "list",
+  "sections": undefined,
+  "subtitle": undefined,
+  "title": {
+    "formatted": "Blog",
+    "plain": "Blog",
+  },
+}
+`;

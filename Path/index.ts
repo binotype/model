@@ -21,7 +21,7 @@ export class Path {
 		return Path.getId(this.head ?? "", casing)
 	}
 	append(id: string): Path {
-		return new Path([...this.parts, Path.getId(id, "snake")])
+		return new Path([...(this.parts ?? []), Path.getId(id, "snake")])
 	}
 	appendFragment(fragment: string): Path {
 		return new Path(this.parts, [this.fragment, fragment].filter(Boolean).join("_"))
@@ -73,7 +73,7 @@ export namespace Path {
 				appendFragment: isly.function(),
 				toString: isly.function(),
 			},
-			"binotype.Site.Page.Path"
+			"binotype.Path"
 		)
 		.bind()
 }

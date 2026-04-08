@@ -56,6 +56,9 @@
 		"vitest": "^4.1.1"
 	},
 	"dependencies": {
+		"@stencil/core": "^4.43.3",
+		"@typeup/dom": "^1.0.5",
+		"@typeup/parser": "^1.2.3",
 		"isly": "1.8.0",
 		"isoly": "3.1.8"
 	}

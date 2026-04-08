@@ -1,4 +1,5 @@
 import { binotype } from "../index"
+import { h } from "@stencil/core"
 
 describe("binotype.Context", () => {
 	const site: binotype.Site = {
@@ -27,7 +28,7 @@ describe("binotype.Context", () => {
 			pages: {
 				about: {
 					title: "About",
-					content: "<p>About page content</p>",
+					content: <p>About page content</p>,
 				},
 			},
 		},
