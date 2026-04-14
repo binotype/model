@@ -25,4 +25,7 @@ export namespace Mode {
 		}
 		return result
 	}
+	export function parse(value: string | undefined): Mode | undefined {
+		return values.find(v => v == value)
+	}
 }

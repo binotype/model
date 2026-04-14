@@ -1,6 +1,6 @@
 {
 	"name": "@binotype/model",
-	"version": "0.15.0",
+	"version": "1.0.0",
 	"description": "Library with data types for Binotype Sites.",
 	"author": "Binotype Contributors",
 	"license": "MIT",
@@ -57,7 +57,7 @@
 	},
 	"dependencies": {
 		"@stencil/core": "^4.43.3",
-		"@typeup/dom": "^1.0.5",
+		"@typeup/dom": "^1.0.9",
 		"@typeup/parser": "^1.2.3",
 		"isly": "1.8.0",
 		"isoly": "3.1.8"

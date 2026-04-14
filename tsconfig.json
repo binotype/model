@@ -34,7 +34,8 @@
 		"jsxFragmentFactory": "h.Fragment"
 	},
 	"include": [
-		"**/*.spec.ts", "Context/Article/index.spec.tsx", "Site/index.spec.tsx", "Page/index.spec.tsx", "Context/index.spec.tsx", "Block/index.spec.tsx", "Context/Section/index.spec.tsx",
+		"**/*.spec.ts",
+		"**/*.spec.tsx",
 	],
 	"files": [
 		"index.ts",
