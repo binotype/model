@@ -37,6 +37,7 @@ exports[`binotype.Context > create(site, /) 1`] = `
     ],
   },
   "menu": {
+    "depth": undefined,
     "items": [],
   },
   "title": "Test Site",
@@ -89,6 +90,7 @@ exports[`binotype.Context > create(site, /about) 1`] = `
     ],
   },
   "menu": {
+    "depth": undefined,
     "items": [],
   },
   "title": "Test Site",
@@ -133,6 +135,7 @@ exports[`binotype.Context > create(site, /nonexistent) 1`] = `
     ],
   },
   "menu": {
+    "depth": undefined,
     "items": [],
   },
   "title": "Test Site",
@@ -177,6 +180,7 @@ exports[`binotype.Context > create(site, invalid-path) 1`] = `
     ],
   },
   "menu": {
+    "depth": undefined,
     "items": [],
   },
   "title": "Test Site",

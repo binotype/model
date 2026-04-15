@@ -18,4 +18,7 @@ export namespace Content {
 			? content.map(Object.from)
 				: Object.from(content))
 	}
+	export function plain(content: Content): string {
+		return content ? (Array.isArray(content) ? content.map(Node.plain).join("") : Node.plain(content)) : ""
+	}
 }

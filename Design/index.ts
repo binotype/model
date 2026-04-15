@@ -13,6 +13,9 @@ export interface Design {
 	list?: {
 		mode: "body" | "full" | "header" | "list" | "summary"
 	}
+	menu?: {
+		depth?: number
+	}
 }
 export namespace Design {
 	export const { is, flawed, type } = isly
@@ -32,6 +35,11 @@ export namespace Design {
 				list: isly
 					.object({
 						mode: isly.string("value", "body", "full", "header", "list", "summary"),
+					})
+					.optional(),
+				menu: isly
+					.object({
+						depth: isly.number().optional(),
 					})
 					.optional(),
 			},

@@ -14,6 +14,9 @@ export namespace Node {
 		$name$: isly.union(isly.string(), isly.null()),
 		$key$: isly.union(isly.string(), isly.number(), isly.null())
 	},"binotype.Node") as isly.Object<Node>).bind()
+	export function plain(node: Node): string {
+		return [node.$text$ ?? "", ...node.$children$?.map(plain)].join("")
+	}
 }
 
 /*

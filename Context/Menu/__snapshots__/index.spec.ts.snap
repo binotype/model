@@ -2,12 +2,14 @@
 
 exports[`binotype.Context.Menu > Menu.load > load(''empty site'', ''/'') 1`] = `
 {
+  "depth": undefined,
   "items": [],
 }
 `;
 
 exports[`binotype.Context.Menu > Menu.load > load(''site with blocks and pages'', ''/'') 1`] = `
 {
+  "depth": undefined,
   "items": [
     {
       "description": "Welcome",
@@ -36,6 +38,7 @@ exports[`binotype.Context.Menu > Menu.load > load(''site with blocks and pages''
 
 exports[`binotype.Context.Menu > Menu.load > load(''site with menu disabled blocks'', ''/'') 1`] = `
 {
+  "depth": undefined,
   "items": [
     {
       "description": "Features",
@@ -57,6 +60,7 @@ exports[`binotype.Context.Menu > Menu.load > load(''site with menu disabled bloc
 
 exports[`binotype.Context.Menu > Menu.load > load(''site with multiple pages, current at …'', ''/'') 1`] = `
 {
+  "depth": undefined,
   "items": [
     {
       "description": "About",
@@ -93,6 +97,7 @@ exports[`binotype.Context.Menu > Menu.load > load(''site with multiple pages, cu
 
 exports[`binotype.Context.Menu > Menu.load > load(''site with nested pages, current at ab…'', ''/about'') 1`] = `
 {
+  "depth": undefined,
   "items": [
     {
       "description": "About",
@@ -136,6 +141,7 @@ exports[`binotype.Context.Menu > Menu.load > load(''site with nested pages, curr
 
 exports[`binotype.Context.Menu > Menu.load > load(''site with nested pages, current at bl…'', ''/blog/first-post'') 1`] = `
 {
+  "depth": undefined,
   "items": [
     {
       "description": "About",
@@ -172,6 +178,7 @@ exports[`binotype.Context.Menu > Menu.load > load(''site with nested pages, curr
 
 exports[`binotype.Context.Menu > Menu.load > load(''site with single page'', ''/'') 1`] = `
 {
+  "depth": undefined,
   "items": [
     {
       "description": "About",
@@ -186,12 +193,14 @@ exports[`binotype.Context.Menu > Menu.load > load(''site with single page'', ''/
 
 exports[`binotype.Context.Menu > Menu.toObject > toObject(''empty menu'') 1`] = `
 {
+  "depth": undefined,
   "items": [],
 }
 `;
 
 exports[`binotype.Context.Menu > Menu.toObject > toObject(''menu with items'') 1`] = `
 {
+  "depth": undefined,
   "items": [
     {
       "description": {},
@@ -213,6 +222,7 @@ exports[`binotype.Context.Menu > Menu.toObject > toObject(''menu with items'') 1
 
 exports[`binotype.Context.Menu > Menu.toObject > toObject(''menu with nested items'') 1`] = `
 {
+  "depth": undefined,
   "items": [
     {
       "description": {},
