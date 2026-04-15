@@ -17,10 +17,10 @@ const mockedParser = parser as {
 
 describe("binotype.Parser", () => {
 	let testParser: binotype.Parser
-	let convertFunction: MockedFunction<(content: string | dom.Block[] | undefined) => binotype.Content>
+	let convertFunction: MockedFunction<(content: string | dom.Block[] | undefined) => Promise<binotype.Content>>
 
 	beforeEach(() => {
-		convertFunction = vi.fn().mockImplementation((content) => {
+		convertFunction = vi.fn().mockImplementation(async (content) => {
 			if (typeof content === "string") {
 				return h("p", {}, content)
 			} else if (Array.isArray(content)) {
@@ -88,7 +88,7 @@ describe("binotype.Parser", () => {
 			}
 		] as const
 
-		it.each(validInputs)("should parse %s", ({ content, variables }) => {
+		it.each(validInputs)("should parse %s", async ({ content, variables }) => {
 			// Setup mock document with expected variables
 			const mockDoc: dom.Document = {
 				variables,
@@ -96,7 +96,7 @@ describe("binotype.Parser", () => {
 			}
 			mockedParser.parse.mockReturnValue(mockDoc)
 
-			const result = testParser.parse(content)
+			const result = await testParser.parse(content)
 
 			expect(mockedParser.parse).toHaveBeenCalledWith(content)
 			expect(result).toBeDefined()
@@ -110,39 +110,39 @@ describe("binotype.Parser", () => {
 			}
 		})
 
-		it.each(invalidInputs)("should handle %s gracefully", ({ content }) => {
+		it.each(invalidInputs)("should handle %s gracefully", async ({ content }) => {
 			mockedParser.parse.mockReturnValue(undefined)
 
-			const result = testParser.parse(content)
+			const result = await testParser.parse(content)
 
 			expect(mockedParser.parse).toHaveBeenCalledWith(content)
 			expect(result).toBeUndefined()
 		})
 
-		it("should return null when parser returns null", () => {
+		it("should return null when parser returns null", async () => {
 			mockedParser.parse.mockReturnValue(null)
 
-			const result = testParser.parse("any content")
+			const result = await testParser.parse("any content")
 
 			expect(result).toBeNull()
 		})
 
-		it("should return false when parser returns false", () => {
+		it("should return false when parser returns false", async () => {
 			mockedParser.parse.mockReturnValue(false)
 
-			const result = testParser.parse("any content")
+			const result = await testParser.parse("any content")
 
 			expect(result).toBe(false)
 		})
 
-		it("should call convert function for content", () => {
+		it("should call convert function for content", async () => {
 			const mockDoc: dom.Document = {
 				variables: { id: "test" },
 				content: "test content"
 			}
 			mockedParser.parse.mockReturnValue(mockDoc)
 
-			testParser.parse("test input")
+			await testParser.parse("test input")
 
 			// The convert function should be called when processing the content
 			expect(convertFunction).toHaveBeenCalled()
@@ -187,10 +187,10 @@ describe("binotype.Parser", () => {
 				}
 			] as const
 
-			it.each(complexTestCases)("should handle %s", ({ document }) => {
+			it.each(complexTestCases)("should handle %s", async ({ document }) => {
 				mockedParser.parse.mockReturnValue(document as dom.Document)
 
-				const result = testParser.parse("complex content")
+				const result = await testParser.parse("complex content")
 
 				expect(result).toBeDefined()
 				expect(result).toMatchSnapshot()
@@ -198,7 +198,7 @@ describe("binotype.Parser", () => {
 		})
 
 		describe("edge cases", () => {
-			it("should handle very long content", () => {
+			it("should handle very long content", async () => {
 				const longContent = "---\nid: long\ntitle: Long\n---\n\n" + "Lorem ipsum ".repeat(1000)
 				const mockDoc: dom.Document = {
 					variables: { id: "long", title: "Long" },
@@ -206,12 +206,12 @@ describe("binotype.Parser", () => {
 				}
 				mockedParser.parse.mockReturnValue(mockDoc)
 
-				const result = testParser.parse(longContent)
+				const result = await testParser.parse(longContent)
 
 				expect(result?.id).toBe("long")
 			})
 
-			it("should handle special characters in content", () => {
+			it("should handle special characters in content", async () => {
 				const specialContent = "---\nid: special\ntitle: Spëcïål Çhäracters\n---\n\n# Heading with émojis 🚀"
 				const mockDoc: dom.Document = {
 					variables: { id: "special", title: "Spëcïål Çhäracters" },
@@ -219,7 +219,7 @@ describe("binotype.Parser", () => {
 				}
 				mockedParser.parse.mockReturnValue(mockDoc)
 
-				const result = testParser.parse(specialContent)
+				const result = await testParser.parse(specialContent)
 
 				expect(result?.title).toBe("Spëcïål Çhäracters")
 			})
