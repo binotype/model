@@ -6,6 +6,9 @@
 			"ES2023"
 		],
 		/* Output */
+		"moduleResolution": "bundler",
+		"module": "ESNext",
+		"target": "ES2023",
 		"outDir": "dist/mjs",
 		"declaration": true,
 		"declarationDir": "./dist/types",
@@ -38,8 +41,7 @@
 		"**/*.spec.tsx",
 	],
 	"files": [
-		"index.ts",
-		"Context/Label.ts"
+		"index.ts"
 	],
 	"typeAcquisition": {
 		"enable": true

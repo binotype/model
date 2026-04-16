@@ -18,7 +18,8 @@ describe("binotype.Content", () => {
 				<Fragment><p>Content of the second node with HTML.</p></Fragment>,
 			],
 		},
-	] as { name: string, content: binotype.Content }[] )("validate($name)", ({ content }) =>
+	] as { name: string, content: binotype.Content }[] )("validate($name)", ({ content }) => {
+		expect(binotype.Content.flawed(content)).toBe(false)
 		expect(binotype.Content.is(content)).toBe(true)
-	)
+	})
 })

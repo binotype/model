@@ -17,7 +17,7 @@ export interface Block {
 	blocks?: Record<string, Block>
 }
 export namespace Block {
-	export const { is, flawed, type } = isly
+	export const type = isly
 		.object<Block>(
 			{
 				weight: isly.number().optional(),
@@ -33,7 +33,7 @@ export namespace Block {
 			},
 			"binotype.Block"
 		)
-		.bind()
+	export const { is, flawed } = type.bind()
 	export function toArray<R extends { weight?: number } = Block>(blocks: Record<string, R | undefined> | undefined): (R & { id: string })[] {
 		return Object.entries(blocks ?? {})
 			.filter((entry): entry is [string, R] => entry[1] != undefined)

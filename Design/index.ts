@@ -18,8 +18,7 @@ export interface Design {
 	}
 }
 export namespace Design {
-	export const { is, flawed, type } = isly
-		.object<Design>(
+	export const type = isly.object<Design>(
 			{
 				logotype: isly.string().optional(),
 				icon: isly.string().optional(),
@@ -45,5 +44,5 @@ export namespace Design {
 			},
 			"binotype.Site.Design"
 		)
-		.bind()
+	export const { is, flawed } = type.bind()
 }

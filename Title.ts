@@ -6,7 +6,8 @@ export type Title = string | {
 	long: Content
 }
 export namespace Title {
-	export const { is, flawed, type } = isly.union<Title>(isly.string(), isly.object({ short: isly.string(), long: Content.type })).rename("binotype.Title").bind()
+	export const type: isly.Union<Title> = isly.union<Title>(isly.string(), isly.object({ short: isly.string(), long: Content.type })).rename("binotype.Title")
+	export const { is, flawed } = type.bind()
 	export function get(title: Title | undefined, preference: "short"): string
 	export function get(title: Title | undefined, preference: "long-short"): Content
 	export function get(title: Title | undefined, preference: "long" | "long-short"): Content | undefined

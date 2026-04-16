@@ -17,7 +17,7 @@ export interface Site {
 	page: Page
 }
 export namespace Site {
-	export const { is, flawed, type } = isly
+	export const type = isly
 		.object<Site>(
 			{
 				url: isly.string(),
@@ -33,5 +33,5 @@ export namespace Site {
 			},
 			"binotype.Site"
 		)
-		.bind()
+	export const { is, flawed } = type.bind()
 }

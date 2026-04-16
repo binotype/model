@@ -60,7 +60,7 @@ export class Path {
 	}
 }
 export namespace Path {
-	export const { is, flawed, type } = isly
+	export const type = isly
 		.object<Path>(
 			{
 				empty: isly.boolean().readonly(),
@@ -75,5 +75,5 @@ export namespace Path {
 			},
 			"binotype.Path"
 		)
-		.bind()
+	export const { is, flawed } = type.bind()
 }
