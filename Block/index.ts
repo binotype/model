@@ -34,15 +34,16 @@ export namespace Block {
 			"binotype.Block"
 		)
 		.bind()
-	export function toArray<R extends { weight?: number } = Block>(blocks: Record<string, R> | undefined): (R & { id: string })[] {
+	export function toArray<R extends { weight?: number } = Block>(blocks: Record<string, R | undefined> | undefined): (R & { id: string })[] {
 		return Object.entries(blocks ?? {})
-		.map(([id, block]) => ({ ...block, id }))
-		.sort(
-			(left, right) =>
-				(left.weight ?? 100) - (right.weight ?? 100)
-		)
+			.filter((entry): entry is [string, R] => entry[1] != undefined)
+			.map(([id, block]) => ({ ...block, id }))
+			.sort(
+				(left, right) =>
+					(left.weight ?? 100) - (right.weight ?? 100)
+			)
 	}
-	export function isBlocks(block: Block | Record<string, Block> | undefined): block is Record<string, Block> {
+	export function isBlocks(block: Block | Record<string, Block | undefined> | undefined): block is Record<string, Block | undefined> {
 		return block != undefined && Object.values(block).every(b => typeof b == "object")
 	}
 }

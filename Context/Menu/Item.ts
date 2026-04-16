@@ -14,9 +14,9 @@ export interface Item<C = Content> {
 export namespace Item {
 	export function load(block: Block, path: Path, current: string): Item
 	export function load(block: Block | undefined, path: Path, current: string): Item | undefined
-	export function load(block: Record<string, Block>, path: Path, current: string, type?: "block" | "page"): Item[]
-	export function load(block: Record<string, Block> | undefined, path: Path, current: string, type?: "block" | "page"): Item[] | undefined
-	export function load(block: Block | Record<string, Block> | undefined, path: Path, current: string, type?: "block" | "page"): Item | Item[] | undefined {
+	export function load(block: Record<string, Block | undefined>, path: Path, current: string, type?: "block" | "page"): Item[]
+	export function load(block: Record<string, Block | undefined> | undefined, path: Path, current: string, type?: "block" | "page"): Item[] | undefined
+	export function load(block: Block | Record<string, Block | undefined> | undefined, path: Path, current: string, type?: "block" | "page"): Item | Item[] | undefined {
 		return !block
 			? undefined
 			: Block.isBlocks(block)

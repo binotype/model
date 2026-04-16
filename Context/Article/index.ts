@@ -17,8 +17,8 @@ export interface Article<C = Content> extends Section<C> {
 export namespace Article {
 	export function load(page: Page, path: Path, reduction?: Mode): Article
 	export function load(page: Page | undefined, path: Path, reduction?: Mode): Article | undefined
-	export function load(page: Record<string, Page> | undefined, path: Path, reduction?: Mode): Article[] | undefined
-	export function load(page: Page | Record<string, Page> | undefined, path: Path, reduction?: Mode): Article | Article[] | undefined {
+	export function load(page: Record<string, Page | undefined> | undefined, path: Path, reduction?: Mode): Article[] | undefined
+	export function load(page: Page | Record<string, Page | undefined> | undefined, path: Path, reduction?: Mode): Article | Article[] | undefined {
 		let result: Article | Article[] | undefined
 		if (!page)
 			result = undefined
@@ -31,12 +31,12 @@ export namespace Article {
 				author: page.author,
 				published: page.published,
 				changed: page.changed,
-				// wordCount: page.content ? String(page.content).split(/\s+/).length : undefined,
-				// readingTime: page.content ? Math.ceil(String(page.content).split(/\s+/).length / 200) : undefined,
+				// wordCount: text ? text.split(/\s+/).length : undefined,
+				// readingTime: text ? Math.ceil(text.split(/\s+/).length / 200) : undefined,
 				...((mode == "list") ? {
 					articles: load(page.pages, path, mode),
 				} : {})
-			} satisfies Article).filter(([_, value]) => value !== undefined)) as Article
+			} satisfies Article).filter(([_, value]) => value != undefined)) as Article
 		}
 		return result
 	}
