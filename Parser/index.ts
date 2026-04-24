@@ -31,8 +31,8 @@ export class Parser {
 				author: dom.Variables.parse("string", variables, "author")
 			} : {}),
 			content: await this.convert(nodes?.other),
-			blocks: nodes ? Object.fromEntries(await Promise.all(nodes[type == "page" ? "block.chapter" : "block.section"]?.map(async ({ id, ...chapter }) => [id, await this.import("block", chapter)] as const) ?? [])) : undefined,
-			...(type == "page" ? { pages: nodes ? Object.fromEntries(await Promise.all(nodes["block.import"]?.map(async ({ id, ...page }) => [id, await this.import("page", page)] as const) ?? [])) : {} } : {})
+			blocks: nodes ? Object.fromEntries(await Promise.all(nodes[type == "page" ? "block.chapter" : "block.section"]?.map(async (chapter) => [chapter.variables.id, await this.import("block", chapter)] as const) ?? [])) : undefined,
+			...(type == "page" ? { pages: nodes ? Object.fromEntries(await Promise.all(nodes["block.import"]?.map(async (page) => [page.variables.id, await this.import("page", page.content)] as const) ?? [])) : {} } : {})
 		}
 	}
 	async parse(content: string): Promise<Page & { id: string } | undefined> {

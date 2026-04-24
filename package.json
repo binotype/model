@@ -43,22 +43,22 @@
 	},
 	"devDependencies": {
 		"@types/node": "^25.6.0",
-		"@typescript-eslint/eslint-plugin": "8.58.2",
-		"@typescript-eslint/parser": "8.58.2",
-		"@vitest/coverage-v8": "^4.1.4",
-		"eslint": "^10.2.0",
+		"@typescript-eslint/eslint-plugin": "8.59.0",
+		"@typescript-eslint/parser": "8.59.0",
+		"@vitest/coverage-v8": "^4.1.5",
+		"eslint": "^10.2.1",
 		"eslint-plugin-prettier": "",
 		"eslint-plugin-simple-import-sort": "^13.0.0",
 		"prettier": "",
 		"rimraf": "^6.1.3",
 		"typescript": "^6.0.3",
-		"vite": "^8.0.8",
-		"vitest": "^4.1.4"
+		"vite": "^8.0.10",
+		"vitest": "^4.1.5"
 	},
 	"dependencies": {
 		"@stencil/core": "^4.43.4",
-		"@typeup/dom": "^1.0.9",
-		"@typeup/parser": "^1.2.3",
+		"@typeup/dom": "^1.0.10",
+		"@typeup/parser": "^1.2.4",
 		"isly": "1.8.0",
 		"isoly": "3.1.8"
 	}
