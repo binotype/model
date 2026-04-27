@@ -1,42 +1,48 @@
-name: "Publish"
-
-on:
-  workflow_run:
-    workflows: ["Bump"]
-    types: [completed]
+name: Publish
 permissions:
-  contents: read
-  id-token: write # Required for OIDC
+  contents: write
+  id-token: write
+on:
+  push:
+    branches:
+      - master
+      - master-*
 jobs:
   publish:
-    name: "Publish"
-    timeout-minutes: 60
+    name: Publish package
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'master' }}
     steps:
-      - name: "Checkout source code"
-        uses: actions/checkout@v5
+      - name: Checkout repository
+        uses: actions/checkout@v4
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 24
-          cache: "npm"
-          registry-url: "https://registry.npmjs.org/"
-      - name: Install
+          node-version: __NODE_VERSION__
+          registry-url: https://registry.npmjs.org
+      - name: Install dependencies
         run: npm ci
-      - name: Build
-        run: npm run build
-      - name: Publish
+      - name: Configure Git
         run: |
-          VERSION=$(node -p "require('./package.json').version")
-          PACKAGE=$(node -p "require('./package.json').name")
-          if npm show "${PACKAGE}@${VERSION}" version > /dev/null 2>&1; then
-            echo "Version ${VERSION} already published, skipping."
-            exit 0
-          fi
-          if [[ "$VERSION" == *-* ]]; then
-            npm publish --access public --tag prerelease --provenance
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Determine Version Type
+        id: version-type
+        uses: actions/github-script@v7
+        with:
+          result-encoding: string
+          script: |
+            const ref = process.env.GITHUB_REF_NAME;
+            return ref == "master" ? "beta" : ref == "master-4" ? "alpha" : "latest";
+      - name: Bump version
+        run: |
+          if [ "${{ steps.version-type.outputs.result }}" = "latest" ]; then
+            npm version minor;
           else
-            npm publish --access public --provenance
+            npm version prerelease --preid=${{ steps.version-type.outputs.result }};
           fi
-        shell: bash
+      - name: Push bumped version
+        run: git push --follow-tags
+      - name: Build package
+        run: npm run build
+      - name: Publish package
+        run: npm publish --access public --provenance --tag ${{ steps.version-type.outputs.result }}
