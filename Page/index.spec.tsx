@@ -13,13 +13,19 @@ describe("binotype.Site.Page", () => {
 					content: (
 						<Fragment>
 							<p>This is a sample blog post with placeholder content.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+								dolore magna aliqua.
+							</p>
 							<blockquote>
 								<p>This is a sample quote for demonstration purposes.</p>
 							</blockquote>
-							<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+							<p>
+								Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+								consequat.
+							</p>
 						</Fragment>
-					),
+					)
 				},
 				"another-sample": {
 					published: "2024-01-15T16:12:00+02:00",
@@ -28,19 +34,24 @@ describe("binotype.Site.Page", () => {
 					content: (
 						<Fragment>
 							<p>This is another sample post with placeholder content.</p>
-							<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+							<p>
+								Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+							</p>
 							<h2>Sample Section</h2>
-							<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							<p>
+								Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+								laborum.
+							</p>
 						</Fragment>
-					),
+					)
 				},
 				"draft-post": {
 					draft: true,
 					tags: ["draft"],
 					title: "Draft Post",
-					content: <p>This is a draft post placeholder.</p>,
-				},
-			},
+					content: <p>This is a draft post placeholder.</p>
+				}
+			}
 		},
 		{
 			title: "Home",
@@ -51,9 +62,12 @@ describe("binotype.Site.Page", () => {
 					weight: 0,
 					content: (
 						<Fragment>
-							<p>This is the home page of my sample blog. Here you can find articles on various topics related to software development, technology, and professional insights.</p>
+							<p>
+								This is the home page of my sample blog. Here you can find articles on various topics related to
+								software development, technology, and professional insights.
+							</p>
 						</Fragment>
-					),
+					)
 				},
 				section2: {
 					title: "Latest Articles",
@@ -62,18 +76,19 @@ describe("binotype.Site.Page", () => {
 						<Fragment>
 							<p>Check out the latest articles below:</p>
 							<ul>
-								<li><a href="/article/sample-post">Sample Post</a></li>
-								<li><a href="/article/another-sample">Another Sample Post</a></li>
+								<li>
+									<a href="/article/sample-post">Sample Post</a>
+								</li>
+								<li>
+									<a href="/article/another-sample">Another Sample Post</a>
+								</li>
 							</ul>
 						</Fragment>
-					),
-				},
-			},
+					)
+				}
+			}
 		},
-		{
-			title: "Talks",
-			pages: {},
-		},
+		{ title: "Talks", pages: {} },
 		{
 			title: "About",
 			content: (
@@ -81,17 +96,24 @@ describe("binotype.Site.Page", () => {
 					<p>I am [Your Name], and I create things. Professionally I create software products.</p>
 					<p>I live in [Your City], [Your Country] with my family.</p>
 					<p>I write about building software and building companies.</p>
-					<p>Currently, I help companies as a consultant. If you are interested in my services please <a href="../contact">contact me</a>.</p>
-					<p>You can find out more about me on my page on <a href="#">LinkedIn</a> and on <a href="#">GitHub</a>.</p>
+					<p>
+						Currently, I help companies as a consultant. If you are interested in my services please{" "}
+						<a href="../contact">contact me</a>.
+					</p>
+					<p>
+						You can find out more about me on my page on <a href="#">LinkedIn</a> and on <a href="#">GitHub</a>.
+					</p>
 				</Fragment>
-			),
+			)
 		},
 		{
 			title: "Contact",
 			menu: false,
 			content: (
 				<Fragment>
-					<p>Don&apos;t hesitate to contact me with ideas, suggestions and opinions. I look forward to hear from you.</p>
+					<p>
+						Don&apos;t hesitate to contact me with ideas, suggestions and opinions. I look forward to hear from you.
+					</p>
 					<form action="#" method="post">
 						<input type="hidden" name="redirect_to" value="#" />
 						<label htmlFor="name">Name</label>
@@ -103,17 +125,22 @@ describe("binotype.Site.Page", () => {
 						<button type="submit">Send</button>
 					</form>
 				</Fragment>
-			),
+			)
 		},
 		{
 			title: "Description",
 			menu: false,
 			content: (
 				<Fragment>
-					<p>Sample blog contains articles on subjects such as <em>software development</em>, <em>technology</em> and <em>professional topics</em>.</p>
-					<p>The articles convey <em>experiences and insights</em> from professional work.</p>
+					<p>
+						Sample blog contains articles on subjects such as <em>software development</em>, <em>technology</em> and{" "}
+						<em>professional topics</em>.
+					</p>
+					<p>
+						The articles convey <em>experiences and insights</em> from professional work.
+					</p>
 				</Fragment>
-			),
+			)
 		},
 		{
 			title: "Subscribe",
@@ -122,7 +149,8 @@ describe("binotype.Site.Page", () => {
 				<Fragment>
 					<p>Subscribe to receive updates when new content is published.</p>
 				</Fragment>
-			),
-		},
-	] satisfies binotype.Page[])("flawed($title)", ({ title, ...value }) => expect(binotype.Page.flawed({title, ...value})).toBe(false))
+			)
+		}
+	] satisfies binotype.Page[])("flawed($title)", ({ title, ...value }) =>
+		expect(binotype.Page.flawed({ title, ...value })).toBe(false))
 })

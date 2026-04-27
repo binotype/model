@@ -15,41 +15,22 @@ describe("binotype.Context.Menu", () => {
 			navigation: "header",
 			styles: ["/style.css"],
 			scripts: ["/script.js"],
-			home: {
-				mode: "header",
-				section: "article",
-			},
-			list: {
-				mode: "summary",
-			},
+			home: { mode: "header", section: "article" },
+			list: { mode: "summary" }
 		},
-		page: {
-			title: "Home",
-		},
+		page: { title: "Home" }
 	}
 
 	describe("Menu.load", () => {
 		it.each([
-			{
-				name: "empty site",
-				site: baseSite,
-				current: "/",
-			},
+			{ name: "empty site", site: baseSite, current: "/" },
 			{
 				name: "site with single page",
 				site: {
 					...baseSite,
-					page: {
-						...baseSite.page,
-						pages: {
-							about: {
-								title: "About",
-								content: "About page content",
-							},
-						},
-					},
+					page: { ...baseSite.page, pages: { about: { title: "About", content: "About page content" } } }
 				},
-				current: "/",
+				current: "/"
 			},
 			{
 				name: "site with multiple pages, current at root",
@@ -58,27 +39,13 @@ describe("binotype.Context.Menu", () => {
 					page: {
 						...baseSite.page,
 						pages: {
-							about: {
-								title: "About",
-								content: "About page content",
-							},
-							contact: {
-								title: "Contact Us",
-								content: "Contact page content",
-							},
-							blog: {
-								title: "Blog",
-								pages: {
-									"first-post": {
-										title: "First Post",
-										content: "Blog post content",
-									},
-								},
-							},
-						},
-					},
+							about: { title: "About", content: "About page content" },
+							contact: { title: "Contact Us", content: "Contact page content" },
+							blog: { title: "Blog", pages: { "first-post": { title: "First Post", content: "Blog post content" } } }
+						}
+					}
 				},
-				current: "/",
+				current: "/"
 			},
 			{
 				name: "site with nested pages, current at about",
@@ -87,31 +54,19 @@ describe("binotype.Context.Menu", () => {
 					page: {
 						...baseSite.page,
 						pages: {
-							about: {
-								title: "About",
-								content: "About page content",
-							},
-							contact: {
-								title: "Contact Us",
-								content: "Contact page content",
-							},
+							about: { title: "About", content: "About page content" },
+							contact: { title: "Contact Us", content: "Contact page content" },
 							blog: {
 								title: "Blog",
 								pages: {
-									"first-post": {
-										title: "First Post",
-										content: "Blog post content",
-									},
-									"second-post": {
-										title: "Second Post",
-										content: "Another blog post",
-									},
-								},
-							},
-						},
-					},
+									"first-post": { title: "First Post", content: "Blog post content" },
+									"second-post": { title: "Second Post", content: "Another blog post" }
+								}
+							}
+						}
+					}
 				},
-				current: "/about",
+				current: "/about"
 			},
 			{
 				name: "site with nested pages, current at blog post",
@@ -120,27 +75,18 @@ describe("binotype.Context.Menu", () => {
 					page: {
 						...baseSite.page,
 						pages: {
-							about: {
-								title: "About",
-								content: "About page content",
-							},
+							about: { title: "About", content: "About page content" },
 							blog: {
 								title: "Blog",
 								pages: {
-									"first-post": {
-										title: "First Post",
-										content: "Blog post content",
-									},
-									"second-post": {
-										title: "Second Post",
-										content: "Another blog post",
-									},
-								},
-							},
-						},
-					},
+									"first-post": { title: "First Post", content: "Blog post content" },
+									"second-post": { title: "Second Post", content: "Another blog post" }
+								}
+							}
+						}
+					}
 				},
-				current: "/blog/first-post",
+				current: "/blog/first-post"
 			},
 			{
 				name: "site with blocks and pages",
@@ -149,24 +95,13 @@ describe("binotype.Context.Menu", () => {
 					page: {
 						title: "Home",
 						blocks: {
-							hero: {
-								title: "Welcome",
-								content: "Hero section content",
-							},
-							features: {
-								title: "Features",
-								content: "Features section content",
-							},
+							hero: { title: "Welcome", content: "Hero section content" },
+							features: { title: "Features", content: "Features section content" }
 						},
-						pages: {
-							about: {
-								title: "About",
-								content: "About page content",
-							},
-						},
-					},
+						pages: { about: { title: "About", content: "About page content" } }
+					}
 				},
-				current: "/",
+				current: "/"
 			},
 			{
 				name: "site with menu disabled blocks",
@@ -175,26 +110,14 @@ describe("binotype.Context.Menu", () => {
 					page: {
 						title: "Home",
 						blocks: {
-							hero: {
-								title: "Welcome",
-								content: "Hero section content",
-								menu: false,
-							},
-							features: {
-								title: "Features",
-								content: "Features section content",
-							},
+							hero: { title: "Welcome", content: "Hero section content", menu: false },
+							features: { title: "Features", content: "Features section content" }
 						},
-						pages: {
-							about: {
-								title: "About",
-								content: "About page content",
-							},
-						},
-					},
+						pages: { about: { title: "About", content: "About page content" } }
+					}
 				},
-				current: "/",
-			},
+				current: "/"
+			}
 		] as const)("load('$name', '$current')", ({ site, current }) => {
 			expect(binotype.Context.Menu.load(site, current)).toMatchSnapshot()
 		})
@@ -202,30 +125,21 @@ describe("binotype.Context.Menu", () => {
 
 	describe("Menu.toObject", () => {
 		it.each([
-			{
-				name: "empty menu",
-				menu: { items: [] },
-			},
+			{ name: "empty menu", menu: { items: [] } },
 			{
 				name: "menu with items",
 				menu: {
 					items: [
-						{
-							label: "About",
-							description: "About page content",
-							url: "/about",
-							selected: undefined,
-							items: [],
-						},
+						{ label: "About", description: "About page content", url: "/about", selected: undefined, items: [] },
 						{
 							label: "Contact",
 							description: "Contact page content",
 							url: "/contact",
 							selected: "current" as const,
-							items: [],
-						},
-					],
-				},
+							items: []
+						}
+					]
+				}
 			},
 			{
 				name: "menu with nested items",
@@ -242,13 +156,13 @@ describe("binotype.Context.Menu", () => {
 									description: "Blog post content",
 									url: "/blog/first-post",
 									selected: "current" as const,
-									items: [],
-								},
-							],
-						},
-					],
-				},
-			},
+									items: []
+								}
+							]
+						}
+					]
+				}
+			}
 		] as const)("toObject('$name')", ({ menu }) => {
 			expect(binotype.Context.Menu.toObject(menu)).toMatchSnapshot()
 		})

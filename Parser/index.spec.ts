@@ -5,22 +5,16 @@ import { h } from "@stencil/core"
 import { vi, describe, it, expect, beforeEach, MockedFunction } from "vitest"
 
 // Mock the parser module
-vi.mock("@typeup/parser", () => ({
-	parser: {
-		parse: vi.fn()
-	}
-}))
+vi.mock("@typeup/parser", () => ({ parser: { parse: vi.fn() } }))
 
-const mockedParser = parser as {
-	parse: MockedFunction<typeof parser.parse>
-}
+const mockedParser = parser as { parse: MockedFunction<typeof parser.parse> }
 
 describe("binotype.Parser", () => {
 	let testParser: binotype.Parser
 	let convertFunction: MockedFunction<(content: string | dom.Block[] | undefined) => Promise<binotype.Content>>
 
 	beforeEach(() => {
-		convertFunction = vi.fn().mockImplementation(async (content) => {
+		convertFunction = vi.fn().mockImplementation(async content => {
 			if (typeof content === "string") {
 				return h("p", {}, content)
 			} else if (Array.isArray(content)) {
@@ -53,7 +47,8 @@ describe("binotype.Parser", () => {
 			},
 			{
 				description: "page with metadata",
-				content: "---\nid: blog-post\ntitle: Blog Post\nauthor: John Doe\ntags: [tech, programming]\npublished: 2024-01-01\n---\n\n## Blog Content",
+				content:
+					"---\nid: blog-post\ntitle: Blog Post\nauthor: John Doe\ntags: [tech, programming]\npublished: 2024-01-01\n---\n\n## Blog Content",
 				variables: {
 					id: "blog-post",
 					title: "Blog Post",
@@ -70,30 +65,15 @@ describe("binotype.Parser", () => {
 		] as const
 
 		const invalidInputs = [
-			{
-				description: "empty string",
-				content: ""
-			},
-			{
-				description: "malformed frontmatter",
-				content: "---\ninvalid yaml\n-"
-			},
-			{
-				description: "missing id",
-				content: "---\ntitle: No ID\n---\n\nContent"
-			},
-			{
-				description: "content without frontmatter",
-				content: "Just plain text content"
-			}
+			{ description: "empty string", content: "" },
+			{ description: "malformed frontmatter", content: "---\ninvalid yaml\n-" },
+			{ description: "missing id", content: "---\ntitle: No ID\n---\n\nContent" },
+			{ description: "content without frontmatter", content: "Just plain text content" }
 		] as const
 
 		it.each(validInputs)("should parse %s", async ({ content, variables }) => {
 			// Setup mock document with expected variables
-			const mockDoc: dom.Document = {
-				variables,
-				content: []
-			}
+			const mockDoc: dom.Document = { variables, content: [] }
 			mockedParser.parse.mockReturnValue(mockDoc)
 
 			const result = await testParser.parse(content)
@@ -136,10 +116,7 @@ describe("binotype.Parser", () => {
 		})
 
 		it("should call convert function for content", async () => {
-			const mockDoc: dom.Document = {
-				variables: { id: "test" },
-				content: "test content"
-			}
+			const mockDoc: dom.Document = { variables: { id: "test" }, content: "test content" }
 			mockedParser.parse.mockReturnValue(mockDoc)
 
 			await testParser.parse("test input")
@@ -153,12 +130,7 @@ describe("binotype.Parser", () => {
 				{
 					description: "page with nested blocks and imports",
 					document: {
-						variables: {
-							id: "complex-page",
-							title: "Complex Page",
-							draft: false,
-							published: "2024-01-01T08:00:00Z"
-						},
+						variables: { id: "complex-page", title: "Complex Page", draft: false, published: "2024-01-01T08:00:00Z" },
 						content: [
 							{ type: "block.chapter", id: "intro", content: "Introduction" },
 							{ type: "block.import", id: "external", content: "External content" }
@@ -200,10 +172,7 @@ describe("binotype.Parser", () => {
 		describe("edge cases", () => {
 			it("should handle very long content", async () => {
 				const longContent = "---\nid: long\ntitle: Long\n---\n\n" + "Lorem ipsum ".repeat(1000)
-				const mockDoc: dom.Document = {
-					variables: { id: "long", title: "Long" },
-					content: "Lorem ipsum ".repeat(1000)
-				}
+				const mockDoc: dom.Document = { variables: { id: "long", title: "Long" }, content: "Lorem ipsum ".repeat(1000) }
 				mockedParser.parse.mockReturnValue(mockDoc)
 
 				const result = await testParser.parse(longContent)

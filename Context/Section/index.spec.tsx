@@ -6,36 +6,38 @@ describe("binotype.Context.Section", () => {
 	it.each([
 		{
 			name: "basic block with all properties",
-			block: {
-				title: "Introduction",
-				content: <Fragment>This is the introduction section.</Fragment>,
-				type: "text",
-			},
-			path: Path.parse("/blog/article#intro"),
+			block: { title: "Introduction", content: <Fragment>This is the introduction section.</Fragment>, type: "text" },
+			path: Path.parse("/blog/article#intro")
 		},
 		{
 			name: "section without fragment (empty id)",
 			block: {
 				title: "Main Content",
-				content: <Fragment><p>Main content here</p></Fragment>,
+				content: (
+					<Fragment>
+						<p>Main content here</p>
+					</Fragment>
+				)
 			},
-			path: Path.parse("/blog/article"),
+			path: Path.parse("/blog/article")
 		},
 		{
 			name: "minimal section with only required properties",
-			block: {
-				content: <Fragment></Fragment>,
-			},
-			path: Path.parse("/page#section1"),
+			block: { content: <Fragment></Fragment> },
+			path: Path.parse("/page#section1")
 		},
 		{
 			name: "section with complex path",
 			block: {
 				title: "Complex Section",
-				content: <Fragment>Content with <strong class="mark">HTML</strong></Fragment>,
-				type: "html",
+				content: (
+					<Fragment>
+						Content with <strong class="mark">HTML</strong>
+					</Fragment>
+				),
+				type: "html"
 			},
-			path: Path.parse("/articles/2024/sample-post#conclusion"),
+			path: Path.parse("/articles/2024/sample-post#conclusion")
 		},
 		{
 			name: "section with nested sections",
@@ -46,18 +48,19 @@ describe("binotype.Context.Section", () => {
 					child1: {
 						title: "Child Section 1",
 						type: "text",
-						content: <Fragment>This is the first child section.</Fragment>,
+						content: <Fragment>This is the first child section.</Fragment>
 					},
 					child2: {
 						title: "Child Section 2",
 						type: "text",
-						content: <Fragment>This is the second child section.</Fragment>,
-					},
-				},
+						content: <Fragment>This is the second child section.</Fragment>
+					}
+				}
 			},
-			path: Path.parse("/blog/article#parent"),
+			path: Path.parse("/blog/article#parent")
 		}
-	] satisfies { name: string, block: binotype.Block, path: Path }[] )("load($name)", ({ block, path }) =>
-		expect(binotype.Context.Section.toObject(binotype.Context.Section.load(block as binotype.Block, path))).toMatchSnapshot()
-	)
+	] satisfies { name: string; block: binotype.Block; path: Path }[])("load($name)", ({ block, path }) =>
+		expect(
+			binotype.Context.Section.toObject(binotype.Context.Section.load(block as binotype.Block, path))
+		).toMatchSnapshot())
 })

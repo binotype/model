@@ -10,17 +10,9 @@ export interface Menu<C = Content> {
 export namespace Menu {
 	export import Item = _Item
 	export function load(site: Site, current: string): Menu {
-		return {
-			items:
-				Item.load(site.page, Path.empty, current)?.items ??
-				[],
-			depth: site.design?.menu?.depth,
-		}
+		return { items: Item.load(site.page, Path.empty, current)?.items ?? [], depth: site.design?.menu?.depth }
 	}
 	export function toObject(menu: Menu): Menu<Content.Object | Content.Object[] | null> {
-		return {
-			items: menu.items.map(Item.toObject),
-			depth: menu.depth,
-		}
+		return { items: menu.items.map(Item.toObject), depth: menu.depth }
 	}
 }

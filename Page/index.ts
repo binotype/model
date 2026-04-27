@@ -12,19 +12,22 @@ export interface Page extends Block {
 	pages?: Record<string, Page | undefined>
 }
 export namespace Page {
-	export const type: isly.Object<Page> = Block.type.extend<Page>({
-		draft: isly.boolean().optional(),
-		published: isoly.DateTime.type.optional() as any,
-		changed: isoly.DateTime.type.optional() as any,
-		tags: isly.array(isly.string()).optional(),
-		author: isly.string().optional(),
-		pages: isly
-			.record(
-				isly.string(),
-				isly.lazy<Page>((): any => Page.type, "binotype.Page")
-			)
-			.optional(),
-	}, "binotype.Page")
+	export const type: isly.Object<Page> = Block.type.extend<Page>(
+		{
+			draft: isly.boolean().optional(),
+			published: isoly.DateTime.type.optional() as any,
+			changed: isoly.DateTime.type.optional() as any,
+			tags: isly.array(isly.string()).optional(),
+			author: isly.string().optional(),
+			pages: isly
+				.record(
+					isly.string(),
+					isly.lazy<Page>((): any => Page.type, "binotype.Page")
+				)
+				.optional()
+		},
+		"binotype.Page"
+	)
 	export const { is, flawed } = type.bind()
 	export function locate(page: Page | undefined, path: Path): Page | undefined {
 		return path.empty ? page : page?.pages ? locate(page.pages[path.getId("camel")], path.tail) : undefined

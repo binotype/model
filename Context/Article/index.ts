@@ -17,26 +17,35 @@ export interface Article<C = Content> extends Section<C> {
 export namespace Article {
 	export function load(page: Page, path: Path, reduction?: Mode): Article
 	export function load(page: Page | undefined, path: Path, reduction?: Mode): Article | undefined
-	export function load(page: Record<string, Page | undefined> | undefined, path: Path, reduction?: Mode): Article[] | undefined
-	export function load(page: Page | Record<string, Page | undefined> | undefined, path: Path, reduction?: Mode): Article | Article[] | undefined {
+	export function load(
+		page: Record<string, Page | undefined> | undefined,
+		path: Path,
+		reduction?: Mode
+	): Article[] | undefined
+	export function load(
+		page: Page | Record<string, Page | undefined> | undefined,
+		path: Path,
+		reduction?: Mode
+	): Article | Article[] | undefined {
 		let result: Article | Article[] | undefined
-		if (!page)
-			result = undefined
+		if (!page) result = undefined
 		else if (Block.isBlocks(page))
 			result = page && Page.toArray(page).map(p => Article.load(p, path.appendFragment(p.id), reduction))
 		else {
-			const mode = Mode.reduce(page.mode, reduction ?? page.pages ? "list" : "full")
-			result = mode && Object.fromEntries(Object.entries({
-				...Section.load(page, path, mode),
-				author: page.author,
-				published: page.published,
-				changed: page.changed,
-				// wordCount: text ? text.split(/\s+/).length : undefined,
-				// readingTime: text ? Math.ceil(text.split(/\s+/).length / 200) : undefined,
-				...((mode == "list") ? {
-					articles: load(page.pages, path, mode),
-				} : {})
-			} satisfies Article).filter(([_, value]) => value != undefined)) as Article
+			const mode = Mode.reduce(page.mode, (reduction ?? page.pages) ? "list" : "full")
+			result =
+				mode
+				&& (Object.fromEntries(
+					Object.entries({
+						...Section.load(page, path, mode),
+						author: page.author,
+						published: page.published,
+						changed: page.changed,
+						// wordCount: text ? text.split(/\s+/).length : undefined,
+						// readingTime: text ? Math.ceil(text.split(/\s+/).length / 200) : undefined,
+						...(mode == "list" ? { articles: load(page.pages, path, mode) } : {})
+					} satisfies Article).filter(([_, value]) => value != undefined)
+				) as Article)
 		}
 		return result
 	}

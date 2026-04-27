@@ -17,22 +17,10 @@ describe("binotype.Site", () => {
 				navigation: "header",
 				styles: ["/style.css"],
 				scripts: ["/script.js"],
-				home: {
-					mode: "header",
-					section: "article",
-				},
-				list: {
-					mode: "summary",
-				},
+				home: { mode: "header", section: "article" },
+				list: { mode: "summary" }
 			},
-			page: {
-				pages: {
-					about: {
-						title: "About",
-						content: <p>About page content</p>,
-					},
-				},
-			},
+			page: { pages: { about: { title: "About", content: <p>About page content</p> } } }
 		},
 		{
 			url: "https://example.com",
@@ -40,8 +28,8 @@ describe("binotype.Site", () => {
 			title: "Minimal Site",
 			tagline: "Minimal tagline",
 			design: {},
-			page: { pages: {} },
-		},
+			page: { pages: {} }
+		}
 	])("is(%#)", value => expect(binotype.Site.is(value)).toBe(true))
 
 	it("should validate complex blog site structure", () => {
@@ -50,7 +38,8 @@ describe("binotype.Site", () => {
 			language: "en-US",
 			title: "Sample Blog",
 			tagline: "your tagline here",
-			description: "Sample blog containing articles on various topics.\nArticles convey experiences and insights from professional work.",
+			description:
+				"Sample blog containing articles on various topics.\nArticles convey experiences and insights from professional work.",
 			keywords: ["blog", "personal", "tech", "programming"],
 			author: "Your Name",
 			design: {
@@ -59,13 +48,8 @@ describe("binotype.Site", () => {
 				styles: ["/assets/css/reset.css", "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css"],
 				scripts: ["//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"],
 				navigation: "header",
-				list: {
-					mode: "header",
-				},
-				home: {
-					mode: "header",
-					section: "article",
-				},
+				list: { mode: "header" },
+				home: { mode: "header", section: "article" }
 			},
 			page: {
 				pages: {
@@ -84,7 +68,7 @@ describe("binotype.Site", () => {
 											<p>This is a sample quote for demonstration purposes.</p>
 										</blockquote>
 									</Fragment>
-								),
+								)
 							},
 							"another-sample": {
 								published: "2024-01-15T16:12:00+02:00",
@@ -96,15 +80,15 @@ describe("binotype.Site", () => {
 										<h2>Sample Section</h2>
 										<p>Excepteur sint occaecat cupidatat non proident.</p>
 									</Fragment>
-								),
+								)
 							},
 							"draft-post": {
 								draft: true,
 								tags: ["draft"],
 								title: "Draft Post",
-								content: <p>This is a draft post placeholder.</p>,
-							},
-						},
+								content: <p>This is a draft post placeholder.</p>
+							}
+						}
 					},
 					home: {
 						title: "Home",
@@ -113,7 +97,7 @@ describe("binotype.Site", () => {
 								title: "Welcome to My Blog",
 								menu: false,
 								weight: 0,
-								content: <p>This is the home page of my sample blog.</p>,
+								content: <p>This is the home page of my sample blog.</p>
 							},
 							section2: {
 								title: "Latest Articles",
@@ -122,13 +106,17 @@ describe("binotype.Site", () => {
 									<Fragment>
 										<p>Check out the latest articles below:</p>
 										<ul>
-											<li><a href="/article/sample-post">Sample Post</a></li>
-											<li><a href="/article/another-sample">Another Sample Post</a></li>
+											<li>
+												<a href="/article/sample-post">Sample Post</a>
+											</li>
+											<li>
+												<a href="/article/another-sample">Another Sample Post</a>
+											</li>
 										</ul>
 									</Fragment>
-								),
-							},
-						},
+								)
+							}
+						}
 					},
 					about: {
 						title: "About",
@@ -136,9 +124,11 @@ describe("binotype.Site", () => {
 							<Fragment>
 								<p>I am [Your Name], and I create things.</p>
 								<p>I live in [Your City], [Your Country] with my family.</p>
-								<p>You can find out more about me on <a href="#">LinkedIn</a> and on <a href="#">GitHub</a>.</p>
+								<p>
+									You can find out more about me on <a href="#">LinkedIn</a> and on <a href="#">GitHub</a>.
+								</p>
 							</Fragment>
-						),
+						)
 					},
 					contact: {
 						title: "Contact",
@@ -157,10 +147,10 @@ describe("binotype.Site", () => {
 									<button type="submit">Send</button>
 								</form>
 							</Fragment>
-						),
-					},
-				},
-			},
+						)
+					}
+				}
+			}
 		}
 
 		expect(binotype.Site.is(complexBlog)).toBe(true)

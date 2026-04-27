@@ -14,7 +14,10 @@ export class Path {
 		return new Path(this.parts.slice(1))
 	}
 	readonly fragment?: string
-	private constructor(private readonly parts: string[], fragment?: string) {
+	private constructor(
+		private readonly parts: string[],
+		fragment?: string
+	) {
 		this.fragment = fragment
 	}
 	getId(casing: "snake" | "camel" = "snake"): string {
@@ -41,7 +44,7 @@ export class Path {
 	}
 	static getId(id: string, casing: "snake" | "camel" = "snake"): string {
 		return casing == "snake"
-			? id
+			? (id
 					.replace(/([a-z0-9])([A-Z])/g, "$1-$2")
 					.replace(/([A-Z])([A-Z][a-z])/g, "$1-$2")
 					.toLowerCase()
@@ -49,7 +52,7 @@ export class Path {
 					.replace(/[\u0300-\u036f]/g, "")
 					.replace(/[^a-z0-9-]+/g, "-")
 					.replace(/-+/g, "-")
-					.replace(/^-+|-+$/g, "") ?? "untitled"
+					.replace(/^-+|-+$/g, "") ?? "untitled")
 			: id.toLowerCase().replace(/-([a-z])/g, (_, letter) => letter.toUpperCase())
 	}
 	static absolutify(path: string): string {
@@ -60,20 +63,19 @@ export class Path {
 	}
 }
 export namespace Path {
-	export const type = isly
-		.object<Path>(
-			{
-				empty: isly.boolean().readonly(),
-				leaf: isly.boolean().readonly(),
-				head: isly.string().optional().readonly(),
-				tail: isly.any().readonly(),
-				fragment: isly.string().optional().readonly(),
-				getId: isly.function(),
-				append: isly.function(),
-				appendFragment: isly.function(),
-				toString: isly.function(),
-			},
-			"binotype.Path"
-		)
+	export const type = isly.object<Path>(
+		{
+			empty: isly.boolean().readonly(),
+			leaf: isly.boolean().readonly(),
+			head: isly.string().optional().readonly(),
+			tail: isly.any().readonly(),
+			fragment: isly.string().optional().readonly(),
+			getId: isly.function(),
+			append: isly.function(),
+			appendFragment: isly.function(),
+			toString: isly.function()
+		},
+		"binotype.Path"
+	)
 	export const { is, flawed } = type.bind()
 }

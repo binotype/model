@@ -2,9 +2,7 @@
 	"compilerOptions": {
 		// https://www.totaltypescript.com/tsconfig-cheat-sheet
 		/* transpiling */
-		"lib": [
-			"ES2023"
-		],
+		"lib": ["ES2023"],
 		/* Output */
 		"moduleResolution": "bundler",
 		"module": "ESNext",
@@ -29,20 +27,13 @@
 		"noErrorTruncation": true,
 		"preserveConstEnums": true,
 		/* Testing */
-		"types": [
-			"vitest/globals"
-		],
+		"types": ["vitest/globals"],
 		"jsx": "react",
 		"jsxFactory": "h",
 		"jsxFragmentFactory": "h.Fragment"
 	},
-	"include": [
-		"**/*.spec.ts",
-		"**/*.spec.tsx",
-	],
-	"files": [
-		"index.ts"
-	],
+	"include": ["**/*.spec.ts", "**/*.spec.tsx"],
+	"files": ["index.ts"],
 	"typeAcquisition": {
 		"enable": true
 	}

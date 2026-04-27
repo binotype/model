@@ -31,8 +31,8 @@
 		"release": true
 	},
 	"scripts": {
-		"lint": "eslint --max-warnings=0 '**/*.{ts,tsx}'",
-		"fix": "eslint '**/*.{ts,tsx}' --fix",
+		"lint": "biome format .",
+		"format": "biome format --write .",
 		"prebuild": "rimraf dist/*",
 		"build": "tsc -p tsconfig.build.json",
 		"test": "vitest --run",
@@ -42,23 +42,17 @@
 		"verify": "npm run build && npm run test && npm run lint && npm --omit=dev audit"
 	},
 	"devDependencies": {
-		"@types/node": "^25.6.0",
-		"@typescript-eslint/eslint-plugin": "8.59.0",
-		"@typescript-eslint/parser": "8.59.0",
 		"@vitest/coverage-v8": "^4.1.5",
-		"eslint": "^10.2.1",
-		"eslint-plugin-prettier": "",
-		"eslint-plugin-simple-import-sort": "^13.0.0",
-		"prettier": "",
 		"rimraf": "^6.1.3",
 		"typescript": "^6.0.3",
 		"vite": "^8.0.10",
-		"vitest": "^4.1.5"
+		"vitest": "^4.1.5",
+		"@biomejs/biome": "^2.4.13"
 	},
 	"dependencies": {
 		"@stencil/core": "^4.43.4",
-		"@typeup/dom": "^1.0.10",
-		"@typeup/parser": "^1.2.4",
+		"@typeup/dom": "1.0.11-beta.3",
+		"@typeup/parser": "1.2.5-beta.2",
 		"isly": "1.8.0",
 		"isoly": "3.1.8"
 	}

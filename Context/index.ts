@@ -36,50 +36,43 @@ export class Context {
 	private _article: Context.Article | undefined
 	get article(): Context.Article | undefined {
 		return (this._article ??=
-			this.load(this.path) ??
-			Context.Article.load(
-				{
-					title: "Not Found",
-					content: undefined,
-				},
-				this.path,
-				"full",
-			))
+			this.load(this.path) ?? Context.Article.load({ title: "Not Found", content: undefined }, this.path, "full"))
 	}
-	private constructor(private readonly site: Site, path: Path | string) {
+	private constructor(
+		private readonly site: Site,
+		path: Path | string
+	) {
 		this.path = typeof path == "string" ? Path.parse(path) : path
 	}
-	load(
-		path: Path | string | undefined,
-		mode: Mode = "full",
-		count?: number
-	): Context.Article | undefined {
-		if (!(path instanceof Path))
-			path = Path.parse(path ?? "")
-		if (path.empty && this.site.design.home?.section)
-			path = Path.parse(this.site.design.home.section)
+	load(path: Path | string | undefined, mode: Mode = "full", count?: number): Context.Article | undefined {
+		if (!(path instanceof Path)) path = Path.parse(path ?? "")
+		if (path.empty && this.site.design.home?.section) path = Path.parse(this.site.design.home.section)
 		const page = Page.locate(this.site.page, path)
 		return (
-			page &&
-			Context.Article.load(
-				page, path, mode,
-//				this.site.design,
-//				count
+			page
+			&& Context.Article.load(
+				page,
+				path,
+				mode
+				//				this.site.design,
+				//				count
 			)
 		)
 	}
 	toJSON() {
-		return Object.fromEntries(Object.entries({
-			title: this.title,
-			tagline: this.tagline,
-			image: this.image,
-			description: this.description,
-			base: this.base,
-			url: this.url,
-			design: this.design,
-			menu: Context.Menu.toObject(this.menu),
-			article: this.article && Context.Article.toObject(this.article),
-		}).filter(([_, value]) => value !== undefined))
+		return Object.fromEntries(
+			Object.entries({
+				title: this.title,
+				tagline: this.tagline,
+				image: this.image,
+				description: this.description,
+				base: this.base,
+				url: this.url,
+				design: this.design,
+				menu: Context.Menu.toObject(this.menu),
+				article: this.article && Context.Article.toObject(this.article)
+			}).filter(([_, value]) => value !== undefined)
+		)
 	}
 	static create(site: Site, path: Path | string): Context {
 		return new Context(site, path)

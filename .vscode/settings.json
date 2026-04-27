@@ -1,48 +1,46 @@
 {
-	"files.exclude": {
-		".*": true,
-		"*.json": true,
-		"CODEOWNERS": true,
-		"dist": true,
-		"README.md": true,
-		"LICENSE": true,
-		"tsconfig.*": true,
-		"node_modules": true,
-		"*.code-workspace": true,
-		"*.config.js": true,
-		"*.config.ts": true,
-		"coverage": true
-	},
-	"search.exclude": {
-		".*": false,
-		"*.json": false,
-		"CODEOWNERS": false,
-		"dist": false,
-		"README.md": false,
-		"LICENSE": false,
-		"tsconfig.*": false,
-		"node_modules": false,
-		"*.code-workspace": false,
-		"*.config.js": false,
-		"*.config.ts": false,
-		"coverage": false
-	},
-	"files.insertFinalNewline": true,
-	"editor.tabSize": 2,
-	"editor.detectIndentation": false,
-	"editor.insertSpaces": false,
+	"search.exclude": {},
 	"editor.formatOnSave": true,
-	"editor.formatOnPaste": true,
-	"editor.codeActionsOnSave": {
-		"source.fixAll.eslint": "explicit",
-		"eslint.autoFixOnSave": "explicit"
+	"[javascript]": {
+		"editor.defaultFormatter": "biomejs.biome"
 	},
-	"eslint.format.enable": true,
-	"eslint.lintTask.enable": true,
+	"[javascriptreact]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"[markdown]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	},
+	"markdown.format.codeBlocks": true,
+	"files.exclude": {
+		".vscode": true,
+		".editorconfig": true,
+		"biome.json": true,
+		"tsconfig.*": true,
+		"package.json": true,
+		"package-lock.json": true,
+		"*.config.ts": true,
+		"dist": true,
+		"coverage": true,
+		".copilot": true,
+		".github": true,
+		"LICENSE": true,
+		".*": true,
+		"node_modules": true
+	},
 	"cSpell.words": [
-		"absolutify",
 		"authly",
-		"binotype",
 		"cloudly",
 		"cryptly",
 		"flagly",
@@ -50,6 +48,7 @@
 		"isly",
 		"isoly",
 		"langly",
+		"mendly",
 		"paramly",
 		"persistly",
 		"selectivly",
@@ -59,6 +58,8 @@
 		"tidily",
 		"transactly",
 		"typedly",
-		"uply"
-	]
+		"uply",
+		"Utily"
+	],
+	"ts.tsdk": "node_modules/typescript/lib"
 }

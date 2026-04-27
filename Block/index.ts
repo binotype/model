@@ -17,33 +17,38 @@ export interface Block {
 	blocks?: Record<string, Block>
 }
 export namespace Block {
-	export const type = isly
-		.object<Block>(
-			{
-				weight: isly.number().optional(),
-				title: Title.type.optional(),
-				subtitle: Content.type.optional(),
-				meta: Meta.type.optional(),
-				mode: Mode.type.optional(),
-				type: isly.string().optional(),
-				class: isly.array(isly.string()).optional(),
-				menu: isly.boolean(false).optional(),
-				content: Content.type.optional(),
-				blocks: isly.record(isly.string(), isly.lazy((): any => Block.type, "binotype.Block")).optional(),
-			},
-			"binotype.Block"
-		)
+	export const type = isly.object<Block>(
+		{
+			weight: isly.number().optional(),
+			title: Title.type.optional(),
+			subtitle: Content.type.optional(),
+			meta: Meta.type.optional(),
+			mode: Mode.type.optional(),
+			type: isly.string().optional(),
+			class: isly.array(isly.string()).optional(),
+			menu: isly.boolean(false).optional(),
+			content: Content.type.optional(),
+			blocks: isly
+				.record(
+					isly.string(),
+					isly.lazy((): any => Block.type, "binotype.Block")
+				)
+				.optional()
+		},
+		"binotype.Block"
+	)
 	export const { is, flawed } = type.bind()
-	export function toArray<R extends { weight?: number } = Block>(blocks: Record<string, R | undefined> | undefined): (R & { id: string })[] {
+	export function toArray<R extends { weight?: number } = Block>(
+		blocks: Record<string, R | undefined> | undefined
+	): (R & { id: string })[] {
 		return Object.entries(blocks ?? {})
 			.filter((entry): entry is [string, R] => entry[1] != undefined)
 			.map(([id, block]) => ({ ...block, id }))
-			.sort(
-				(left, right) =>
-					(left.weight ?? 100) - (right.weight ?? 100)
-			)
+			.sort((left, right) => (left.weight ?? 100) - (right.weight ?? 100))
 	}
-	export function isBlocks(block: Block | Record<string, Block | undefined> | undefined): block is Record<string, Block | undefined> {
+	export function isBlocks(
+		block: Block | Record<string, Block | undefined> | undefined
+	): block is Record<string, Block | undefined> {
 		return block != undefined && Object.values(block).every(b => typeof b == "object")
 	}
 }

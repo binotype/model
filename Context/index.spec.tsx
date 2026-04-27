@@ -16,24 +16,11 @@ describe("binotype.Context", () => {
 			navigation: "header",
 			styles: ["/style.css"],
 			scripts: ["/script.js"],
-			home: {
-				mode: "header",
-				section: "article",
-			},
-			list: {
-				mode: "summary",
-			},
+			home: { mode: "header", section: "article" },
+			list: { mode: "summary" }
 		},
-		page: {
-			pages: {
-				about: {
-					title: "About",
-					content: <p>About page content</p>,
-				},
-			},
-		},
+		page: { pages: { about: { title: "About", content: <p>About page content</p> } } }
 	}
 	it.each(["/", "/about", "/nonexistent", "invalid-path"] as const)("create(site, %s)", path =>
-		expect(binotype.Context.create(site, path)).toMatchSnapshot()
-	)
+		expect(binotype.Context.create(site, path)).toMatchSnapshot())
 })
