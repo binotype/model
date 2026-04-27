@@ -1,7 +1,6 @@
 ---
-title: "Coding Guidelines Index"
+## title: "Coding Guidelines Index"
 description: "Quick reference for finding the right coding guidelines"
----
 
 # Coding Guidelines
 
