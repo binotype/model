@@ -6,14 +6,14 @@ import { parser } from "@typeup/parser"
 import { Block } from "../Block"
 import { Meta } from "../Meta"
 
-export class Parser {
-	constructor(private convert: (content: string | dom.Block[] | undefined) => Promise<Content>) {}
-	async import(type: "block", node: dom.Block.Section): Promise<Block & { id: string }>
-	async import(type: "page", node: dom.Document): Promise<Page & { id: string }>
+export class Parser<Node> {
+	constructor(private convert: (content: string | dom.Block[] | undefined) => Promise<Content<Node>>) {}
+	async import(type: "block", node: dom.Block.Section): Promise<Block<Node> & { id: string }>
+	async import(type: "page", node: dom.Document): Promise<Page<Node> & { id: string }>
 	async import(
 		type: "block" | "page",
 		node: dom.Block.Section | dom.File
-	): Promise<(Block & { id: string }) | (Page & { id: string })> {
+	): Promise<(Block<Node> & { id: string }) | (Page<Node> & { id: string })> {
 		const properties = {
 			block: ["id", "weight", "title", "subtitle", "mode", "type", "class"],
 			page: ["draft", "published", "changed", "tags", "author"]
@@ -71,11 +71,11 @@ export class Parser {
 				: {})
 		}
 	}
-	async parse(content: string): Promise<(Page & { id: string }) | undefined> {
+	async parse(content: string): Promise<(Page<Node> & { id: string }) | undefined> {
 		const document = parser.parse(content)
 		return document && this.import("page", document)
 	}
-	async open(path: string): Promise<(Page & { id: string }) | undefined> {
+	async open(path: string): Promise<(Page<Node> & { id: string }) | undefined> {
 		const document = parser.open(path)
 		return document && this.import("page", document)
 	}

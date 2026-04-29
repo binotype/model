@@ -1,0 +1,106 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`binotype.Context.Section > Section.convert > should convert Section to object 1`] = `
+{
+  "class": [
+    "main",
+  ],
+  "content": "Block content",
+  "id": "",
+  "link": "/b1",
+  "meta": {},
+  "mode": "full",
+  "sections": undefined,
+  "subtitle": undefined,
+  "title": {
+    "formatted": "[]",
+    "plain": "[]",
+  },
+}
+`;
+
+exports[`binotype.Context.Section > Section.load > should handle blocks as record 1`] = `
+[
+  {
+    "class": [
+      "main",
+    ],
+    "content": "Block content 1",
+    "id": "b1",
+    "link": "/#b1",
+    "meta": {},
+    "mode": "full",
+    "title": {
+      "formatted": "[b1]",
+      "plain": "[b1]",
+    },
+  },
+  {
+    "class": [
+      "side",
+    ],
+    "content": "Block content 2",
+    "id": "b2",
+    "link": "/#b2",
+    "meta": {},
+    "mode": "full",
+    "title": {
+      "formatted": "[b2]",
+      "plain": "[b2]",
+    },
+  },
+]
+`;
+
+exports[`binotype.Context.Section > Section.load > should handle reduction mode 1`] = `
+{
+  "class": [
+    "main",
+  ],
+  "content": "Block content",
+  "id": "",
+  "link": "/b1",
+  "meta": {},
+  "mode": "list",
+  "title": {
+    "formatted": "[]",
+    "plain": "[]",
+  },
+}
+`;
+
+exports[`binotype.Context.Section > Section.load > should handle simple block object 1`] = `
+{
+  "class": [
+    "main",
+  ],
+  "content": "Block content",
+  "id": "",
+  "link": "/b1",
+  "meta": {},
+  "mode": "full",
+  "title": {
+    "formatted": "[]",
+    "plain": "[]",
+  },
+}
+`;
+
+exports[`binotype.Context.Section > Section.toObject > should convert Section to object 1`] = `
+{
+  "class": [
+    "main",
+  ],
+  "content": {},
+  "id": "",
+  "link": "/b1",
+  "meta": {},
+  "mode": "full",
+  "sections": undefined,
+  "subtitle": undefined,
+  "title": {
+    "formatted": "[]",
+    "plain": "[]",
+  },
+}
+`;

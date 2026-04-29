@@ -1,5 +1,64 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`binotype.Context.Menu > Menu.convert > convert(''empty menu'') 1`] = `
+{
+  "depth": undefined,
+  "items": [],
+}
+`;
+
+exports[`binotype.Context.Menu > Menu.convert > convert(''menu with items'') 1`] = `
+{
+  "depth": undefined,
+  "items": [
+    {
+      "description": "About page content",
+      "items": [],
+      "label": "About",
+      "selected": undefined,
+      "url": "/about",
+    },
+    {
+      "description": "Contact page content",
+      "items": [],
+      "label": "Contact",
+      "selected": "current",
+      "url": "/contact",
+    },
+  ],
+}
+`;
+
+exports[`binotype.Context.Menu > Menu.convert > convert(''menu with nested items'') 1`] = `
+{
+  "depth": undefined,
+  "items": [
+    {
+      "description": "Blog section",
+      "items": [
+        {
+          "description": "Blog post content",
+          "items": [],
+          "label": "First Post",
+          "selected": "current",
+          "url": "/blog/first-post",
+        },
+      ],
+      "label": "Blog",
+      "selected": "parent",
+      "url": "/blog",
+    },
+  ],
+}
+`;
+
+exports[`binotype.Context.Menu > Menu.convert > toObject(''empty menu'') 1`] = `
+{
+  "depth": undefined,
+  "items": [],
+}
+`;
+
 exports[`binotype.Context.Menu > Menu.load > load(''empty site'', ''/'') 1`] = `
 {
   "depth": undefined,

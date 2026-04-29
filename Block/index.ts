@@ -4,41 +4,42 @@ import { Meta } from "../Meta"
 import { Mode } from "../Mode"
 import { Content } from "../Content"
 
-export interface Block {
+export interface Block<Node> {
 	weight?: number
-	title?: Title
-	subtitle?: Content
+	title?: Title<Node>
+	subtitle?: Content<Node>
 	meta?: Meta
 	mode?: Mode
 	type?: string
 	class?: string[]
 	menu?: false
-	content?: Content
-	blocks?: Record<string, Block>
+	content?: Content<Node>
+	blocks?: Record<string, Block<Node> | undefined>
 }
 export namespace Block {
-	export const type = isly.object<Block>(
-		{
-			weight: isly.number().optional(),
-			title: Title.type.optional(),
-			subtitle: Content.type.optional(),
-			meta: Meta.type.optional(),
-			mode: Mode.type.optional(),
-			type: isly.string().optional(),
-			class: isly.array(isly.string()).optional(),
-			menu: isly.boolean(false).optional(),
-			content: Content.type.optional(),
-			blocks: isly
-				.record(
-					isly.string(),
-					isly.lazy((): any => Block.type, "binotype.Block")
-				)
-				.optional()
-		},
-		"binotype.Block"
-	)
-	export const { is, flawed } = type.bind()
-	export function toArray<R extends { weight?: number } = Block>(
+	export function getType<Node>(nodeType: isly.Type<Node>): isly.Object<Block<Node>> {
+		return isly.object<Block<Node>>(
+			{
+				weight: isly.number().optional(),
+				title: Title.getType<Node>(nodeType).optional(),
+				subtitle: Content.getType<Node>(nodeType).optional(),
+				meta: Meta.type.optional(),
+				mode: Mode.type.optional(),
+				type: isly.string().optional(),
+				class: isly.array(isly.string()).optional(),
+				menu: isly.boolean(false).optional(),
+				content: Content.getType<Node>(nodeType).optional(),
+				blocks: isly
+					.record(
+						isly.string(),
+						isly.lazy((): any => Block.getType(nodeType), "binotype.Block")
+					)
+					.optional()
+			},
+			"binotype.Block<Node>"
+		)
+	}
+	export function toArray<Node, R extends Block<Node> = Block<Node>>(
 		blocks: Record<string, R | undefined> | undefined
 	): (R & { id: string })[] {
 		return Object.entries(blocks ?? {})
@@ -46,9 +47,9 @@ export namespace Block {
 			.map(([id, block]) => ({ ...block, id }))
 			.sort((left, right) => (left.weight ?? 100) - (right.weight ?? 100))
 	}
-	export function isBlocks(
-		block: Block | Record<string, Block | undefined> | undefined
-	): block is Record<string, Block | undefined> {
+	export function isBlocks<Node>(
+		block: Block<Node> | Record<string, Block<Node> | undefined> | undefined
+	): block is Record<string, Block<Node> | undefined> {
 		return block != undefined && Object.values(block).every(b => typeof b == "object")
 	}
 }

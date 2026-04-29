@@ -1,7 +1,7 @@
 import { binotype } from "../../index"
 
 describe("binotype.Context.Menu", () => {
-	const baseSite: binotype.Site = {
+	const baseSite: binotype.Site<string> = {
 		url: "https://example.com",
 		language: "en-US",
 		title: "Test Site",
@@ -20,7 +20,6 @@ describe("binotype.Context.Menu", () => {
 		},
 		page: { title: "Home" }
 	}
-
 	describe("Menu.load", () => {
 		it.each([
 			{ name: "empty site", site: baseSite, current: "/" },
@@ -118,12 +117,12 @@ describe("binotype.Context.Menu", () => {
 				},
 				current: "/"
 			}
-		] as const)("load('$name', '$current')", ({ site, current }) => {
-			expect(binotype.Context.Menu.load(site, current)).toMatchSnapshot()
-		})
+		] satisfies { name: string; site: binotype.Site<string>; current: string }[])("load('$name', '$current')", ({
+			site,
+			current
+		}) => expect(binotype.Context.Menu.load(site, current)).toMatchSnapshot())
 	})
-
-	describe("Menu.toObject", () => {
+	describe("Menu.convert", () => {
 		it.each([
 			{ name: "empty menu", menu: { items: [] } },
 			{
@@ -163,8 +162,7 @@ describe("binotype.Context.Menu", () => {
 					]
 				}
 			}
-		] as const)("toObject('$name')", ({ menu }) => {
-			expect(binotype.Context.Menu.toObject(menu)).toMatchSnapshot()
-		})
+		] satisfies { name: string; menu: binotype.Context.Menu<string> }[])("convert('$name')", ({ menu }) =>
+			expect(binotype.Context.Menu.convert(menu, node => node)).toMatchSnapshot())
 	})
 })

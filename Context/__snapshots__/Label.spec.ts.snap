@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`binotype.Context.Label > Label.get > should return a Label for a valid Title 1`] = `
+{
+  "formatted": "Long",
+  "plain": "Short",
+}
+`;

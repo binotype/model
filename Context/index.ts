@@ -9,7 +9,7 @@ import { Label as _Label } from "./Label"
 import { Menu as _Menu } from "./Menu"
 import { Section as _Section } from "./Section"
 
-export class Context {
+export class Context<Node> {
 	path: Path
 	get title(): string {
 		return this.site.title
@@ -29,22 +29,22 @@ export class Context {
 	get design(): Design {
 		return this.site.design
 	}
-	private _menu: Context.Menu | undefined
-	get menu(): Context.Menu {
+	private _menu: Context.Menu<Node> | undefined
+	get menu(): Context.Menu<Node> {
 		return (this._menu ??= Context.Menu.load(this.site, this.path.toString()))
 	}
-	private _article: Context.Article | undefined
-	get article(): Context.Article | undefined {
+	private _article: Context.Article<Node> | undefined
+	get article(): Context.Article<Node> | undefined {
 		return (this._article ??=
-			this.load(this.path) ?? Context.Article.load({ title: "Not Found", content: undefined }, this.path, "full"))
+			this.load(this.path) ?? Context.Article.load<Node>({ title: "Not Found", content: undefined }, this.path, "full"))
 	}
 	private constructor(
-		private readonly site: Site,
+		private readonly site: Site<Node>,
 		path: Path | string
 	) {
 		this.path = typeof path == "string" ? Path.parse(path) : path
 	}
-	load(path: Path | string | undefined, mode: Mode = "full", count?: number): Context.Article | undefined {
+	load(path: Path | string | undefined, mode: Mode = "full", count?: number): Context.Article<Node> | undefined {
 		if (!(path instanceof Path)) path = Path.parse(path ?? "")
 		if (path.empty && this.site.design.home?.section) path = Path.parse(this.site.design.home.section)
 		const page = Page.locate(this.site.page, path)
@@ -54,8 +54,8 @@ export class Context {
 				page,
 				path,
 				mode
-				//				this.site.design,
-				//				count
+				// this.site.design,
+				// count
 			)
 		)
 	}
@@ -69,12 +69,12 @@ export class Context {
 				base: this.base,
 				url: this.url,
 				design: this.design,
-				menu: Context.Menu.toObject(this.menu),
-				article: this.article && Context.Article.toObject(this.article)
+				menu: Context.Menu.convert(this.menu, node => node),
+				article: this.article && Context.Article.convert(this.article, node => node)
 			}).filter(([_, value]) => value !== undefined)
 		)
 	}
-	static create(site: Site, path: Path | string): Context {
+	static create<Node>(site: Site<Node>, path: Path | string): Context<Node> {
 		return new Context(site, path)
 	}
 }

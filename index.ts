@@ -9,6 +9,10 @@ import { Parser as _Parser } from "./Parser"
 import { Path as _Path } from "./Path"
 import { Site as _Site } from "./Site"
 import { Title as _Title } from "./Title"
+import { Section as _Section } from "./Context/Section"
+import { Article as _Article } from "./Context/Article"
+import { Menu as _Menu } from "./Context/Menu"
+import { Label as _Label } from "./Context/Label"
 
 export namespace binotype {
 	export import Block = _Block
@@ -22,4 +26,8 @@ export namespace binotype {
 	export import Path = _Path
 	export import Site = _Site
 	export import Title = _Title
+	export import Section = _Section
+	export import Article = _Article
+	export import Menu = _Menu
+	export import Label = _Label
 }

@@ -1,0 +1,96 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`binotype.Context.Article > Article.convert > should convert Article to object 1`] = `
+{
+  "articles": undefined,
+  "class": [],
+  "content": "Test content",
+  "id": "",
+  "link": "/p1",
+  "meta": {},
+  "mode": "full",
+  "sections": undefined,
+  "subtitle": undefined,
+  "title": {
+    "formatted": "[]",
+    "plain": "[]",
+  },
+}
+`;
+
+exports[`binotype.Context.Article > Article.load > should handle page with articles array 1`] = `
+[
+  {
+    "class": [],
+    "content": "Test content 1",
+    "id": "p1",
+    "link": "/#p1",
+    "meta": {},
+    "mode": "full",
+    "title": {
+      "formatted": "[p1]",
+      "plain": "[p1]",
+    },
+  },
+  {
+    "class": [],
+    "content": "Test content 2",
+    "id": "p2",
+    "link": "/#p2",
+    "meta": {},
+    "mode": "full",
+    "title": {
+      "formatted": "[p2]",
+      "plain": "[p2]",
+    },
+  },
+]
+`;
+
+exports[`binotype.Context.Article > Article.load > should handle reduction mode 1`] = `
+{
+  "class": [],
+  "content": "Test content",
+  "id": "",
+  "link": "/p1",
+  "meta": {},
+  "mode": "full",
+  "title": {
+    "formatted": "[]",
+    "plain": "[]",
+  },
+}
+`;
+
+exports[`binotype.Context.Article > Article.load > should handle simple page object 1`] = `
+{
+  "class": [],
+  "content": "Test content",
+  "id": "",
+  "link": "/p1",
+  "meta": {},
+  "mode": "full",
+  "title": {
+    "formatted": "[]",
+    "plain": "[]",
+  },
+}
+`;
+
+exports[`binotype.Context.Article > Article.toObject > should convert Article to object 1`] = `
+{
+  "articles": undefined,
+  "class": [],
+  "content": {},
+  "id": "",
+  "link": "/p1",
+  "meta": {},
+  "mode": "full",
+  "sections": undefined,
+  "subtitle": undefined,
+  "title": {
+    "formatted": "[]",
+    "plain": "[]",
+  },
+}
+`;

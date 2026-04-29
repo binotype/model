@@ -1,0 +1,42 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`binotype.Content.Object > should convert a simple node to object 1`] = `
+{
+  "key": "k1",
+  "name": "main",
+  "tag": "div",
+  "text": "Hello",
+}
+`;
+
+exports[`binotype.Content.Object > should filter out undefined/null attributes 1`] = `
+{
+  "attributes": {
+    "a": 1,
+  },
+  "tag": "span",
+  "text": "Test",
+}
+`;
+
+exports[`binotype.Content.Object > should handle children recursively 1`] = `
+{
+  "attributes": {
+    "class": "list",
+  },
+  "children": [
+    {
+      "key": "c1",
+      "tag": "li",
+      "text": "Item 1",
+    },
+    {
+      "key": "c2",
+      "tag": "li",
+      "text": "Item 2",
+    },
+  ],
+  "key": "k2",
+  "tag": "ul",
+}
+`;

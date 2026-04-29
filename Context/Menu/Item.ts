@@ -4,44 +4,44 @@ import { Page } from "../../Page"
 import { Path } from "../../Path"
 import { Title } from "../../Title"
 
-export interface Item<C = Content> {
+export interface Item<Node = any> {
 	label: string
-	description: C
+	description: Content<Node>
 	url: string
 	selected: "current" | "parent" | undefined
-	items: Item<C>[]
+	items: Item<Node>[]
 }
 export namespace Item {
-	export function load(block: Block, path: Path, current: string): Item
-	export function load(block: Block | undefined, path: Path, current: string): Item | undefined
-	export function load(
-		block: Record<string, Block | undefined>,
+	export function load<Node = any>(block: Block<Node>, path: Path, current: string): Item<Node>
+	export function load<Node = any>(block: Block<Node> | undefined, path: Path, current: string): Item<Node> | undefined
+	export function load<Node = any>(
+		block: Record<string, Block<Node> | undefined>,
 		path: Path,
 		current: string,
 		type?: "block" | "page"
-	): Item[]
-	export function load(
-		block: Record<string, Block | undefined> | undefined,
+	): Item<Node>[]
+	export function load<Node = any>(
+		block: Record<string, Block<Node> | undefined> | undefined,
 		path: Path,
 		current: string,
 		type?: "block" | "page"
-	): Item[] | undefined
-	export function load(
-		block: Block | Record<string, Block | undefined> | undefined,
+	): Item<Node>[] | undefined
+	export function load<Node = any>(
+		block: Block<Node> | Record<string, Block<Node> | undefined> | undefined,
 		path: Path,
 		current: string,
 		type?: "block" | "page"
-	): Item | Item[] | undefined {
+	): Item<Node> | Item<Node>[] | undefined {
 		return !block
 			? undefined
-			: Block.isBlocks(block)
-				? (type == "block" ? Block.toArray<Block>(block) : Page.toArray(block))
-						.map(p => Item.load(p, type == "block" ? path.appendFragment(p.id) : path.append(p.id), current))
-						.filter((item): item is Item => item != undefined)
-				: block.menu === undefined
+			: Block.isBlocks<Node>(block)
+				? (type == "block" ? Block.toArray<Node>(block) : Page.toArray(block))
+						.map(p => Item.load<Node>(p, type == "block" ? path.appendFragment(p.id) : path.append(p.id), current))
+						.filter((item): item is Item<Node> => item != undefined)
+				: (block as Block<Node>).menu === undefined
 					? {
-							label: Title.get(block.title, "short"),
-							description: Title.get(block.title, "long-short"),
+							label: Title.get((block as Block<Node>).title, "short"),
+							description: Title.get((block as Block<Node>).title, "long-short") as Content<Node>,
 							url: path.toString(),
 							selected:
 								current == path.toString()
@@ -50,17 +50,17 @@ export namespace Item {
 										? "parent"
 										: undefined,
 							items: [
-								...(load(block.blocks, path, current, "block") ?? []),
-								...(Page.hasPages(block) ? load(block.pages, path, current, "page") : [])
+								...(load<Node>((block as Block<Node>).blocks, path, current, "block") ?? []),
+								...(Page.hasPages(block as any) ? load<Node>((block as any).pages, path, current, "page") : [])
 							]
 						}
 					: undefined
 	}
-	export function toObject(item: Item): Item<Content.Object | Content.Object[] | null> {
+	export function convert<Node, Target>(item: Item<Node>, convert: (node: Node) => Target): Item<Content<Target>> {
 		return {
 			...item,
-			description: item.description && Content.to(item.description),
-			items: item.items && item.items.map(Item.toObject)
+			description: item.description && Content.convert(item.description, convert),
+			items: item.items && item.items.map(i => Item.convert(i, convert))
 		}
 	}
 }

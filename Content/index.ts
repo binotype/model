@@ -1,20 +1,15 @@
 import { isly } from "isly"
-import { Node as _Node } from "./Node"
-import { Object as _Object } from "./Object"
 
-export type Content<N = Content.Node> = N | N[] | null
+export type Content<Node> = Node | Node[] | null
 
 export namespace Content {
-	export import Node = _Node
-	export import Object = _Object
-	export const type: isly.Union<Content> = isly
-		.union<Content>(Node.type, isly.array(Node.type), isly.null())
-		.rename("binotype.Content")
-	export const { is, flawed } = type.bind()
-	export function to(content: Content): Object | Object[] | null {
-		return content && (Array.isArray(content) ? content.map(Object.from) : Object.from(content))
+	export function getType<Node>(nodeType: isly.Type<Node>): isly.Union<Content<Node>> {
+		return isly.union<Content<Node>>(nodeType, isly.array(nodeType), isly.null())
 	}
-	export function plain(content: Content): string {
-		return content ? (Array.isArray(content) ? content.map(Node.plain).join("") : Node.plain(content)) : ""
+	export function convert<Node, Target>(content: Content<Node>, from: (node: Node) => Target): Content<Target> {
+		return content && (Array.isArray(content) ? content.map(from) : from(content))
+	}
+	export function plain<Node>(content: Content<Node>, plain: (node: Node) => string): string {
+		return content ? (Array.isArray(content) ? content.map(plain).join("") : plain(content)) : ""
 	}
 }
