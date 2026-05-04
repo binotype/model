@@ -85,22 +85,3 @@ exports[`binotype.Context.Section > Section.load > should handle simple block ob
   },
 }
 `;
-
-exports[`binotype.Context.Section > Section.toObject > should convert Section to object 1`] = `
-{
-  "class": [
-    "main",
-  ],
-  "content": {},
-  "id": "",
-  "link": "/b1",
-  "meta": {},
-  "mode": "full",
-  "sections": undefined,
-  "subtitle": undefined,
-  "title": {
-    "formatted": "[]",
-    "plain": "[]",
-  },
-}
-`;

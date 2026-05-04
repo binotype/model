@@ -76,21 +76,3 @@ exports[`binotype.Context.Article > Article.load > should handle simple page obj
   },
 }
 `;
-
-exports[`binotype.Context.Article > Article.toObject > should convert Article to object 1`] = `
-{
-  "articles": undefined,
-  "class": [],
-  "content": {},
-  "id": "",
-  "link": "/p1",
-  "meta": {},
-  "mode": "full",
-  "sections": undefined,
-  "subtitle": undefined,
-  "title": {
-    "formatted": "[]",
-    "plain": "[]",
-  },
-}
-`;

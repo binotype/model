@@ -6,7 +6,7 @@ export namespace Title {
 	export function getType<Node>(nodeType: isly.Type<Node>): isly.Union<Title<Node>> {
 		return isly
 			.union<Title<Node>>(isly.string(), isly.object({ short: isly.string(), long: Content.getType(nodeType) }))
-			.rename("binotype.Title")
+			.rename(`binotype.Title<${nodeType.name}>`)
 	}
 	export function get<Node>(title: Title<Node> | undefined, preference: "short"): string
 	export function get<Node>(title: Title<Node> | undefined, preference: "long-short"): Content<Node>

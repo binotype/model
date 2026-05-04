@@ -23,11 +23,11 @@ export namespace Page {
 				pages: isly
 					.record(
 						isly.string(),
-						isly.lazy<Page<Node>>((): any => Page.getType<Node>(nodeType), "binotype.Page")
+						isly.lazy<Page<Node>>((): any => Page.getType<Node>(nodeType), `binotype.Page<${nodeType.name}>`)
 					)
 					.optional()
 			},
-			"binotype.Page"
+			`binotype.Page<${nodeType.name}>`
 		)
 	}
 	export function locate<Node>(page: Page<Node> | undefined, path: Path): Page<Node> | undefined {

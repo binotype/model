@@ -31,7 +31,7 @@ export namespace Site {
 				design: Design.type,
 				page: Page.getType<Node>(nodeType)
 			},
-			"binotype.Site"
+			`binotype.Site<${nodeType.name}>`
 		)
 	}
 }

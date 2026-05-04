@@ -52,13 +52,6 @@ exports[`binotype.Context.Menu > Menu.convert > convert(''menu with nested items
 }
 `;
 
-exports[`binotype.Context.Menu > Menu.convert > toObject(''empty menu'') 1`] = `
-{
-  "depth": undefined,
-  "items": [],
-}
-`;
-
 exports[`binotype.Context.Menu > Menu.load > load(''empty site'', ''/'') 1`] = `
 {
   "depth": undefined,
@@ -245,58 +238,6 @@ exports[`binotype.Context.Menu > Menu.load > load(''site with single page'', ''/
       "label": "About",
       "selected": undefined,
       "url": "/about",
-    },
-  ],
-}
-`;
-
-exports[`binotype.Context.Menu > Menu.toObject > toObject(''empty menu'') 1`] = `
-{
-  "depth": undefined,
-  "items": [],
-}
-`;
-
-exports[`binotype.Context.Menu > Menu.toObject > toObject(''menu with items'') 1`] = `
-{
-  "depth": undefined,
-  "items": [
-    {
-      "description": {},
-      "items": [],
-      "label": "About",
-      "selected": undefined,
-      "url": "/about",
-    },
-    {
-      "description": {},
-      "items": [],
-      "label": "Contact",
-      "selected": "current",
-      "url": "/contact",
-    },
-  ],
-}
-`;
-
-exports[`binotype.Context.Menu > Menu.toObject > toObject(''menu with nested items'') 1`] = `
-{
-  "depth": undefined,
-  "items": [
-    {
-      "description": {},
-      "items": [
-        {
-          "description": {},
-          "items": [],
-          "label": "First Post",
-          "selected": "current",
-          "url": "/blog/first-post",
-        },
-      ],
-      "label": "Blog",
-      "selected": "parent",
-      "url": "/blog",
     },
   ],
 }

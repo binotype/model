@@ -32,11 +32,11 @@ export namespace Block {
 				blocks: isly
 					.record(
 						isly.string(),
-						isly.lazy((): any => Block.getType(nodeType), "binotype.Block")
+						isly.lazy((): any => Block.getType(nodeType), `binotype.Block<${nodeType.name}>`)
 					)
 					.optional()
 			},
-			"binotype.Block<Node>"
+			`binotype.Block<${nodeType.name}>`
 		)
 	}
 	export function toArray<Node, R extends Block<Node> = Block<Node>>(
