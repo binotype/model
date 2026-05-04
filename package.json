@@ -50,7 +50,6 @@
 		"@biomejs/biome": "^2.4.13"
 	},
 	"dependencies": {
-		"@stencil/core": "^4.43.4",
 		"@typeup/dom": "1.0.11-beta.3",
 		"@typeup/parser": "1.2.5-beta.2",
 		"isly": "1.8.0",

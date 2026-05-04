@@ -4,7 +4,6 @@ import { Mode } from "../../Mode"
 import { Block } from "../../Block"
 import { Path } from "../../Path"
 import { Label } from "../Label"
-import { FunctionalUtilities } from "@stencil/core"
 
 export interface Section<Node> {
 	id: string
