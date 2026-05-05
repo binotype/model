@@ -32,7 +32,7 @@
 		"jsxFactory": "h",
 		"jsxFragmentFactory": "h.Fragment"
 	},
-	"include": ["**/*.spec.ts", "**/*.spec.tsx"],
+	"include": ["**/*.spec.ts"],
 	"files": ["index.ts"],
 	"typeAcquisition": {
 		"enable": true

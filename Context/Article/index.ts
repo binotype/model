@@ -46,7 +46,7 @@ export namespace Article {
 						changed: (page as Page<Node>).changed,
 						// wordCount: text ? text.split(/\s+/).length : undefined,
 						// readingTime: text ? Math.ceil(text.split(/\s+/).length / 200) : undefined,
-						...(mode == "list" ? { articles: load<Node>((page as Page<Node>).pages, path, mode) } : {})
+						.../*mode == "list"*/ (page.pages ? { articles: load<Node>(page.pages, path, mode) } : {})
 					} satisfies Article<Node>).filter(([_, value]) => value != undefined)
 				) as Article<Node>)
 		}

@@ -52,14 +52,14 @@ exports[`binotype.Context.Menu > Menu.convert > convert(''menu with nested items
 }
 `;
 
-exports[`binotype.Context.Menu > Menu.load > load(''empty site'', ''/'') 1`] = `
+exports[`binotype.Context.Menu > load > load(''empty site'', ''/'') 1`] = `
 {
   "depth": undefined,
   "items": [],
 }
 `;
 
-exports[`binotype.Context.Menu > Menu.load > load(''simonmika.com'', ''article/to-live'') 1`] = `
+exports[`binotype.Context.Menu > load > load(''simonmika.com'', ''article/to-live'') 1`] = `
 {
   "depth": undefined,
   "items": [
@@ -202,7 +202,7 @@ exports[`binotype.Context.Menu > Menu.load > load(''simonmika.com'', ''article/t
 }
 `;
 
-exports[`binotype.Context.Menu > Menu.load > load(''site with blocks and pages'', ''/'') 1`] = `
+exports[`binotype.Context.Menu > load > load(''site with blocks and pages'', ''/'') 1`] = `
 {
   "depth": undefined,
   "items": [
@@ -231,7 +231,7 @@ exports[`binotype.Context.Menu > Menu.load > load(''site with blocks and pages''
 }
 `;
 
-exports[`binotype.Context.Menu > Menu.load > load(''site with menu disabled blocks'', ''/'') 1`] = `
+exports[`binotype.Context.Menu > load > load(''site with menu disabled blocks'', ''/'') 1`] = `
 {
   "depth": undefined,
   "items": [
@@ -253,7 +253,7 @@ exports[`binotype.Context.Menu > Menu.load > load(''site with menu disabled bloc
 }
 `;
 
-exports[`binotype.Context.Menu > Menu.load > load(''site with multiple pages, current at …'', ''/'') 1`] = `
+exports[`binotype.Context.Menu > load > load(''site with multiple pages, current at …'', ''/'') 1`] = `
 {
   "depth": undefined,
   "items": [
@@ -290,7 +290,7 @@ exports[`binotype.Context.Menu > Menu.load > load(''site with multiple pages, cu
 }
 `;
 
-exports[`binotype.Context.Menu > Menu.load > load(''site with nested pages, current at ab…'', ''/about'') 1`] = `
+exports[`binotype.Context.Menu > load > load(''site with nested pages, current at ab…'', ''/about'') 1`] = `
 {
   "depth": undefined,
   "items": [
@@ -334,7 +334,7 @@ exports[`binotype.Context.Menu > Menu.load > load(''site with nested pages, curr
 }
 `;
 
-exports[`binotype.Context.Menu > Menu.load > load(''site with nested pages, current at bl…'', ''/blog/first-post'') 1`] = `
+exports[`binotype.Context.Menu > load > load(''site with nested pages, current at bl…'', ''/blog/first-post'') 1`] = `
 {
   "depth": undefined,
   "items": [
@@ -371,7 +371,7 @@ exports[`binotype.Context.Menu > Menu.load > load(''site with nested pages, curr
 }
 `;
 
-exports[`binotype.Context.Menu > Menu.load > load(''site with single page'', ''/'') 1`] = `
+exports[`binotype.Context.Menu > load > load(''site with single page'', ''/'') 1`] = `
 {
   "depth": undefined,
   "items": [
