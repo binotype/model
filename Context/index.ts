@@ -45,17 +45,15 @@ export class Context<Node> {
 	) {
 		this.path = typeof path == "string" ? Path.parse(path) : path
 	}
-	load(path: Path | string | undefined, fallback: Modes = { mode: "full" }): Context.Article<Node> | undefined {
+	load(
+		path: Path | string | undefined,
+		reduction: Modes = { mode: this.site.design.mode, list: this.site.design.list },
+		fallback: Modes = reduction
+	): Context.Article<Node> | undefined {
 		if (!(path instanceof Path)) path = Path.parse(path ?? "")
 		if (path.empty && this.site.design.home) path = Path.parse(this.site.design.home ?? "")
 		const page = Page.locate(this.site.page, path)
-		return (
-			page
-			&& Context.Article.load(page, path, {
-				mode: fallback.mode ?? this.site.design.mode,
-				list: fallback.list ?? this.site.design.list
-			})
-		)
+		return page && Context.Article.load(page, path, reduction, fallback)
 	}
 	toJSON() {
 		return Object.fromEntries(

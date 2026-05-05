@@ -20,24 +20,24 @@ export interface Section<Node> {
 	sections?: Section<Node>[]
 }
 export namespace Section {
-	export function load<Node>(block: Block<Node>, path: Path, fallback: Modes, reduction?: Modes): Section<Node>
+	export function load<Node>(block: Block<Node>, path: Path, reduction?: Modes, fallback?: Modes): Section<Node>
 	export function load<Node>(
 		block: Block<Node> | undefined,
 		path: Path,
-		fallback: Modes,
-		reduction?: Modes
+		reduction?: Modes,
+		fallback?: Modes
 	): Section<Node> | undefined
 	export function load<Node>(
 		blocks: Record<string, Block<Node> | undefined> | undefined,
 		path: Path,
-		fallback: Modes,
-		reduction?: Modes
+		reduction?: Modes,
+		fallback?: Modes
 	): Section<Node>[] | undefined
 	export function load<Node>(
 		block: Block<Node> | Record<string, Block<Node>> | undefined,
 		path: Path,
-		fallback: Modes,
-		reduction: Modes = { mode: "full", list: "full" }
+		reduction: Modes = { mode: "full", list: "full" },
+		fallback: Modes = reduction
 	): Section<Node> | Section<Node>[] | undefined {
 		let result: Section<Node> | Section<Node>[] | undefined
 		if (Block.isBlocks(block))

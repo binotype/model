@@ -16,24 +16,24 @@ export interface Article<Node> extends Section<Node> {
 	articles?: Article<Node>[]
 }
 export namespace Article {
-	export function load<Node>(page: Page<Node>, path: Path, fallback: Modes, reduction?: Modes): Article<Node>
+	export function load<Node>(page: Page<Node>, path: Path, reduction?: Modes, fallback?: Modes): Article<Node>
 	export function load<Node>(
 		page: Page<Node> | undefined,
 		path: Path,
-		fallback: Modes,
-		reduction?: Modes
+		reduction?: Modes,
+		fallback?: Modes
 	): Article<Node> | undefined
 	export function load<Node>(
 		pages: Record<string, Page<Node> | undefined> | undefined,
 		path: Path,
-		fallback: Modes,
-		reduction?: Modes
+		reduction?: Modes,
+		fallback?: Modes
 	): Article<Node>[] | undefined
 	export function load<Node>(
 		page: Page<Node> | Record<string, Page<Node> | undefined> | undefined,
 		path: Path,
-		fallback: Modes,
-		reduction: Modes = { mode: "full", list: "full" }
+		reduction: Modes = { mode: "full", list: "full" },
+		fallback: Modes = reduction
 	): Article<Node> | Article<Node>[] | undefined {
 		let result: Article<Node> | Article<Node>[] | undefined
 		if (!page) result = undefined
