@@ -50,6 +50,10 @@ export namespace Block {
 	export function isBlocks<Node>(
 		block: Block<Node> | Record<string, Block<Node> | undefined> | undefined
 	): block is Record<string, Block<Node> | undefined> {
-		return block != undefined && Object.values(block).every(b => typeof b == "object")
+		return (
+			block != undefined
+			&& Object.values(block).every(b => typeof b == "object")
+			&& !isly.tuple(isly.string("value", "pages")).is(Object.keys(block))
+		)
 	}
 }

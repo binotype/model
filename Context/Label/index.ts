@@ -1,5 +1,5 @@
-import { Content } from "../Content"
-import { Title } from "../Title"
+import { Content } from "../../Content"
+import { Title } from "../../Title"
 
 export interface Label<Node> {
 	plain: string

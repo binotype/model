@@ -59,6 +59,149 @@ exports[`binotype.Context.Menu > Menu.load > load(''empty site'', ''/'') 1`] = `
 }
 `;
 
+exports[`binotype.Context.Menu > Menu.load > load(''simonmika.com'', ''article/to-live'') 1`] = `
+{
+  "depth": undefined,
+  "items": [
+    {
+      "description": "Articles",
+      "items": [
+        {
+          "description": "Taking Risk When Dying",
+          "items": [],
+          "label": "Taking Risk When Dying",
+          "selected": undefined,
+          "url": "/article/taking-risk-when-dying",
+        },
+        {
+          "description": "Optimizing Software",
+          "items": [],
+          "label": "Optimizing Software",
+          "selected": undefined,
+          "url": "/article/optimizing-software",
+        },
+        {
+          "description": "Naming",
+          "items": [],
+          "label": "Naming",
+          "selected": undefined,
+          "url": "/article/naming",
+        },
+        {
+          "description": "The Programming Interview",
+          "items": [],
+          "label": "The Programming Interview",
+          "selected": undefined,
+          "url": "/article/programming-interview",
+        },
+        {
+          "description": "Recruiting Process",
+          "items": [],
+          "label": "Recruiting Process",
+          "selected": undefined,
+          "url": "/article/recruiting-process",
+        },
+        {
+          "description": "Rock Star Programmers",
+          "items": [],
+          "label": "Rock Star Programmers",
+          "selected": undefined,
+          "url": "/article/rock-star-programmers",
+        },
+        {
+          "description": "To Live",
+          "items": [],
+          "label": "To Live",
+          "selected": undefined,
+          "url": "/article/to-live",
+        },
+      ],
+      "label": "Articles",
+      "selected": undefined,
+      "url": "/article",
+    },
+    {
+      "description": "Talks",
+      "items": [
+        {
+          "description": "Egenanställd Konsult",
+          "items": [],
+          "label": "Egenanställd Konsult",
+          "selected": undefined,
+          "url": "/talk/egen-konsult",
+        },
+        {
+          "description": "Retro Game w/ Modern UI Tools",
+          "items": [],
+          "label": "Retro Game w/ Modern UI Tools",
+          "selected": undefined,
+          "url": "/talk/retro-game-modern-ui-tools",
+        },
+        {
+          "description": "Recruiting and Become Recruited 2025",
+          "items": [],
+          "label": "Recruiting and Become Recruited 2025",
+          "selected": undefined,
+          "url": "/talk/recruiting2025",
+        },
+        {
+          "description": "Recruiting and Become Recruited",
+          "items": [],
+          "label": "Recruiting and Become Recruited",
+          "selected": undefined,
+          "url": "/talk/recruiting",
+        },
+        {
+          "description": "How I Use TypeScript",
+          "items": [],
+          "label": "How I Use TypeScript",
+          "selected": undefined,
+          "url": "/talk/how-i-use-typescript",
+        },
+        {
+          "description": "On Programming",
+          "items": [],
+          "label": "On Programming",
+          "selected": undefined,
+          "url": "/talk/on-programming",
+        },
+      ],
+      "label": "Talks",
+      "selected": undefined,
+      "url": "/talk",
+    },
+    {
+      "description": "Contact",
+      "items": [],
+      "label": "Contact",
+      "selected": undefined,
+      "url": "/contact",
+    },
+    {
+      "description": "Description",
+      "items": [],
+      "label": "Description",
+      "selected": undefined,
+      "url": "/description",
+    },
+    {
+      "description": "Subscribe",
+      "items": [],
+      "label": "Subscribe",
+      "selected": undefined,
+      "url": "/subscribe",
+    },
+    {
+      "description": "About",
+      "items": [],
+      "label": "About",
+      "selected": undefined,
+      "url": "/about",
+    },
+  ],
+}
+`;
+
 exports[`binotype.Context.Menu > Menu.load > load(''site with blocks and pages'', ''/'') 1`] = `
 {
   "depth": undefined,
