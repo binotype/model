@@ -11,7 +11,6 @@ export interface Section<Node> {
 	link?: string
 	meta: Meta
 	mode: Mode
-	list: Mode
 	type?: string
 	class: string[]
 	title?: Label<Node>
@@ -42,9 +41,9 @@ export namespace Section {
 		let result: Section<Node> | Section<Node>[] | undefined
 		if (Block.isBlocks(block))
 			result =
-				block && Block.toArray(block).map(b => Section.load<Node>(b, path.appendFragment(b.id), fallback, reduction))
+				block && Block.toArray(block).map(b => Section.load<Node>(b, path.appendFragment(b.id), reduction, fallback))
 		else if (block) {
-			const mode = Mode.reduce(block.mode ?? fallback.mode ?? "full", reduction.mode ?? "full")
+			const mode = Modes.reduce(block, reduction, fallback).mode ?? "full"
 			result =
 				mode
 				&& (Object.fromEntries(
@@ -53,7 +52,6 @@ export namespace Section {
 						link: path.toString(),
 						meta: block.meta ?? {},
 						mode,
-						list: block.list ?? fallback.list ?? "none",
 						type: block.type,
 						class: block.class ?? [],
 						title: Label.get<Node>(block.title ?? `[${path.fragment ?? ""}]`),
@@ -61,7 +59,7 @@ export namespace Section {
 						...(mode == "full" || mode == "body"
 							? {
 									content: block.content ? block.content : undefined,
-									sections: load<Node>(block.blocks, path, fallback, reduction)
+									sections: load<Node>(block.blocks, path, reduction, fallback)
 								}
 							: {})
 					} satisfies Section<Node>).filter(([_, value]) => value !== undefined)

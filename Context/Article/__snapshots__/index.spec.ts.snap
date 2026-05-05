@@ -9,7 +9,9 @@ exports[`binotype.Context.Article > Article.convert > ('article to object') 1`] 
   "content": "Test content",
   "id": "",
   "link": "/p1",
-  "list": "none",
+  "list": {
+    "mode": "full",
+  },
   "meta": {},
   "mode": "full",
   "published": undefined,
@@ -29,7 +31,9 @@ exports[`binotype.Context.Article > Article.load > ('page with articles array') 
     "content": "Test content 1",
     "id": "p1",
     "link": "/#p1",
-    "list": "none",
+    "list": {
+      "mode": "full",
+    },
     "meta": {},
     "mode": "full",
     "title": {
@@ -42,7 +46,9 @@ exports[`binotype.Context.Article > Article.load > ('page with articles array') 
     "content": "Test content 2",
     "id": "p2",
     "link": "/#p2",
-    "list": "none",
+    "list": {
+      "mode": "full",
+    },
     "meta": {},
     "mode": "full",
     "title": {
@@ -59,7 +65,9 @@ exports[`binotype.Context.Article > Article.load > ('reduction mode') 1`] = `
   "content": "Test content",
   "id": "",
   "link": "/p1",
-  "list": "full",
+  "list": {
+    "mode": "full",
+  },
   "meta": {},
   "mode": "full",
   "title": {
@@ -75,7 +83,9 @@ exports[`binotype.Context.Article > Article.load > ('simple page object') 1`] = 
   "content": "Test content",
   "id": "",
   "link": "/p1",
-  "list": "none",
+  "list": {
+    "mode": "full",
+  },
   "meta": {},
   "mode": "full",
   "title": {
@@ -96,7 +106,9 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('basic page
   "content": "This is the article content.",
   "id": "",
   "link": "/test",
-  "list": "full",
+  "list": {
+    "mode": "full",
+  },
   "meta": {},
   "mode": "full",
   "published": undefined,
@@ -118,7 +130,9 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
   "content": "This content should be shown.",
   "id": "",
   "link": "/body",
-  "list": "none",
+  "list": {
+    "mode": "full",
+  },
   "meta": {},
   "mode": "body",
   "published": undefined,
@@ -140,7 +154,9 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
   "content": undefined,
   "id": "",
   "link": "/header",
-  "list": "none",
+  "list": {
+    "mode": "full",
+  },
   "meta": {},
   "mode": "header",
   "published": undefined,
@@ -162,7 +178,9 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
   "content": undefined,
   "id": "",
   "link": "/sections",
-  "list": "full",
+  "list": {
+    "mode": "full",
+  },
   "meta": {},
   "mode": "full",
   "published": undefined,
@@ -172,7 +190,6 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
       "content": "Intro content",
       "id": "intro",
       "link": "/sections#intro",
-      "list": "full",
       "meta": {},
       "mode": "full",
       "sections": undefined,
@@ -187,7 +204,6 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
       "content": "Main content",
       "id": "main",
       "link": "/sections#main",
-      "list": "full",
       "meta": {},
       "mode": "full",
       "sections": undefined,
@@ -217,7 +233,9 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
       "content": "Second post content",
       "id": "post2",
       "link": "/blog#post2",
-      "list": "full",
+      "list": {
+        "mode": "full",
+      },
       "meta": {},
       "mode": "full",
       "published": "2024-01-02T10:00:00Z",
@@ -236,7 +254,9 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
       "content": "First post content",
       "id": "post1",
       "link": "/blog#post1",
-      "list": "full",
+      "list": {
+        "mode": "full",
+      },
       "meta": {},
       "mode": "full",
       "published": "2024-01-01T10:00:00Z",
@@ -254,7 +274,9 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
   "content": undefined,
   "id": "",
   "link": "/blog",
-  "list": "full",
+  "list": {
+    "mode": "full",
+  },
   "meta": {},
   "mode": "full",
   "published": undefined,

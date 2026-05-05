@@ -1,7 +1,6 @@
-import { Section } from "./index"
 import { Block } from "../../Block"
 import { Path } from "../../Path"
-import { Mode } from "../../Mode"
+import { Section } from "./index"
 
 describe("binotype.Context.Section", () => {
 	describe("Section.load", () => {

@@ -1,9 +1,12 @@
-import { isoly } from "isoly"
 import { isly } from "isly"
-import { Path } from "../Path"
+import { isoly } from "isoly"
 import { Block } from "../Block"
+import { Mode } from "../Mode"
+import { Modes } from "../Modes"
+import { Path } from "../Path"
 
 export interface Page<Node> extends Block<Node> {
+	list?: Modes["list"]
 	draft?: boolean
 	published?: isoly.DateTime
 	changed?: isoly.DateTime
@@ -15,6 +18,9 @@ export namespace Page {
 	export function getType<Node>(nodeType: isly.Type<Node>): isly.Object<Page<Node>> {
 		return Block.getType<Node>(nodeType).extend<Page<Node>>(
 			{
+				list: isly
+					.union(Mode.type, isly.object({ mode: Mode.type.optional(), limit: isly.number().optional() }))
+					.optional(),
 				draft: isly.boolean().optional(),
 				published: isoly.DateTime.type.optional() as any,
 				changed: isoly.DateTime.type.optional() as any,

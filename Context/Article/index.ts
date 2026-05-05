@@ -5,9 +5,9 @@ import { Modes } from "../../Modes"
 import { Page } from "../../Page"
 import { Path } from "../../Path"
 import { Section } from "../Section"
-import { Mode } from "../../Mode"
 
 export interface Article<Node> extends Section<Node> {
+	list: Modes["list"]
 	author?: string
 	published?: isoly.DateTime
 	changed?: isoly.DateTime
@@ -39,26 +39,32 @@ export namespace Article {
 		if (!page) result = undefined
 		else if (Block.isBlocks(page))
 			result =
-				page && Page.toArray(page).map(p => Article.load<Node>(p, path.appendFragment(p.id), fallback, reduction))
+				page && Page.toArray(page).map(p => Article.load<Node>(p, path.appendFragment(p.id), reduction, fallback))
 		else {
-			const mode = Mode.reduce(page.mode ?? fallback.mode ?? "full", reduction.mode ?? "full")
-			const list = Mode.reduce(page.list ?? fallback.list ?? "none", reduction.list ?? "none")
-			result =
-				!mode || mode == "none"
-					? undefined
-					: (Object.fromEntries(
-							Object.entries({
-								...Section.load<Node>(page as Page<Node>, path, { mode, list }, reduction),
-								author: page.author,
-								published: page.published,
-								changed: page.changed,
-								// wordCount: text ? text.split(/\s+/).length : undefined,
-								// readingTime: text ? Math.ceil(text.split(/\s+/).length / 200) : undefined,
-								...(list != "none" && page.pages
-									? { articles: Article.load<Node>(page.pages, path, { mode: list, list: fallback.list }, reduction) }
-									: {})
-							} satisfies Article<Node>).filter(([_, value]) => value != undefined)
-						) as Article<Node>)
+			const modes = Modes.reduce(page, reduction, fallback)
+			result = !modes.mode
+				? undefined
+				: (Object.fromEntries(
+						Object.entries({
+							...Section.load<Node>(page as Page<Node>, path, reduction, modes),
+							list: { mode: "none", ...modes.list },
+							author: page.author,
+							published: page.published,
+							changed: page.changed,
+							// wordCount: text ? text.split(/\s+/).length : undefined,
+							// readingTime: text ? Math.ceil(text.split(/\s+/).length / 200) : undefined,
+							...(modes.list.mode != "none" && page.pages
+								? {
+										articles: Article.load<Node>(page.pages, path, reduction, {
+											mode: modes.list.mode,
+											list: modes.list
+										})
+									}
+								: {})
+						} satisfies Article<Node>)
+							.filter(([_, value]) => value != undefined)
+							.slice(0, modes.list.limit)
+					) as Article<Node>)
 		}
 		return result
 	}
@@ -67,6 +73,7 @@ export namespace Article {
 		convert: (node: Node) => Target
 	): Article<Content<Target>> {
 		return {
+			list: article.list,
 			author: article.author,
 			published: article.published,
 			changed: article.changed,

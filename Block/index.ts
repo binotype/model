@@ -1,8 +1,8 @@
 import { isly } from "isly"
-import { Title } from "../Title"
+import { Content } from "../Content"
 import { Meta } from "../Meta"
 import { Mode } from "../Mode"
-import { Content } from "../Content"
+import { Title } from "../Title"
 
 export interface Block<Node> {
 	weight?: number
@@ -10,7 +10,6 @@ export interface Block<Node> {
 	subtitle?: Content<Node>
 	meta?: Meta
 	mode?: Mode
-	list?: Mode
 	type?: string
 	class?: string[]
 	menu?: false
@@ -26,7 +25,6 @@ export namespace Block {
 				subtitle: Content.getType<Node>(nodeType).optional(),
 				meta: Meta.type.optional(),
 				mode: Mode.type.optional(),
-				list: Mode.type.optional(),
 				type: isly.string().optional(),
 				class: isly.array(isly.string()).optional(),
 				menu: isly.boolean(false).optional(),
