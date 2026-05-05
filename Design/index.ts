@@ -1,4 +1,5 @@
 import { isly } from "isly"
+import { Mode } from "../Mode"
 
 export interface Design {
 	logotype?: string
@@ -6,8 +7,9 @@ export interface Design {
 	navigation?: "header" | "body"
 	styles?: string[]
 	scripts?: string[]
-	home?: { mode: "body" | "full" | "header" | "list" | "summary"; section?: string }
-	list?: { mode: "body" | "full" | "header" | "list" | "summary" }
+	home?: string
+	mode?: Mode
+	list?: Mode
 	menu?: { depth?: number }
 }
 export namespace Design {
@@ -18,13 +20,9 @@ export namespace Design {
 			navigation: isly.string("value", "header", "body").optional(),
 			styles: isly.array(isly.string()).optional(),
 			scripts: isly.array(isly.string()).optional(),
-			home: isly
-				.object({
-					mode: isly.string("value", "body", "full", "header", "list", "summary"),
-					section: isly.string().optional()
-				})
-				.optional(),
-			list: isly.object({ mode: isly.string("value", "body", "full", "header", "list", "summary") }).optional(),
+			home: isly.string().optional(),
+			mode: Mode.type.optional(),
+			list: Mode.type.optional(),
 			menu: isly.object({ depth: isly.number().optional() }).optional()
 		},
 		"binotype.Site.Design"

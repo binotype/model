@@ -2,7 +2,7 @@ import { isly } from "isly"
 
 export type Mode = (typeof Mode.values)[number]
 export namespace Mode {
-	export const values = ["full", "header", "body", "summary", "list"] as const
+	export const values = ["none", "full", "header", "body", "summary"] as const
 	export const { is, flawed, type } = isly
 		.string("value", ...values)
 		.rename("binotype.Mode")
@@ -10,6 +10,9 @@ export namespace Mode {
 	export function reduce(mode: Mode | undefined, reduction: Mode = "full"): Mode | undefined {
 		let result: Mode | undefined
 		switch (reduction) {
+			case "none":
+				result = "none"
+				break
 			case "full":
 				result = mode ?? "full"
 				break
@@ -21,9 +24,6 @@ export namespace Mode {
 				break
 			case "summary":
 				result = mode != "header" ? "summary" : undefined
-				break
-			case "list":
-				result = mode != "body" ? "list" : undefined
 				break
 		}
 		return result

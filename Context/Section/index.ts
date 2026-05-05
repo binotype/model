@@ -1,7 +1,8 @@
+import { Block } from "../../Block"
 import { Content } from "../../Content"
 import { Meta } from "../../Meta"
 import { Mode } from "../../Mode"
-import { Block } from "../../Block"
+import { Modes } from "../../Modes"
 import { Path } from "../../Path"
 import { Label } from "../Label"
 
@@ -10,6 +11,7 @@ export interface Section<Node> {
 	link?: string
 	meta: Meta
 	mode: Mode
+	list: Mode
 	type?: string
 	class: string[]
 	title?: Label<Node>
@@ -18,23 +20,31 @@ export interface Section<Node> {
 	sections?: Section<Node>[]
 }
 export namespace Section {
-	export function load<Node>(block: Block<Node>, path: Path, reduction?: Mode): Section<Node>
-	export function load<Node>(block: Block<Node> | undefined, path: Path, reduction?: Mode): Section<Node> | undefined
+	export function load<Node>(block: Block<Node>, path: Path, fallback: Modes, reduction?: Modes): Section<Node>
+	export function load<Node>(
+		block: Block<Node> | undefined,
+		path: Path,
+		fallback: Modes,
+		reduction?: Modes
+	): Section<Node> | undefined
 	export function load<Node>(
 		blocks: Record<string, Block<Node> | undefined> | undefined,
 		path: Path,
-		reduction?: Mode
+		fallback: Modes,
+		reduction?: Modes
 	): Section<Node>[] | undefined
 	export function load<Node>(
 		block: Block<Node> | Record<string, Block<Node>> | undefined,
 		path: Path,
-		reduction?: Mode
+		fallback: Modes,
+		reduction: Modes = { mode: "full", list: "full" }
 	): Section<Node> | Section<Node>[] | undefined {
 		let result: Section<Node> | Section<Node>[] | undefined
 		if (Block.isBlocks(block))
-			result = block && Block.toArray(block).map(b => Section.load<Node>(b, path.appendFragment(b.id), reduction))
+			result =
+				block && Block.toArray(block).map(b => Section.load<Node>(b, path.appendFragment(b.id), fallback, reduction))
 		else if (block) {
-			const mode = Mode.reduce(block.mode, reduction ?? "full")
+			const mode = Mode.reduce(block.mode ?? fallback.mode ?? "full", reduction.mode ?? "full")
 			result =
 				mode
 				&& (Object.fromEntries(
@@ -43,28 +53,39 @@ export namespace Section {
 						link: path.toString(),
 						meta: block.meta ?? {},
 						mode,
+						list: block.list ?? fallback.list ?? "none",
 						type: block.type,
 						class: block.class ?? [],
 						title: Label.get<Node>(block.title ?? `[${path.fragment ?? ""}]`),
 						subtitle: block.subtitle,
-						...(mode == "full" || mode == "body" || mode == "list"
-							? { content: block.content ? block.content : undefined, sections: load<Node>(block.blocks, path, mode) }
+						...(mode == "full" || mode == "body"
+							? {
+									content: block.content ? block.content : undefined,
+									sections: load<Node>(block.blocks, path, fallback, reduction)
+								}
 							: {})
 					} satisfies Section<Node>).filter(([_, value]) => value !== undefined)
 				) as Section<Node>)
 		} else result = undefined
 		return result
 	}
+	export function convert<Node, Target>(section: Section<Node>, from: (node: Node) => Target): Section<Content<Target>>
 	export function convert<Node, Target>(
-		section: Section<Node>,
+		section: Section<Node> | undefined,
 		from: (node: Node) => Target
-	): Section<Content<Target>> {
-		return {
-			...section,
-			title: section.title && Label.convert(section.title, from),
-			subtitle: section.subtitle && Content.convert(section.subtitle, from),
-			content: section.content && Content.convert(section.content, from),
-			sections: section.sections?.map(s => Section.convert(s, from))
-		}
+	): Section<Content<Target>> | undefined
+	export function convert<Node, Target>(
+		section: Section<Node> | undefined,
+		from: (node: Node) => Target
+	): Section<Content<Target>> | undefined {
+		return (
+			section && {
+				...section,
+				title: section.title && Label.convert(section.title, from),
+				subtitle: section.subtitle && Content.convert(section.subtitle, from),
+				content: section.content && Content.convert(section.content, from),
+				sections: section.sections?.map(s => Section.convert(s, from))
+			}
+		)
 	}
 }

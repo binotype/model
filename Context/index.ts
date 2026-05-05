@@ -1,6 +1,6 @@
 import { Design } from "../Design"
 import { Meta } from "../Meta"
-import { Mode } from "../Mode"
+import { Modes } from "../Modes"
 import { Page } from "../Page"
 import { Path } from "../Path"
 import { Site } from "../Site"
@@ -36,7 +36,8 @@ export class Context<Node> {
 	private _article: Context.Article<Node> | undefined
 	get article(): Context.Article<Node> | undefined {
 		return (this._article ??=
-			this.load(this.path) ?? Context.Article.load<Node>({ title: "Not Found", content: undefined }, this.path, "full"))
+			this.load(this.path)
+			?? Context.Article.load<Node>({ title: "Not Found", content: undefined }, this.path, { mode: "full" }))
 	}
 	private constructor(
 		private readonly site: Site<Node>,
@@ -44,19 +45,16 @@ export class Context<Node> {
 	) {
 		this.path = typeof path == "string" ? Path.parse(path) : path
 	}
-	load(path: Path | string | undefined, mode: Mode = "full", count?: number): Context.Article<Node> | undefined {
+	load(path: Path | string | undefined, fallback: Modes = { mode: "full" }): Context.Article<Node> | undefined {
 		if (!(path instanceof Path)) path = Path.parse(path ?? "")
-		if (path.empty && this.site.design.home?.section) path = Path.parse(this.site.design.home.section)
+		if (path.empty && this.site.design.home) path = Path.parse(this.site.design.home ?? "")
 		const page = Page.locate(this.site.page, path)
 		return (
 			page
-			&& Context.Article.load(
-				page,
-				path,
-				mode
-				// this.site.design,
-				// count
-			)
+			&& Context.Article.load(page, path, {
+				mode: fallback.mode ?? this.site.design.mode,
+				list: fallback.list ?? this.site.design.list
+			})
 		)
 	}
 	toJSON() {

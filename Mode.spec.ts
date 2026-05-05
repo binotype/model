@@ -13,18 +13,22 @@ describe("binotype.Mode", () => {
 	})
 	describe("Mode.reduce", () => {
 		it.each([
-			[undefined, "full", "full"],
-			["header", "header", "header"],
-			["body", "header", undefined],
-			["header", "body", undefined],
-			["body", "body", "body"],
-			["summary", "summary", "summary"],
-			["header", "summary", undefined],
-			["body", "summary", "summary"],
-			["body", "list", undefined],
-			["header", "list", "list"]
-		])("should reduce %s with %s to %s", (mode, reduction, expected) => {
-			expect(binotype.Mode.reduce(mode as any, reduction as any)).toBe(expected)
+			{ mode: undefined, reduction: "none", expected: "none" },
+			{ mode: "body", reduction: "none", expected: "none" },
+			{ mode: undefined, reduction: "full", expected: "full" },
+			{ mode: "header", reduction: "header", expected: "header" },
+			{ mode: "body", reduction: "header", expected: undefined },
+			{ mode: "header", reduction: "body", expected: undefined },
+			{ mode: "body", reduction: "body", expected: "body" },
+			{ mode: "summary", reduction: "summary", expected: "summary" },
+			{ mode: "header", reduction: "summary", expected: undefined },
+			{ mode: "body", reduction: "summary", expected: "summary" }
+		] satisfies {
+			mode: binotype.Mode | undefined
+			reduction: binotype.Mode
+			expected: binotype.Mode | undefined
+		}[])("($mode, $reduction) == $expected", ({ mode, reduction, expected }) => {
+			expect(binotype.Mode.reduce(mode, reduction)).toBe(expected)
 		})
 	})
 	describe("Mode.parse", () => {

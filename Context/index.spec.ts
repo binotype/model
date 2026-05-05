@@ -18,8 +18,7 @@ describe("binotype.Context", () => {
 						navigation: "header",
 						styles: ["/style.css"],
 						scripts: ["/script.js"],
-						home: { mode: "header" },
-						list: { mode: "summary" }
+						list: "summary"
 					},
 					page: { pages: { about: { title: "About", content: "About page content" } } }
 				},
@@ -54,8 +53,8 @@ describe("binotype.Context", () => {
 							"/assets/share-blockquote.js"
 						],
 						navigation: "header",
-						list: { mode: "header" },
-						home: { mode: "header", section: "article" }
+						list: "summary",
+						home: "article"
 					},
 					page: {
 						pages: {

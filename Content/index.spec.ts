@@ -10,4 +10,14 @@ describe("binotype.Content", () => {
 		expect(binotype.Content.getType(isly.string()).flawed(content)).toBe(false)
 		expect(binotype.Content.getType(isly.string()).is(content)).toBe(true)
 	})
+	describe("plain", () => {
+		const toString = (s: string) => s.toUpperCase()
+		it.each([
+			{ content: null, expected: "" },
+			{ content: "hello", expected: "HELLO" },
+			{ content: ["foo", "bar"], expected: "FOOBAR" },
+			{ content: ["a", "b", "c"], expected: "ABC" }
+		] as { content: binotype.Content<string>; expected: string }[])("plain($content)", ({ content, expected }) =>
+			expect(binotype.Content.plain(content, toString)).toBe(expected))
+	})
 })

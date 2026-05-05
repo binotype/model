@@ -1,14 +1,18 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`binotype.Context.Article > Article.convert > should convert Article to object 1`] = `
+exports[`binotype.Context.Article > Article.convert > ('article to object') 1`] = `
 {
   "articles": undefined,
+  "author": undefined,
+  "changed": undefined,
   "class": [],
   "content": "Test content",
   "id": "",
   "link": "/p1",
+  "list": "none",
   "meta": {},
   "mode": "full",
+  "published": undefined,
   "sections": undefined,
   "subtitle": undefined,
   "title": {
@@ -18,13 +22,14 @@ exports[`binotype.Context.Article > Article.convert > should convert Article to 
 }
 `;
 
-exports[`binotype.Context.Article > Article.load > should handle page with articles array 1`] = `
+exports[`binotype.Context.Article > Article.load > ('page with articles array') 1`] = `
 [
   {
     "class": [],
     "content": "Test content 1",
     "id": "p1",
     "link": "/#p1",
+    "list": "none",
     "meta": {},
     "mode": "full",
     "title": {
@@ -37,6 +42,7 @@ exports[`binotype.Context.Article > Article.load > should handle page with artic
     "content": "Test content 2",
     "id": "p2",
     "link": "/#p2",
+    "list": "none",
     "meta": {},
     "mode": "full",
     "title": {
@@ -47,12 +53,13 @@ exports[`binotype.Context.Article > Article.load > should handle page with artic
 ]
 `;
 
-exports[`binotype.Context.Article > Article.load > should handle reduction mode 1`] = `
+exports[`binotype.Context.Article > Article.load > ('reduction mode') 1`] = `
 {
   "class": [],
   "content": "Test content",
   "id": "",
   "link": "/p1",
+  "list": "full",
   "meta": {},
   "mode": "full",
   "title": {
@@ -62,12 +69,13 @@ exports[`binotype.Context.Article > Article.load > should handle reduction mode 
 }
 `;
 
-exports[`binotype.Context.Article > Article.load > should handle simple page object 1`] = `
+exports[`binotype.Context.Article > Article.load > ('simple page object') 1`] = `
 {
   "class": [],
   "content": "Test content",
   "id": "",
   "link": "/p1",
+  "list": "none",
   "meta": {},
   "mode": "full",
   "title": {
@@ -76,16 +84,22 @@ exports[`binotype.Context.Article > Article.load > should handle simple page obj
   },
 }
 `;
+
+exports[`binotype.Context.Article > Article.load > ('undefined page') 1`] = `undefined`;
 
 exports[`binotype.Context.Article > binotype.Context.Article.load > ('basic page with string content') 1`] = `
 {
   "articles": undefined,
+  "author": undefined,
+  "changed": undefined,
   "class": [],
   "content": "This is the article content.",
   "id": "",
   "link": "/test",
+  "list": "full",
   "meta": {},
   "mode": "full",
+  "published": undefined,
   "sections": undefined,
   "subtitle": undefined,
   "title": {
@@ -98,12 +112,16 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('basic page
 exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with both string content and mod…') 1`] = `
 {
   "articles": undefined,
+  "author": undefined,
+  "changed": undefined,
   "class": [],
   "content": "This content should be shown.",
   "id": "",
   "link": "/body",
+  "list": "none",
   "meta": {},
-  "mode": "full",
+  "mode": "body",
+  "published": undefined,
   "sections": undefined,
   "subtitle": undefined,
   "title": {
@@ -116,12 +134,16 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
 exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with mode header (no content sho…') 1`] = `
 {
   "articles": undefined,
+  "author": undefined,
+  "changed": undefined,
   "class": [],
-  "content": "This content should not be shown.",
+  "content": undefined,
   "id": "",
   "link": "/header",
+  "list": "none",
   "meta": {},
-  "mode": "full",
+  "mode": "header",
+  "published": undefined,
   "sections": undefined,
   "subtitle": undefined,
   "title": {
@@ -134,18 +156,23 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
 exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with object content (sections)') 1`] = `
 {
   "articles": undefined,
+  "author": undefined,
+  "changed": undefined,
   "class": [],
   "content": undefined,
   "id": "",
   "link": "/sections",
+  "list": "full",
   "meta": {},
   "mode": "full",
+  "published": undefined,
   "sections": [
     {
       "class": [],
       "content": "Intro content",
       "id": "intro",
       "link": "/sections#intro",
+      "list": "full",
       "meta": {},
       "mode": "full",
       "sections": undefined,
@@ -160,6 +187,7 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
       "content": "Main content",
       "id": "main",
       "link": "/sections#main",
+      "list": "full",
       "meta": {},
       "mode": "full",
       "sections": undefined,
@@ -183,10 +211,13 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
   "articles": [
     {
       "articles": undefined,
+      "author": undefined,
+      "changed": undefined,
       "class": [],
       "content": "Second post content",
       "id": "post2",
       "link": "/blog#post2",
+      "list": "full",
       "meta": {},
       "mode": "full",
       "published": "2024-01-02T10:00:00Z",
@@ -199,10 +230,13 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
     },
     {
       "articles": undefined,
+      "author": undefined,
+      "changed": undefined,
       "class": [],
       "content": "First post content",
       "id": "post1",
       "link": "/blog#post1",
+      "list": "full",
       "meta": {},
       "mode": "full",
       "published": "2024-01-01T10:00:00Z",
@@ -214,12 +248,16 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
       },
     },
   ],
+  "author": undefined,
+  "changed": undefined,
   "class": [],
   "content": undefined,
   "id": "",
   "link": "/blog",
+  "list": "full",
   "meta": {},
-  "mode": "list",
+  "mode": "full",
+  "published": undefined,
   "sections": undefined,
   "subtitle": undefined,
   "title": {

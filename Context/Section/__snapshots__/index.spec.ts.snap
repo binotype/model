@@ -8,6 +8,7 @@ exports[`binotype.Context.Section > Section.convert > should convert Section to 
   "content": "Block content",
   "id": "",
   "link": "/b1",
+  "list": "none",
   "meta": {},
   "mode": "full",
   "sections": undefined,
@@ -28,6 +29,7 @@ exports[`binotype.Context.Section > Section.load > should handle blocks as recor
     "content": "Block content 1",
     "id": "b1",
     "link": "/#b1",
+    "list": "none",
     "meta": {},
     "mode": "full",
     "title": {
@@ -42,6 +44,7 @@ exports[`binotype.Context.Section > Section.load > should handle blocks as recor
     "content": "Block content 2",
     "id": "b2",
     "link": "/#b2",
+    "list": "none",
     "meta": {},
     "mode": "full",
     "title": {
@@ -52,16 +55,16 @@ exports[`binotype.Context.Section > Section.load > should handle blocks as recor
 ]
 `;
 
-exports[`binotype.Context.Section > Section.load > should handle reduction mode 1`] = `
+exports[`binotype.Context.Section > Section.load > should handle fallback mode 1`] = `
 {
   "class": [
     "main",
   ],
-  "content": "Block content",
   "id": "",
   "link": "/b1",
+  "list": "none",
   "meta": {},
-  "mode": "list",
+  "mode": "header",
   "title": {
     "formatted": "[]",
     "plain": "[]",
@@ -77,6 +80,7 @@ exports[`binotype.Context.Section > Section.load > should handle simple block ob
   "content": "Block content",
   "id": "",
   "link": "/b1",
+  "list": "none",
   "meta": {},
   "mode": "full",
   "title": {

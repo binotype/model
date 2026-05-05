@@ -10,6 +10,7 @@ export interface Block<Node> {
 	subtitle?: Content<Node>
 	meta?: Meta
 	mode?: Mode
+	list?: Mode
 	type?: string
 	class?: string[]
 	menu?: false
@@ -25,6 +26,7 @@ export namespace Block {
 				subtitle: Content.getType<Node>(nodeType).optional(),
 				meta: Meta.type.optional(),
 				mode: Mode.type.optional(),
+				list: Mode.type.optional(),
 				type: isly.string().optional(),
 				class: isly.array(isly.string()).optional(),
 				menu: isly.boolean(false).optional(),

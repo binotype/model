@@ -17,8 +17,8 @@ describe("binotype.Site", () => {
 				navigation: "header",
 				styles: ["/style.css"],
 				scripts: ["/script.js"],
-				home: { mode: "header", section: "article" },
-				list: { mode: "summary" }
+				home: "article",
+				list: "header"
 			},
 			page: { pages: { about: { title: "About", content: "About page content" } } }
 		},
@@ -30,7 +30,8 @@ describe("binotype.Site", () => {
 			design: {},
 			page: { pages: {} }
 		}
-	])("is(%#)", value => expect(binotype.Site.getType(isly.string()).is(value)).toBe(true))
+	] satisfies binotype.Site<string>[])("is(%#)", value =>
+		expect(binotype.Site.getType(isly.string()).is(value)).toBe(true))
 
 	it("should validate complex blog site structure", () => {
 		const complexBlog = {
@@ -48,8 +49,8 @@ describe("binotype.Site", () => {
 				styles: ["/assets/css/reset.css", "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css"],
 				scripts: ["//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"],
 				navigation: "header",
-				list: { mode: "header" },
-				home: { mode: "header", section: "article" }
+				list: "header",
+				home: "article"
 			},
 			page: {
 				pages: {
