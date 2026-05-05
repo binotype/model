@@ -1,5 +1,6 @@
-import { Content } from "../Content"
 import { dom } from "@typeup/dom"
+import { mendly } from "mendly"
+import { Content } from "../Content"
 import { Page } from "../Page"
 import { Mode } from "../Mode"
 import { parser } from "@typeup/parser"
@@ -71,13 +72,15 @@ export class Parser<Node> {
 				: {})
 		}
 	}
-	async parse(content: string): Promise<(Page<Node> & { id: string }) | undefined> {
-		const document = parser.parse(content)
-		return document && this.import("page", document)
+	async parse(content: string, name?: string): Promise<(Page<Node> & { id: string }) | undefined> {
+		const document = parser.parse(
+			mendly.Reader.String.create(content, name ? mendly.Uri.parse(`file:///${name}`) : undefined)
+		)
+		return document && (await this.import("page", document))
 	}
 	async open(path: string): Promise<(Page<Node> & { id: string }) | undefined> {
 		const document = parser.open(path)
-		return document && this.import("page", document)
+		return document && (await this.import("page", document))
 	}
 }
 export namespace Parser {}
