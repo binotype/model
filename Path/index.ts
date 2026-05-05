@@ -72,6 +72,7 @@ export namespace Path {
 			leaf: isly.boolean().readonly(),
 			head: isly.string().optional().readonly(),
 			tail: isly.any().readonly(),
+			last: isly.string().optional().readonly(),
 			fragment: isly.string().optional().readonly(),
 			getId: isly.function(),
 			append: isly.function(),
