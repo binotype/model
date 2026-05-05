@@ -48,13 +48,13 @@ export namespace Section {
 				mode
 				&& (Object.fromEntries(
 					Object.entries({
-						id: path.fragment ?? "",
+						id: path.fragment ?? path.getId("camel") ?? "",
 						link: path.toString(),
 						meta: block.meta ?? {},
 						mode,
 						type: block.type,
 						class: block.class ?? [],
-						title: Label.get<Node>(block.title ?? `[${path.fragment ?? ""}]`),
+						title: Label.get<Node>(block.title ?? `[${path.fragment ?? path.getId("camel") ?? ""}]`),
 						subtitle: block.subtitle,
 						...(mode == "full" || mode == "body"
 							? {

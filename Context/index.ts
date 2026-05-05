@@ -47,8 +47,8 @@ export class Context<Node> {
 	}
 	load(
 		path: Path | string | undefined,
-		reduction: Modes = { mode: this.site.design.mode, list: this.site.design.list },
-		fallback: Modes = reduction
+		reduction?: Modes,
+		fallback: Modes = { mode: this.site.design.mode, list: this.site.design.list }
 	): Context.Article<Node> | undefined {
 		if (!(path instanceof Path)) path = Path.parse(path ?? "")
 		if (path.empty && this.site.design.home) path = Path.parse(this.site.design.home ?? "")

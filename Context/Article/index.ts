@@ -36,12 +36,15 @@ export namespace Article {
 		fallback: Modes = reduction
 	): Article<Node> | Article<Node>[] | undefined {
 		let result: Article<Node> | Article<Node>[] | undefined
+		const modes = Modes.reduce(page, reduction, fallback)
 		if (!page) result = undefined
 		else if (Block.isBlocks(page))
 			result =
-				page && Page.toArray(page).map(p => Article.load<Node>(p, path.appendFragment(p.id), reduction, fallback))
+				page
+				&& Page.toArray(page)
+					.slice(0, modes.list.limit)
+					.map(p => Article.load<Node>(p, path.append(p.id), reduction, fallback))
 		else {
-			const modes = Modes.reduce(page, reduction, fallback)
 			result = !modes.mode
 				? undefined
 				: (Object.fromEntries(
@@ -55,15 +58,15 @@ export namespace Article {
 							// readingTime: text ? Math.ceil(text.split(/\s+/).length / 200) : undefined,
 							...(modes.list.mode != "none" && page.pages
 								? {
-										articles: Article.load<Node>(page.pages, path, reduction, {
-											mode: modes.list.mode,
-											list: modes.list
-										})
+										articles: Article.load<Node>(
+											page.pages,
+											path,
+											{ mode: modes.list.mode, list: modes.list },
+											fallback
+										)
 									}
 								: {})
-						} satisfies Article<Node>)
-							.filter(([_, value]) => value != undefined)
-							.slice(0, modes.list.limit)
+						} satisfies Article<Node>).filter(([_, value]) => value != undefined)
 					) as Article<Node>)
 		}
 		return result

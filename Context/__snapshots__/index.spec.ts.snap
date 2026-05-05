@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`binotype.Context > create(simonmika.com, /) 1`] = `
+exports[`binotype.Context > create(simonmika.com, '/', undefined) 1`] = `
 {
   "article": {
     "articles": [
@@ -11,7 +11,7 @@ exports[`binotype.Context > create(simonmika.com, /) 1`] = `
         "class": [],
         "content": undefined,
         "id": "takingRiskWhenDying",
-        "link": "/article#takingRiskWhenDying",
+        "link": "/article/taking-risk-when-dying",
         "list": {
           "mode": "summary",
         },
@@ -32,7 +32,7 @@ exports[`binotype.Context > create(simonmika.com, /) 1`] = `
         "class": [],
         "content": undefined,
         "id": "optimizingSoftware",
-        "link": "/article#optimizingSoftware",
+        "link": "/article/optimizing-software",
         "list": {
           "mode": "summary",
         },
@@ -53,7 +53,7 @@ exports[`binotype.Context > create(simonmika.com, /) 1`] = `
         "class": [],
         "content": undefined,
         "id": "naming",
-        "link": "/article#naming",
+        "link": "/article/naming",
         "list": {
           "mode": "summary",
         },
@@ -74,7 +74,7 @@ exports[`binotype.Context > create(simonmika.com, /) 1`] = `
         "class": [],
         "content": undefined,
         "id": "programmingInterview",
-        "link": "/article#programmingInterview",
+        "link": "/article/programming-interview",
         "list": {
           "mode": "summary",
         },
@@ -95,7 +95,7 @@ exports[`binotype.Context > create(simonmika.com, /) 1`] = `
         "class": [],
         "content": undefined,
         "id": "recruitingProcess",
-        "link": "/article#recruitingProcess",
+        "link": "/article/recruiting-process",
         "list": {
           "mode": "summary",
         },
@@ -116,7 +116,7 @@ exports[`binotype.Context > create(simonmika.com, /) 1`] = `
         "class": [],
         "content": undefined,
         "id": "rockStarProgrammers",
-        "link": "/article#rockStarProgrammers",
+        "link": "/article/rock-star-programmers",
         "list": {
           "mode": "summary",
         },
@@ -137,7 +137,7 @@ exports[`binotype.Context > create(simonmika.com, /) 1`] = `
         "class": [],
         "content": undefined,
         "id": "toLive",
-        "link": "/article#toLive",
+        "link": "/article/to-live",
         "list": {
           "mode": "summary",
         },
@@ -156,7 +156,7 @@ exports[`binotype.Context > create(simonmika.com, /) 1`] = `
     "changed": undefined,
     "class": [],
     "content": undefined,
-    "id": "",
+    "id": "article",
     "link": "/article",
     "list": {
       "mode": "summary",
@@ -331,7 +331,145 @@ exports[`binotype.Context > create(simonmika.com, /) 1`] = `
 }
 `;
 
-exports[`binotype.Context > create(simonmika.com, /about) 1`] = `
+exports[`binotype.Context > create(simonmika.com, '/', undefined) 2`] = `
+{
+  "articles": [
+    {
+      "articles": [],
+      "class": [],
+      "id": "takingRiskWhenDying",
+      "link": "/article/taking-risk-when-dying",
+      "list": {
+        "mode": "summary",
+      },
+      "meta": {},
+      "mode": "summary",
+      "published": "2017-08-23T09:15:00+02:00",
+      "subtitle": [],
+      "title": {
+        "formatted": "Taking Risk When Dying",
+        "plain": "Taking Risk When Dying",
+      },
+    },
+    {
+      "articles": [],
+      "class": [],
+      "id": "optimizingSoftware",
+      "link": "/article/optimizing-software",
+      "list": {
+        "mode": "summary",
+      },
+      "meta": {},
+      "mode": "summary",
+      "published": "2016-11-24T08:15:46+02:00",
+      "subtitle": [],
+      "title": {
+        "formatted": "Optimizing Software",
+        "plain": "Optimizing Software",
+      },
+    },
+    {
+      "articles": [],
+      "class": [],
+      "id": "naming",
+      "link": "/article/naming",
+      "list": {
+        "mode": "summary",
+      },
+      "meta": {},
+      "mode": "summary",
+      "published": "2016-10-27T16:12:00+02:00",
+      "subtitle": [],
+      "title": {
+        "formatted": "Naming",
+        "plain": "Naming",
+      },
+    },
+    {
+      "articles": [],
+      "class": [],
+      "id": "programmingInterview",
+      "link": "/article/programming-interview",
+      "list": {
+        "mode": "summary",
+      },
+      "meta": {},
+      "mode": "summary",
+      "published": "2016-10-05T17:32:00+02:00",
+      "subtitle": [],
+      "title": {
+        "formatted": "The Programming Interview",
+        "plain": "The Programming Interview",
+      },
+    },
+    {
+      "articles": [],
+      "class": [],
+      "id": "recruitingProcess",
+      "link": "/article/recruiting-process",
+      "list": {
+        "mode": "summary",
+      },
+      "meta": {},
+      "mode": "summary",
+      "published": "2016-09-27T23:18:43+02:00",
+      "subtitle": [],
+      "title": {
+        "formatted": "Recruiting Process",
+        "plain": "Recruiting Process",
+      },
+    },
+    {
+      "articles": [],
+      "class": [],
+      "id": "rockStarProgrammers",
+      "link": "/article/rock-star-programmers",
+      "list": {
+        "mode": "summary",
+      },
+      "meta": {},
+      "mode": "summary",
+      "published": "2016-09-27T23:18:43+02:00",
+      "subtitle": [],
+      "title": {
+        "formatted": "Rock Star Programmers",
+        "plain": "Rock Star Programmers",
+      },
+    },
+    {
+      "articles": [],
+      "class": [],
+      "id": "toLive",
+      "link": "/article/to-live",
+      "list": {
+        "mode": "summary",
+      },
+      "meta": {},
+      "mode": "summary",
+      "published": "2016-08-18T21:31:21+02:00",
+      "subtitle": [],
+      "title": {
+        "formatted": "To Live",
+        "plain": "To Live",
+      },
+    },
+  ],
+  "class": [],
+  "id": "article",
+  "link": "/article",
+  "list": {
+    "mode": "summary",
+  },
+  "meta": {},
+  "mode": "full",
+  "title": {
+    "formatted": "Articles",
+    "plain": "Articles",
+  },
+}
+`;
+
+exports[`binotype.Context > create(simonmika.com, '/about', undefined) 1`] = `
 {
   "article": {
     "articles": [],
@@ -344,7 +482,7 @@ I write about building software and building companies.
 Currently, I help companies as a consultant with everything from software architecture to business development. If you are interested in my services please contact me. When I don't work for money I also spend time on SysPL and TypeUp.
 You can find out more about me on my page on LinkedIn and on GitHub.
 ",
-    "id": "",
+    "id": "about",
     "link": "/about",
     "list": {
       "mode": "summary",
@@ -521,7 +659,36 @@ You can find out more about me on my page on LinkedIn and on GitHub.
 }
 `;
 
-exports[`binotype.Context > create(simonmika.com, /article) 1`] = `
+exports[`binotype.Context > create(simonmika.com, '/about', undefined) 2`] = `
+{
+  "articles": [],
+  "author": "Simon Mika",
+  "class": [],
+  "content": "I am Simon Mika, and I create things. Professionally I create software products. Either hands on or by creating the organization that builds the products.
+I live in Uppsala, Sweden with my wife Sannah and my four kids in a house from 1937 that we have been renovating since 2009.
+I write about building software and building companies.
+Currently, I help companies as a consultant with everything from software architecture to business development. If you are interested in my services please contact me. When I don't work for money I also spend time on SysPL and TypeUp.
+You can find out more about me on my page on LinkedIn and on GitHub.
+",
+  "id": "about",
+  "link": "/about",
+  "list": {
+    "mode": "summary",
+  },
+  "meta": {},
+  "mode": "full",
+  "sections": [],
+  "subtitle": [
+    "About Simon Mika",
+  ],
+  "title": {
+    "formatted": "About",
+    "plain": "About",
+  },
+}
+`;
+
+exports[`binotype.Context > create(simonmika.com, '/article', { list: { limit: 5 } }) 1`] = `
 {
   "article": {
     "articles": [
@@ -532,7 +699,7 @@ exports[`binotype.Context > create(simonmika.com, /article) 1`] = `
         "class": [],
         "content": undefined,
         "id": "takingRiskWhenDying",
-        "link": "/article#takingRiskWhenDying",
+        "link": "/article/taking-risk-when-dying",
         "list": {
           "mode": "summary",
         },
@@ -553,7 +720,7 @@ exports[`binotype.Context > create(simonmika.com, /article) 1`] = `
         "class": [],
         "content": undefined,
         "id": "optimizingSoftware",
-        "link": "/article#optimizingSoftware",
+        "link": "/article/optimizing-software",
         "list": {
           "mode": "summary",
         },
@@ -574,7 +741,7 @@ exports[`binotype.Context > create(simonmika.com, /article) 1`] = `
         "class": [],
         "content": undefined,
         "id": "naming",
-        "link": "/article#naming",
+        "link": "/article/naming",
         "list": {
           "mode": "summary",
         },
@@ -595,7 +762,7 @@ exports[`binotype.Context > create(simonmika.com, /article) 1`] = `
         "class": [],
         "content": undefined,
         "id": "programmingInterview",
-        "link": "/article#programmingInterview",
+        "link": "/article/programming-interview",
         "list": {
           "mode": "summary",
         },
@@ -616,7 +783,7 @@ exports[`binotype.Context > create(simonmika.com, /article) 1`] = `
         "class": [],
         "content": undefined,
         "id": "recruitingProcess",
-        "link": "/article#recruitingProcess",
+        "link": "/article/recruiting-process",
         "list": {
           "mode": "summary",
         },
@@ -637,7 +804,7 @@ exports[`binotype.Context > create(simonmika.com, /article) 1`] = `
         "class": [],
         "content": undefined,
         "id": "rockStarProgrammers",
-        "link": "/article#rockStarProgrammers",
+        "link": "/article/rock-star-programmers",
         "list": {
           "mode": "summary",
         },
@@ -658,7 +825,7 @@ exports[`binotype.Context > create(simonmika.com, /article) 1`] = `
         "class": [],
         "content": undefined,
         "id": "toLive",
-        "link": "/article#toLive",
+        "link": "/article/to-live",
         "list": {
           "mode": "summary",
         },
@@ -677,7 +844,7 @@ exports[`binotype.Context > create(simonmika.com, /article) 1`] = `
     "changed": undefined,
     "class": [],
     "content": undefined,
-    "id": "",
+    "id": "article",
     "link": "/article",
     "list": {
       "mode": "summary",
@@ -852,33 +1019,606 @@ exports[`binotype.Context > create(simonmika.com, /article) 1`] = `
 }
 `;
 
-exports[`binotype.Context > create(simonmika.com, /article/to-live) 1`] = `
+exports[`binotype.Context > create(simonmika.com, '/article', { list: { limit: 5 } }) 2`] = `
+{
+  "articles": [
+    {
+      "articles": [],
+      "class": [],
+      "id": "takingRiskWhenDying",
+      "link": "/article/taking-risk-when-dying",
+      "list": {
+        "limit": 5,
+        "mode": "summary",
+      },
+      "meta": {},
+      "mode": "summary",
+      "published": "2017-08-23T09:15:00+02:00",
+      "subtitle": [],
+      "title": {
+        "formatted": "Taking Risk When Dying",
+        "plain": "Taking Risk When Dying",
+      },
+    },
+    {
+      "articles": [],
+      "class": [],
+      "id": "optimizingSoftware",
+      "link": "/article/optimizing-software",
+      "list": {
+        "limit": 5,
+        "mode": "summary",
+      },
+      "meta": {},
+      "mode": "summary",
+      "published": "2016-11-24T08:15:46+02:00",
+      "subtitle": [],
+      "title": {
+        "formatted": "Optimizing Software",
+        "plain": "Optimizing Software",
+      },
+    },
+    {
+      "articles": [],
+      "class": [],
+      "id": "naming",
+      "link": "/article/naming",
+      "list": {
+        "limit": 5,
+        "mode": "summary",
+      },
+      "meta": {},
+      "mode": "summary",
+      "published": "2016-10-27T16:12:00+02:00",
+      "subtitle": [],
+      "title": {
+        "formatted": "Naming",
+        "plain": "Naming",
+      },
+    },
+    {
+      "articles": [],
+      "class": [],
+      "id": "programmingInterview",
+      "link": "/article/programming-interview",
+      "list": {
+        "limit": 5,
+        "mode": "summary",
+      },
+      "meta": {},
+      "mode": "summary",
+      "published": "2016-10-05T17:32:00+02:00",
+      "subtitle": [],
+      "title": {
+        "formatted": "The Programming Interview",
+        "plain": "The Programming Interview",
+      },
+    },
+    {
+      "articles": [],
+      "class": [],
+      "id": "recruitingProcess",
+      "link": "/article/recruiting-process",
+      "list": {
+        "limit": 5,
+        "mode": "summary",
+      },
+      "meta": {},
+      "mode": "summary",
+      "published": "2016-09-27T23:18:43+02:00",
+      "subtitle": [],
+      "title": {
+        "formatted": "Recruiting Process",
+        "plain": "Recruiting Process",
+      },
+    },
+  ],
+  "class": [],
+  "id": "article",
+  "link": "/article",
+  "list": {
+    "limit": 5,
+    "mode": "summary",
+  },
+  "meta": {},
+  "mode": "full",
+  "title": {
+    "formatted": "Articles",
+    "plain": "Articles",
+  },
+}
+`;
+
+exports[`binotype.Context > create(simonmika.com, '/article', undefined) 1`] = `
 {
   "article": {
-    "articles": [],
+    "articles": [
+      {
+        "articles": [],
+        "author": undefined,
+        "changed": undefined,
+        "class": [],
+        "content": undefined,
+        "id": "takingRiskWhenDying",
+        "link": "/article/taking-risk-when-dying",
+        "list": {
+          "mode": "summary",
+        },
+        "meta": {},
+        "mode": "summary",
+        "published": "2017-08-23T09:15:00+02:00",
+        "sections": undefined,
+        "subtitle": [],
+        "title": {
+          "formatted": "Taking Risk When Dying",
+          "plain": "Taking Risk When Dying",
+        },
+      },
+      {
+        "articles": [],
+        "author": undefined,
+        "changed": undefined,
+        "class": [],
+        "content": undefined,
+        "id": "optimizingSoftware",
+        "link": "/article/optimizing-software",
+        "list": {
+          "mode": "summary",
+        },
+        "meta": {},
+        "mode": "summary",
+        "published": "2016-11-24T08:15:46+02:00",
+        "sections": undefined,
+        "subtitle": [],
+        "title": {
+          "formatted": "Optimizing Software",
+          "plain": "Optimizing Software",
+        },
+      },
+      {
+        "articles": [],
+        "author": undefined,
+        "changed": undefined,
+        "class": [],
+        "content": undefined,
+        "id": "naming",
+        "link": "/article/naming",
+        "list": {
+          "mode": "summary",
+        },
+        "meta": {},
+        "mode": "summary",
+        "published": "2016-10-27T16:12:00+02:00",
+        "sections": undefined,
+        "subtitle": [],
+        "title": {
+          "formatted": "Naming",
+          "plain": "Naming",
+        },
+      },
+      {
+        "articles": [],
+        "author": undefined,
+        "changed": undefined,
+        "class": [],
+        "content": undefined,
+        "id": "programmingInterview",
+        "link": "/article/programming-interview",
+        "list": {
+          "mode": "summary",
+        },
+        "meta": {},
+        "mode": "summary",
+        "published": "2016-10-05T17:32:00+02:00",
+        "sections": undefined,
+        "subtitle": [],
+        "title": {
+          "formatted": "The Programming Interview",
+          "plain": "The Programming Interview",
+        },
+      },
+      {
+        "articles": [],
+        "author": undefined,
+        "changed": undefined,
+        "class": [],
+        "content": undefined,
+        "id": "recruitingProcess",
+        "link": "/article/recruiting-process",
+        "list": {
+          "mode": "summary",
+        },
+        "meta": {},
+        "mode": "summary",
+        "published": "2016-09-27T23:18:43+02:00",
+        "sections": undefined,
+        "subtitle": [],
+        "title": {
+          "formatted": "Recruiting Process",
+          "plain": "Recruiting Process",
+        },
+      },
+      {
+        "articles": [],
+        "author": undefined,
+        "changed": undefined,
+        "class": [],
+        "content": undefined,
+        "id": "rockStarProgrammers",
+        "link": "/article/rock-star-programmers",
+        "list": {
+          "mode": "summary",
+        },
+        "meta": {},
+        "mode": "summary",
+        "published": "2016-09-27T23:18:43+02:00",
+        "sections": undefined,
+        "subtitle": [],
+        "title": {
+          "formatted": "Rock Star Programmers",
+          "plain": "Rock Star Programmers",
+        },
+      },
+      {
+        "articles": [],
+        "author": undefined,
+        "changed": undefined,
+        "class": [],
+        "content": undefined,
+        "id": "toLive",
+        "link": "/article/to-live",
+        "list": {
+          "mode": "summary",
+        },
+        "meta": {},
+        "mode": "summary",
+        "published": "2016-08-18T21:31:21+02:00",
+        "sections": undefined,
+        "subtitle": [],
+        "title": {
+          "formatted": "To Live",
+          "plain": "To Live",
+        },
+      },
+    ],
     "author": undefined,
     "changed": undefined,
     "class": [],
-    "content": "Life is about three fundamental activities:
-These three pillars are deeply interconnected. When we create, we inevitably learn from the process. When we learn, we become better equipped to help others. And when we help others, we often end up creating something valuable in the process.
-They are all about improving ourselves and the world around us. Each day presents opportunities to engage in these activities, even in small ways. The magic happens when we consciously combine them:
-> We make a living by what we get, but we make a life by what we give.
-The choice is yours: Will you be a passive observer of life, or an active participant? Will you consume what others create, or contribute something of your own? Will you stay in your comfort zone, or push its boundaries?
-Because tomorrow isn't guaranteed - but today's actions shape all our tomorrows.
-",
-    "id": "",
-    "link": "/article/to-live",
+    "content": undefined,
+    "id": "article",
+    "link": "/article",
     "list": {
       "mode": "summary",
     },
     "meta": {},
     "mode": "full",
-    "published": "2016-08-18T21:31:21+02:00",
-    "sections": [],
-    "subtitle": [],
+    "published": undefined,
+    "sections": undefined,
+    "subtitle": undefined,
     "title": {
-      "formatted": "To Live",
-      "plain": "To Live",
+      "formatted": "Articles",
+      "plain": "Articles",
+    },
+  },
+  "base": "https://simonmika.com",
+  "design": {
+    "home": "article",
+    "icon": "icon/favicon.ico",
+    "list": "summary",
+    "logotype": "assets/logotype.svg",
+    "navigation": "header",
+    "scripts": [
+      "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js",
+      "/assets/share-blockquote.js",
+    ],
+    "styles": [
+      "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css",
+    ],
+  },
+  "menu": {
+    "depth": undefined,
+    "items": [
+      {
+        "description": "Articles",
+        "items": [
+          {
+            "description": "Taking Risk When Dying",
+            "items": [],
+            "label": "Taking Risk When Dying",
+            "selected": undefined,
+            "url": "/article/taking-risk-when-dying",
+          },
+          {
+            "description": "Optimizing Software",
+            "items": [],
+            "label": "Optimizing Software",
+            "selected": undefined,
+            "url": "/article/optimizing-software",
+          },
+          {
+            "description": "Naming",
+            "items": [],
+            "label": "Naming",
+            "selected": undefined,
+            "url": "/article/naming",
+          },
+          {
+            "description": "The Programming Interview",
+            "items": [],
+            "label": "The Programming Interview",
+            "selected": undefined,
+            "url": "/article/programming-interview",
+          },
+          {
+            "description": "Recruiting Process",
+            "items": [],
+            "label": "Recruiting Process",
+            "selected": undefined,
+            "url": "/article/recruiting-process",
+          },
+          {
+            "description": "Rock Star Programmers",
+            "items": [],
+            "label": "Rock Star Programmers",
+            "selected": undefined,
+            "url": "/article/rock-star-programmers",
+          },
+          {
+            "description": "To Live",
+            "items": [],
+            "label": "To Live",
+            "selected": undefined,
+            "url": "/article/to-live",
+          },
+        ],
+        "label": "Articles",
+        "selected": "current",
+        "url": "/article",
+      },
+      {
+        "description": "Talks",
+        "items": [
+          {
+            "description": "Egenanställd Konsult",
+            "items": [],
+            "label": "Egenanställd Konsult",
+            "selected": undefined,
+            "url": "/talk/egen-konsult",
+          },
+          {
+            "description": "Retro Game w/ Modern UI Tools",
+            "items": [],
+            "label": "Retro Game w/ Modern UI Tools",
+            "selected": undefined,
+            "url": "/talk/retro-game-modern-ui-tools",
+          },
+          {
+            "description": "Recruiting and Become Recruited 2025",
+            "items": [],
+            "label": "Recruiting and Become Recruited 2025",
+            "selected": undefined,
+            "url": "/talk/recruiting2025",
+          },
+          {
+            "description": "Recruiting and Become Recruited",
+            "items": [],
+            "label": "Recruiting and Become Recruited",
+            "selected": undefined,
+            "url": "/talk/recruiting",
+          },
+          {
+            "description": "How I Use TypeScript",
+            "items": [],
+            "label": "How I Use TypeScript",
+            "selected": undefined,
+            "url": "/talk/how-i-use-typescript",
+          },
+          {
+            "description": "On Programming",
+            "items": [],
+            "label": "On Programming",
+            "selected": undefined,
+            "url": "/talk/on-programming",
+          },
+        ],
+        "label": "Talks",
+        "selected": undefined,
+        "url": "/talk",
+      },
+      {
+        "description": "Contact",
+        "items": [],
+        "label": "Contact",
+        "selected": undefined,
+        "url": "/contact",
+      },
+      {
+        "description": "Description",
+        "items": [],
+        "label": "Description",
+        "selected": undefined,
+        "url": "/description",
+      },
+      {
+        "description": "Subscribe",
+        "items": [],
+        "label": "Subscribe",
+        "selected": undefined,
+        "url": "/subscribe",
+      },
+      {
+        "description": "About",
+        "items": [],
+        "label": "About",
+        "selected": undefined,
+        "url": "/about",
+      },
+    ],
+  },
+  "title": "Simon Says",
+  "url": "https://simonmika.com/article",
+}
+`;
+
+exports[`binotype.Context > create(simonmika.com, '/article', undefined) 2`] = `
+{
+  "articles": [
+    {
+      "articles": [],
+      "class": [],
+      "id": "takingRiskWhenDying",
+      "link": "/article/taking-risk-when-dying",
+      "list": {
+        "mode": "summary",
+      },
+      "meta": {},
+      "mode": "summary",
+      "published": "2017-08-23T09:15:00+02:00",
+      "subtitle": [],
+      "title": {
+        "formatted": "Taking Risk When Dying",
+        "plain": "Taking Risk When Dying",
+      },
+    },
+    {
+      "articles": [],
+      "class": [],
+      "id": "optimizingSoftware",
+      "link": "/article/optimizing-software",
+      "list": {
+        "mode": "summary",
+      },
+      "meta": {},
+      "mode": "summary",
+      "published": "2016-11-24T08:15:46+02:00",
+      "subtitle": [],
+      "title": {
+        "formatted": "Optimizing Software",
+        "plain": "Optimizing Software",
+      },
+    },
+    {
+      "articles": [],
+      "class": [],
+      "id": "naming",
+      "link": "/article/naming",
+      "list": {
+        "mode": "summary",
+      },
+      "meta": {},
+      "mode": "summary",
+      "published": "2016-10-27T16:12:00+02:00",
+      "subtitle": [],
+      "title": {
+        "formatted": "Naming",
+        "plain": "Naming",
+      },
+    },
+    {
+      "articles": [],
+      "class": [],
+      "id": "programmingInterview",
+      "link": "/article/programming-interview",
+      "list": {
+        "mode": "summary",
+      },
+      "meta": {},
+      "mode": "summary",
+      "published": "2016-10-05T17:32:00+02:00",
+      "subtitle": [],
+      "title": {
+        "formatted": "The Programming Interview",
+        "plain": "The Programming Interview",
+      },
+    },
+    {
+      "articles": [],
+      "class": [],
+      "id": "recruitingProcess",
+      "link": "/article/recruiting-process",
+      "list": {
+        "mode": "summary",
+      },
+      "meta": {},
+      "mode": "summary",
+      "published": "2016-09-27T23:18:43+02:00",
+      "subtitle": [],
+      "title": {
+        "formatted": "Recruiting Process",
+        "plain": "Recruiting Process",
+      },
+    },
+    {
+      "articles": [],
+      "class": [],
+      "id": "rockStarProgrammers",
+      "link": "/article/rock-star-programmers",
+      "list": {
+        "mode": "summary",
+      },
+      "meta": {},
+      "mode": "summary",
+      "published": "2016-09-27T23:18:43+02:00",
+      "subtitle": [],
+      "title": {
+        "formatted": "Rock Star Programmers",
+        "plain": "Rock Star Programmers",
+      },
+    },
+    {
+      "articles": [],
+      "class": [],
+      "id": "toLive",
+      "link": "/article/to-live",
+      "list": {
+        "mode": "summary",
+      },
+      "meta": {},
+      "mode": "summary",
+      "published": "2016-08-18T21:31:21+02:00",
+      "subtitle": [],
+      "title": {
+        "formatted": "To Live",
+        "plain": "To Live",
+      },
+    },
+  ],
+  "class": [],
+  "id": "article",
+  "link": "/article",
+  "list": {
+    "mode": "summary",
+  },
+  "meta": {},
+  "mode": "full",
+  "title": {
+    "formatted": "Articles",
+    "plain": "Articles",
+  },
+}
+`;
+
+exports[`binotype.Context > create(simonmika.com, '/article/to-live', undefined) 1`] = `
+{
+  "article": {
+    "articles": undefined,
+    "author": undefined,
+    "changed": undefined,
+    "class": [],
+    "content": undefined,
+    "id": "toLive",
+    "link": "/article/to-live",
+    "list": {
+      "mode": "full",
+    },
+    "meta": {},
+    "mode": "full",
+    "published": undefined,
+    "sections": undefined,
+    "subtitle": undefined,
+    "title": {
+      "formatted": "Not Found",
+      "plain": "Not Found",
     },
   },
   "base": "https://simonmika.com",
@@ -1041,7 +1781,9 @@ Because tomorrow isn't guaranteed - but today's actions shape all our tomorrows.
 }
 `;
 
-exports[`binotype.Context > create(simonmika.com, /nonexistent) 1`] = `
+exports[`binotype.Context > create(simonmika.com, '/article/to-live', undefined) 2`] = `undefined`;
+
+exports[`binotype.Context > create(simonmika.com, '/nonexistent', undefined) 1`] = `
 {
   "article": {
     "articles": undefined,
@@ -1049,7 +1791,7 @@ exports[`binotype.Context > create(simonmika.com, /nonexistent) 1`] = `
     "changed": undefined,
     "class": [],
     "content": undefined,
-    "id": "",
+    "id": "nonexistent",
     "link": "/nonexistent",
     "list": {
       "mode": "full",
@@ -1224,7 +1966,9 @@ exports[`binotype.Context > create(simonmika.com, /nonexistent) 1`] = `
 }
 `;
 
-exports[`binotype.Context > create(simonmika.com, invalid-path) 1`] = `
+exports[`binotype.Context > create(simonmika.com, '/nonexistent', undefined) 2`] = `undefined`;
+
+exports[`binotype.Context > create(simonmika.com, 'invalid-path', undefined) 1`] = `
 {
   "article": {
     "articles": undefined,
@@ -1232,7 +1976,7 @@ exports[`binotype.Context > create(simonmika.com, invalid-path) 1`] = `
     "changed": undefined,
     "class": [],
     "content": undefined,
-    "id": "",
+    "id": "invalidPath",
     "link": "/invalid-path",
     "list": {
       "mode": "full",
@@ -1407,6 +2151,8 @@ exports[`binotype.Context > create(simonmika.com, invalid-path) 1`] = `
 }
 `;
 
+exports[`binotype.Context > create(simonmika.com, 'invalid-path', undefined) 2`] = `undefined`;
+
 exports[`binotype.Context > create(site, /) 1`] = `
 {
   "article": {
@@ -1418,7 +2164,7 @@ exports[`binotype.Context > create(site, /) 1`] = `
         "class": [],
         "content": undefined,
         "id": "about",
-        "link": "/#about",
+        "link": "/about",
         "list": {
           "mode": "summary",
         },
@@ -1490,7 +2236,7 @@ exports[`binotype.Context > create(site, /about) 1`] = `
     "changed": undefined,
     "class": [],
     "content": "About page content",
-    "id": "",
+    "id": "about",
     "link": "/about",
     "list": {
       "mode": "summary",
@@ -1543,7 +2289,7 @@ exports[`binotype.Context > create(site, /nonexistent) 1`] = `
     "changed": undefined,
     "class": [],
     "content": undefined,
-    "id": "",
+    "id": "nonexistent",
     "link": "/nonexistent",
     "list": {
       "mode": "full",
@@ -1596,7 +2342,7 @@ exports[`binotype.Context > create(site, invalid-path) 1`] = `
     "changed": undefined,
     "class": [],
     "content": undefined,
-    "id": "",
+    "id": "invalidPath",
     "link": "/invalid-path",
     "list": {
       "mode": "full",

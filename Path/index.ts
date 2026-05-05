@@ -10,6 +10,9 @@ export class Path {
 	get head(): string | undefined {
 		return this.parts.length > 0 ? this.parts[0] : undefined
 	}
+	get last(): string | undefined {
+		return this.parts.length > 0 ? this.parts[this.parts.length - 1] : undefined
+	}
 	get tail(): Path {
 		return new Path(this.parts.slice(1))
 	}
@@ -21,7 +24,7 @@ export class Path {
 		this.fragment = fragment
 	}
 	getId(casing: "snake" | "camel" = "snake"): string {
-		return Path.getId(this.head ?? "", casing)
+		return Path.getId(this.last ?? "", casing)
 	}
 	append(id: string): Path {
 		return new Path([...(this.parts ?? []), Path.getId(id, "snake")])

@@ -6,15 +6,15 @@ exports[`binotype.Context.Section > Section.convert > should convert Section to 
     "main",
   ],
   "content": "Block content",
-  "id": "",
+  "id": "b1",
   "link": "/b1",
   "meta": {},
   "mode": "full",
   "sections": undefined,
   "subtitle": undefined,
   "title": {
-    "formatted": "[]",
-    "plain": "[]",
+    "formatted": "[b1]",
+    "plain": "[b1]",
   },
 }
 `;
@@ -57,13 +57,13 @@ exports[`binotype.Context.Section > Section.load > should handle fallback mode 1
   "class": [
     "main",
   ],
-  "id": "",
+  "id": "b1",
   "link": "/b1",
   "meta": {},
   "mode": "header",
   "title": {
-    "formatted": "[]",
-    "plain": "[]",
+    "formatted": "[b1]",
+    "plain": "[b1]",
   },
 }
 `;
@@ -74,13 +74,13 @@ exports[`binotype.Context.Section > Section.load > should handle simple block ob
     "main",
   ],
   "content": "Block content",
-  "id": "",
+  "id": "b1",
   "link": "/b1",
   "meta": {},
   "mode": "full",
   "title": {
-    "formatted": "[]",
-    "plain": "[]",
+    "formatted": "[b1]",
+    "plain": "[b1]",
   },
 }
 `;

@@ -7,7 +7,7 @@ exports[`binotype.Context.Article > Article.convert > ('article to object') 1`] 
   "changed": undefined,
   "class": [],
   "content": "Test content",
-  "id": "",
+  "id": "p1",
   "link": "/p1",
   "list": {
     "mode": "full",
@@ -18,8 +18,8 @@ exports[`binotype.Context.Article > Article.convert > ('article to object') 1`] 
   "sections": undefined,
   "subtitle": undefined,
   "title": {
-    "formatted": "[]",
-    "plain": "[]",
+    "formatted": "[p1]",
+    "plain": "[p1]",
   },
 }
 `;
@@ -30,7 +30,7 @@ exports[`binotype.Context.Article > Article.load > ('page with articles array') 
     "class": [],
     "content": "Test content 1",
     "id": "p1",
-    "link": "/#p1",
+    "link": "/p1",
     "list": {
       "mode": "full",
     },
@@ -45,7 +45,7 @@ exports[`binotype.Context.Article > Article.load > ('page with articles array') 
     "class": [],
     "content": "Test content 2",
     "id": "p2",
-    "link": "/#p2",
+    "link": "/p2",
     "list": {
       "mode": "full",
     },
@@ -63,7 +63,7 @@ exports[`binotype.Context.Article > Article.load > ('reduction mode') 1`] = `
 {
   "class": [],
   "content": "Test content",
-  "id": "",
+  "id": "p1",
   "link": "/p1",
   "list": {
     "mode": "full",
@@ -71,8 +71,8 @@ exports[`binotype.Context.Article > Article.load > ('reduction mode') 1`] = `
   "meta": {},
   "mode": "full",
   "title": {
-    "formatted": "[]",
-    "plain": "[]",
+    "formatted": "[p1]",
+    "plain": "[p1]",
   },
 }
 `;
@@ -81,7 +81,7 @@ exports[`binotype.Context.Article > Article.load > ('simple page object') 1`] = 
 {
   "class": [],
   "content": "Test content",
-  "id": "",
+  "id": "p1",
   "link": "/p1",
   "list": {
     "mode": "full",
@@ -89,8 +89,8 @@ exports[`binotype.Context.Article > Article.load > ('simple page object') 1`] = 
   "meta": {},
   "mode": "full",
   "title": {
-    "formatted": "[]",
-    "plain": "[]",
+    "formatted": "[p1]",
+    "plain": "[p1]",
   },
 }
 `;
@@ -104,7 +104,7 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('basic page
   "changed": undefined,
   "class": [],
   "content": "This is the article content.",
-  "id": "",
+  "id": "test",
   "link": "/test",
   "list": {
     "mode": "full",
@@ -128,7 +128,7 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
   "changed": undefined,
   "class": [],
   "content": "This content should be shown.",
-  "id": "",
+  "id": "body",
   "link": "/body",
   "list": {
     "mode": "full",
@@ -152,7 +152,7 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
   "changed": undefined,
   "class": [],
   "content": undefined,
-  "id": "",
+  "id": "header",
   "link": "/header",
   "list": {
     "mode": "full",
@@ -176,7 +176,7 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
   "changed": undefined,
   "class": [],
   "content": undefined,
-  "id": "",
+  "id": "sections",
   "link": "/sections",
   "list": {
     "mode": "full",
@@ -232,7 +232,7 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
       "class": [],
       "content": "Second post content",
       "id": "post2",
-      "link": "/blog#post2",
+      "link": "/blog/post2",
       "list": {
         "mode": "full",
       },
@@ -253,7 +253,7 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
       "class": [],
       "content": "First post content",
       "id": "post1",
-      "link": "/blog#post1",
+      "link": "/blog/post1",
       "list": {
         "mode": "full",
       },
@@ -272,7 +272,7 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
   "changed": undefined,
   "class": [],
   "content": undefined,
-  "id": "",
+  "id": "blog",
   "link": "/blog",
   "list": {
     "mode": "full",
