@@ -31,6 +31,32 @@ describe("binotype.Parser", () => {
 			{
 				input: "id = page\n===\nid = ch1\n---\nid = sec1\n",
 				expected: { blocks: { sec1: { blocks: { sec1: expect.anything() } } } }
+			},
+			{
+				input: 'id = p\n"""\nHello world\n"""\n',
+				expected: { content: expect.arrayContaining([expect.objectContaining({ class: "block.quote" })]) }
+			},
+			{
+				input: 'id = p\n"""\nHello world\n""" Jane Doe\n',
+				expected: {
+					content: expect.arrayContaining([expect.objectContaining({ class: "block.quote", cite: "Jane Doe" })])
+				}
+			},
+			{
+				input: 'id = p\n"""\nHello world\n"""\nJane Doe\n',
+				expected: {
+					content: expect.arrayContaining([
+						expect.objectContaining({ class: "block.quote", attribution: expect.any(Array) })
+					])
+				}
+			},
+			{
+				input: 'id = p\n"""\nHello world\n""" Source\nJane Doe\n',
+				expected: {
+					content: expect.arrayContaining([
+						expect.objectContaining({ class: "block.quote", cite: "Source", attribution: expect.any(Array) })
+					])
+				}
 			}
 		])("$input", async ({ input, expected }) => expect(await parser.parse(input)).toMatchObject(expected))
 		it("accepts a name parameter", async () =>
