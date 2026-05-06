@@ -1,4 +1,4 @@
-import { writeFileSync, rmSync } from "fs"
+import { rmSync, writeFileSync } from "fs"
 import { tmpdir } from "os"
 import { join } from "path"
 import "mendly/node"
@@ -12,6 +12,8 @@ describe("binotype.Parser", () => {
 			{ input: "", expected: { id: "" } },
 			{ input: "id = home\n", expected: { id: "home" } },
 			{ input: "id = p\ntitle = My Page\n", expected: { title: "My Page" } },
+			{ input: "id = p\nmenu = false\n", expected: { menu: false } },
+			{ input: "id = p\nmenu = toc\n", expected: { menu: "toc" } },
 			{ input: "id = p\ndraft = true\n", expected: { draft: true } },
 			{ input: "id = p\ndraft = false\n", expected: { draft: false } },
 			{ input: "id = p\nauthor = Jane Doe\n", expected: { author: "Jane Doe" } },

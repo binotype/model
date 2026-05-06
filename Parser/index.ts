@@ -1,11 +1,11 @@
 import { dom } from "@typeup/dom"
-import { mendly } from "mendly"
-import { Content } from "../Content"
-import { Page } from "../Page"
-import { Mode } from "../Mode"
 import { parser } from "@typeup/parser"
+import { mendly } from "mendly"
 import { Block } from "../Block"
+import { Content } from "../Content"
 import { Meta } from "../Meta"
+import { Mode } from "../Mode"
+import { Page } from "../Page"
 
 export class Parser<Node> {
 	constructor(private convert: (content: string | dom.Block[] | undefined) => Promise<Content<Node>>) {}
@@ -16,7 +16,7 @@ export class Parser<Node> {
 		node: dom.Block.Section | dom.File
 	): Promise<(Block<Node> & { id: string }) | (Page<Node> & { id: string })> {
 		const properties = {
-			block: ["id", "weight", "title", "subtitle", "mode", "type", "class"],
+			block: ["id", "weight", "title", "subtitle", "menu", "mode", "type", "class"],
 			page: ["draft", "published", "changed", "tags", "author"]
 		} as const
 		const [variables, meta] = dom.Variables.split(
@@ -34,6 +34,7 @@ export class Parser<Node> {
 			weight: dom.Variables.parse("integer", variables, "weight"),
 			title: dom.Variables.parse("string", variables, "title"),
 			subtitle: await this.convert(dom.Variables.parse("string", variables, "subtitle")),
+			menu: dom.Variables.parse("boolean", variables, "menu") ?? dom.Variables.parse("string", variables, "menu"),
 			meta: meta as Meta,
 			mode: Mode.parse(dom.Variables.parse("string", variables, "mode")),
 			type: dom.Variables.parse("string", variables, "type"),

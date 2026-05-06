@@ -41,6 +41,7 @@ describe("binotype.Block", () => {
 		{ name: "missing content property", block: { weight: 10, title: "Title" } },
 		{ name: "null as content", block: { content: null } },
 		{ name: "menu as string", block: { menu: "Label", content: "Valid content" } },
+		{ name: "menu as true", block: { menu: true, content: "Valid content" } },
 		{ name: "array as content", block: { content: ["not", "allowed"] } },
 		{ name: "completely empty object", block: {} }
 	])("is valid: $name", ({ block }) => expect(binotype.Block.getType(isly.string()).is(block)).toBe(true))
@@ -52,7 +53,6 @@ describe("binotype.Block", () => {
 		{ name: "invalid title as number", block: { title: 123, content: "Valid content" } },
 		{ name: "invalid title object missing short", block: { title: { long: "Long only" }, content: "Valid content" } },
 		{ name: "invalid title object missing long", block: { title: { short: "Short only" }, content: "Valid content" } },
-		{ name: "invalid menu as true", block: { menu: true, content: "Valid content" } },
 		{ name: "invalid type as number", block: { type: 123, content: "Valid content" } },
 		{ name: "invalid type as boolean", block: { type: true, content: "Valid content" } },
 		{

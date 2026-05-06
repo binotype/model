@@ -8,11 +8,11 @@ export interface Block<Node> {
 	weight?: number
 	title?: Title<Node>
 	subtitle?: Content<Node>
+	menu?: boolean | string
 	meta?: Meta
 	mode?: Mode
 	type?: string
 	class?: string[]
-	menu?: false | string
 	content?: Content<Node>
 	blocks?: Record<string, Block<Node> | undefined>
 }
@@ -23,11 +23,11 @@ export namespace Block {
 				weight: isly.number().optional(),
 				title: Title.getType<Node>(nodeType).optional(),
 				subtitle: Content.getType<Node>(nodeType).optional(),
+				menu: isly.union(isly.boolean(), isly.string()).optional(),
 				meta: Meta.type.optional(),
 				mode: Mode.type.optional(),
 				type: isly.string().optional(),
 				class: isly.array(isly.string()).optional(),
-				menu: isly.union(isly.boolean(false), isly.string()).optional(),
 				content: Content.getType<Node>(nodeType).optional(),
 				blocks: isly
 					.record(

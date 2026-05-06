@@ -9,6 +9,7 @@ exports[`binotype.Context > create(simonmika.com, '/', undefined) > context.load
       "list": {
         "mode": "header",
       },
+      "menu": true,
       "mode": "header",
       "published": "2017-08-23T09:15:00+02:00",
       "title": {
@@ -22,6 +23,7 @@ exports[`binotype.Context > create(simonmika.com, '/', undefined) > context.load
       "list": {
         "mode": "header",
       },
+      "menu": true,
       "mode": "header",
       "published": "2016-11-24T08:15:46+02:00",
       "title": {
@@ -35,6 +37,7 @@ exports[`binotype.Context > create(simonmika.com, '/', undefined) > context.load
       "list": {
         "mode": "header",
       },
+      "menu": true,
       "mode": "header",
       "published": "2016-10-27T16:12:00+02:00",
       "title": {
@@ -48,6 +51,7 @@ exports[`binotype.Context > create(simonmika.com, '/', undefined) > context.load
       "list": {
         "mode": "header",
       },
+      "menu": true,
       "mode": "header",
       "published": "2016-10-05T17:32:00+02:00",
       "title": {
@@ -61,6 +65,7 @@ exports[`binotype.Context > create(simonmika.com, '/', undefined) > context.load
       "list": {
         "mode": "header",
       },
+      "menu": true,
       "mode": "header",
       "published": "2016-09-27T23:18:43+02:00",
       "title": {
@@ -74,6 +79,7 @@ exports[`binotype.Context > create(simonmika.com, '/', undefined) > context.load
       "list": {
         "mode": "header",
       },
+      "menu": true,
       "mode": "header",
       "published": "2016-09-27T23:18:43+02:00",
       "title": {
@@ -87,6 +93,7 @@ exports[`binotype.Context > create(simonmika.com, '/', undefined) > context.load
       "list": {
         "mode": "header",
       },
+      "menu": true,
       "mode": "header",
       "published": "2016-08-18T21:31:21+02:00",
       "title": {
@@ -100,6 +107,7 @@ exports[`binotype.Context > create(simonmika.com, '/', undefined) > context.load
   "list": {
     "mode": "header",
   },
+  "menu": true,
   "mode": "full",
   "title": {
     "formatted": "Articles",
@@ -122,6 +130,7 @@ You can find out more about me on my page on LinkedIn and on GitHub.
   "list": {
     "mode": "header",
   },
+  "menu": true,
   "mode": "full",
   "subtitle": [
     "About Simon Mika",
@@ -143,6 +152,7 @@ exports[`binotype.Context > create(simonmika.com, '/article', { list: { limit: 5
         "limit": 5,
         "mode": "header",
       },
+      "menu": true,
       "mode": "header",
       "published": "2017-08-23T09:15:00+02:00",
       "title": {
@@ -157,6 +167,7 @@ exports[`binotype.Context > create(simonmika.com, '/article', { list: { limit: 5
         "limit": 5,
         "mode": "header",
       },
+      "menu": true,
       "mode": "header",
       "published": "2016-11-24T08:15:46+02:00",
       "title": {
@@ -171,6 +182,7 @@ exports[`binotype.Context > create(simonmika.com, '/article', { list: { limit: 5
         "limit": 5,
         "mode": "header",
       },
+      "menu": true,
       "mode": "header",
       "published": "2016-10-27T16:12:00+02:00",
       "title": {
@@ -185,6 +197,7 @@ exports[`binotype.Context > create(simonmika.com, '/article', { list: { limit: 5
         "limit": 5,
         "mode": "header",
       },
+      "menu": true,
       "mode": "header",
       "published": "2016-10-05T17:32:00+02:00",
       "title": {
@@ -199,6 +212,7 @@ exports[`binotype.Context > create(simonmika.com, '/article', { list: { limit: 5
         "limit": 5,
         "mode": "header",
       },
+      "menu": true,
       "mode": "header",
       "published": "2016-09-27T23:18:43+02:00",
       "title": {
@@ -213,6 +227,7 @@ exports[`binotype.Context > create(simonmika.com, '/article', { list: { limit: 5
     "limit": 5,
     "mode": "header",
   },
+  "menu": true,
   "mode": "full",
   "title": {
     "formatted": "Articles",
@@ -230,6 +245,7 @@ exports[`binotype.Context > create(simonmika.com, '/article', undefined) > conte
       "list": {
         "mode": "header",
       },
+      "menu": true,
       "mode": "header",
       "published": "2017-08-23T09:15:00+02:00",
       "title": {
@@ -243,6 +259,7 @@ exports[`binotype.Context > create(simonmika.com, '/article', undefined) > conte
       "list": {
         "mode": "header",
       },
+      "menu": true,
       "mode": "header",
       "published": "2016-11-24T08:15:46+02:00",
       "title": {
@@ -256,6 +273,7 @@ exports[`binotype.Context > create(simonmika.com, '/article', undefined) > conte
       "list": {
         "mode": "header",
       },
+      "menu": true,
       "mode": "header",
       "published": "2016-10-27T16:12:00+02:00",
       "title": {
@@ -269,6 +287,7 @@ exports[`binotype.Context > create(simonmika.com, '/article', undefined) > conte
       "list": {
         "mode": "header",
       },
+      "menu": true,
       "mode": "header",
       "published": "2016-10-05T17:32:00+02:00",
       "title": {
@@ -282,6 +301,7 @@ exports[`binotype.Context > create(simonmika.com, '/article', undefined) > conte
       "list": {
         "mode": "header",
       },
+      "menu": true,
       "mode": "header",
       "published": "2016-09-27T23:18:43+02:00",
       "title": {
@@ -295,6 +315,7 @@ exports[`binotype.Context > create(simonmika.com, '/article', undefined) > conte
       "list": {
         "mode": "header",
       },
+      "menu": true,
       "mode": "header",
       "published": "2016-09-27T23:18:43+02:00",
       "title": {
@@ -308,6 +329,7 @@ exports[`binotype.Context > create(simonmika.com, '/article', undefined) > conte
       "list": {
         "mode": "header",
       },
+      "menu": true,
       "mode": "header",
       "published": "2016-08-18T21:31:21+02:00",
       "title": {
@@ -321,6 +343,7 @@ exports[`binotype.Context > create(simonmika.com, '/article', undefined) > conte
   "list": {
     "mode": "header",
   },
+  "menu": true,
   "mode": "full",
   "title": {
     "formatted": "Articles",
@@ -343,6 +366,7 @@ Because tomorrow isn't guaranteed - but today's actions shape all our tomorrows.
   "list": {
     "mode": "header",
   },
+  "menu": true,
   "mode": "full",
   "published": "2016-08-18T21:31:21+02:00",
   "title": {
@@ -363,6 +387,7 @@ exports[`binotype.Context > create(site, /) 1`] = `
         "list": {
           "mode": "summary",
         },
+        "menu": true,
         "mode": "summary",
         "title": {
           "formatted": "About",
@@ -375,6 +400,7 @@ exports[`binotype.Context > create(site, /) 1`] = `
     "list": {
       "mode": "summary",
     },
+    "menu": true,
     "mode": "full",
     "title": {
       "formatted": "[]",
@@ -417,6 +443,7 @@ exports[`binotype.Context > create(site, /about) 1`] = `
     "list": {
       "mode": "summary",
     },
+    "menu": true,
     "mode": "full",
     "title": {
       "formatted": "About",
@@ -459,6 +486,7 @@ exports[`binotype.Context > create(site, /nonexistent) 1`] = `
     "list": {
       "mode": "full",
     },
+    "menu": true,
     "mode": "full",
     "title": {
       "formatted": "Not Found",
@@ -500,6 +528,7 @@ exports[`binotype.Context > create(site, invalid-path) 1`] = `
     "list": {
       "mode": "full",
     },
+    "menu": true,
     "mode": "full",
     "title": {
       "formatted": "Not Found",

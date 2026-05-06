@@ -8,6 +8,7 @@ exports[`binotype.Context.Section > Section.convert > should convert Section to 
   "content": "Block content",
   "id": "b1",
   "link": "/b1",
+  "menu": true,
   "mode": "full",
   "title": {
     "formatted": "[b1]",
@@ -25,6 +26,7 @@ exports[`binotype.Context.Section > Section.load > should handle blocks as recor
     "content": "Block content 1",
     "id": "b1",
     "link": "/#b1",
+    "menu": true,
     "meta": {},
     "mode": "full",
     "title": {
@@ -39,6 +41,7 @@ exports[`binotype.Context.Section > Section.load > should handle blocks as recor
     "content": "Block content 2",
     "id": "b2",
     "link": "/#b2",
+    "menu": true,
     "meta": {},
     "mode": "full",
     "title": {
@@ -56,6 +59,7 @@ exports[`binotype.Context.Section > Section.load > should handle fallback mode 1
   ],
   "id": "b1",
   "link": "/b1",
+  "menu": true,
   "meta": {},
   "mode": "header",
   "title": {
@@ -73,6 +77,7 @@ exports[`binotype.Context.Section > Section.load > should handle simple block ob
   "content": "Block content",
   "id": "b1",
   "link": "/b1",
+  "menu": true,
   "meta": {},
   "mode": "full",
   "title": {

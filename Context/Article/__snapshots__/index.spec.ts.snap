@@ -12,6 +12,7 @@ exports[`binotype.Context.Article > Article.convert > ('article to object') 1`] 
   "list": {
     "mode": "full",
   },
+  "menu": true,
   "meta": {},
   "mode": "full",
   "published": undefined,
@@ -34,6 +35,7 @@ exports[`binotype.Context.Article > Article.load > ('page with articles array') 
     "list": {
       "mode": "full",
     },
+    "menu": true,
     "meta": {},
     "mode": "full",
     "title": {
@@ -49,6 +51,7 @@ exports[`binotype.Context.Article > Article.load > ('page with articles array') 
     "list": {
       "mode": "full",
     },
+    "menu": true,
     "meta": {},
     "mode": "full",
     "title": {
@@ -68,6 +71,7 @@ exports[`binotype.Context.Article > Article.load > ('reduction mode') 1`] = `
   "list": {
     "mode": "full",
   },
+  "menu": true,
   "meta": {},
   "mode": "full",
   "title": {
@@ -86,6 +90,7 @@ exports[`binotype.Context.Article > Article.load > ('simple page object') 1`] = 
   "list": {
     "mode": "full",
   },
+  "menu": true,
   "meta": {},
   "mode": "full",
   "title": {
@@ -105,6 +110,7 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('basic page
   "list": {
     "mode": "full",
   },
+  "menu": true,
   "mode": "full",
   "title": {
     "formatted": "Test Article",
@@ -121,6 +127,7 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
   "list": {
     "mode": "full",
   },
+  "menu": true,
   "mode": "body",
   "title": {
     "formatted": "Body Article",
@@ -136,6 +143,7 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
   "list": {
     "mode": "full",
   },
+  "menu": true,
   "mode": "header",
   "title": {
     "formatted": "Header Only",
@@ -151,12 +159,14 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
   "list": {
     "mode": "full",
   },
+  "menu": true,
   "mode": "full",
   "sections": [
     {
       "content": "Intro content",
       "id": "intro",
       "link": "/sections#intro",
+      "menu": true,
       "mode": "full",
       "title": {
         "formatted": "Introduction",
@@ -167,6 +177,7 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
       "content": "Main content",
       "id": "main",
       "link": "/sections#main",
+      "menu": true,
       "mode": "full",
       "title": {
         "formatted": "Main Section",
@@ -191,6 +202,7 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
       "list": {
         "mode": "full",
       },
+      "menu": true,
       "mode": "full",
       "published": "2024-01-02T10:00:00Z",
       "title": {
@@ -205,6 +217,7 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
       "list": {
         "mode": "full",
       },
+      "menu": true,
       "mode": "full",
       "published": "2024-01-01T10:00:00Z",
       "title": {
@@ -218,6 +231,7 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
   "list": {
     "mode": "full",
   },
+  "menu": true,
   "mode": "full",
   "title": {
     "formatted": "Blog",
