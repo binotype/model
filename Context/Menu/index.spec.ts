@@ -1,3 +1,4 @@
+import { Clean } from "../../Clean"
 import { binotype } from "../../index"
 
 describe("binotype.Context.Menu", () => {
@@ -15,7 +16,7 @@ describe("binotype.Context.Menu", () => {
 			navigation: "header",
 			styles: ["/style.css"],
 			scripts: ["/script.js"],
-			home: { mode: "header", section: "article" },
+			home: "article",
 			list: { mode: "summary" }
 		},
 		page: { title: "Home" }
@@ -138,7 +139,7 @@ describe("binotype.Context.Menu", () => {
 						],
 						navigation: "header",
 						list: { mode: "header" },
-						home: { mode: "header", section: "article" }
+						home: "article"
 					},
 					page: {
 						pages: {
@@ -360,7 +361,7 @@ describe("binotype.Context.Menu", () => {
 		] satisfies { name: string; site: binotype.Site<string>; current: string }[])("load('$name', '$current')", ({
 			site,
 			current
-		}) => expect(binotype.Context.Menu.load(site, current)).toMatchSnapshot())
+		}) => expect(Clean.clean(binotype.Context.Menu.load(site, current))).toMatchSnapshot())
 	})
 	describe("Menu.convert", () => {
 		it.each([
@@ -403,6 +404,6 @@ describe("binotype.Context.Menu", () => {
 				}
 			}
 		] satisfies { name: string; menu: binotype.Context.Menu<string> }[])("convert('$name')", ({ menu }) =>
-			expect(binotype.Context.Menu.convert(menu, node => node)).toMatchSnapshot())
+			expect(Clean.clean(binotype.Context.Menu.convert(menu, node => node))).toMatchSnapshot())
 	})
 })

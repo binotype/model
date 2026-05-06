@@ -1,3 +1,4 @@
+import { Clean } from "../Clean"
 import { Design } from "../Design"
 import { Meta } from "../Meta"
 import { Modes } from "../Modes"
@@ -56,19 +57,17 @@ export class Context<Node> {
 		return page && Context.Article.load(page, path, reduction, fallback)
 	}
 	toJSON() {
-		return Object.fromEntries(
-			Object.entries({
-				title: this.title,
-				tagline: this.tagline,
-				image: this.image,
-				description: this.description,
-				base: this.base,
-				url: this.url,
-				design: this.design,
-				menu: Context.Menu.convert(this.menu, node => node),
-				article: this.article && Context.Article.convert(this.article, node => node)
-			}).filter(([_, value]) => value !== undefined)
-		)
+		return Clean.clean({
+			title: this.title,
+			tagline: this.tagline,
+			image: this.image,
+			description: this.description,
+			base: this.base,
+			url: this.url,
+			design: this.design,
+			menu: Context.Menu.convert(this.menu, node => node),
+			article: this.article && Context.Article.convert(this.article, node => node)
+		})
 	}
 	static create<Node>(site: Site<Node>, path: Path | string): Context<Node> {
 		return new Context(site, path)

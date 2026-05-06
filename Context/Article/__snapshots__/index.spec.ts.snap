@@ -99,21 +99,13 @@ exports[`binotype.Context.Article > Article.load > ('undefined page') 1`] = `und
 
 exports[`binotype.Context.Article > binotype.Context.Article.load > ('basic page with string content') 1`] = `
 {
-  "articles": undefined,
-  "author": undefined,
-  "changed": undefined,
-  "class": [],
   "content": "This is the article content.",
   "id": "test",
   "link": "/test",
   "list": {
     "mode": "full",
   },
-  "meta": {},
   "mode": "full",
-  "published": undefined,
-  "sections": undefined,
-  "subtitle": undefined,
   "title": {
     "formatted": "Test Article",
     "plain": "Test Article",
@@ -123,21 +115,13 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('basic page
 
 exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with both string content and mod…') 1`] = `
 {
-  "articles": undefined,
-  "author": undefined,
-  "changed": undefined,
-  "class": [],
   "content": "This content should be shown.",
   "id": "body",
   "link": "/body",
   "list": {
     "mode": "full",
   },
-  "meta": {},
   "mode": "body",
-  "published": undefined,
-  "sections": undefined,
-  "subtitle": undefined,
   "title": {
     "formatted": "Body Article",
     "plain": "Body Article",
@@ -147,21 +131,12 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
 
 exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with mode header (no content sho…') 1`] = `
 {
-  "articles": undefined,
-  "author": undefined,
-  "changed": undefined,
-  "class": [],
-  "content": undefined,
   "id": "header",
   "link": "/header",
   "list": {
     "mode": "full",
   },
-  "meta": {},
   "mode": "header",
-  "published": undefined,
-  "sections": undefined,
-  "subtitle": undefined,
   "title": {
     "formatted": "Header Only",
     "plain": "Header Only",
@@ -171,50 +146,34 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
 
 exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with object content (sections)') 1`] = `
 {
-  "articles": undefined,
-  "author": undefined,
-  "changed": undefined,
-  "class": [],
-  "content": undefined,
   "id": "sections",
   "link": "/sections",
   "list": {
     "mode": "full",
   },
-  "meta": {},
   "mode": "full",
-  "published": undefined,
   "sections": [
     {
-      "class": [],
       "content": "Intro content",
       "id": "intro",
       "link": "/sections#intro",
-      "meta": {},
       "mode": "full",
-      "sections": undefined,
-      "subtitle": undefined,
       "title": {
         "formatted": "Introduction",
         "plain": "Introduction",
       },
     },
     {
-      "class": [],
       "content": "Main content",
       "id": "main",
       "link": "/sections#main",
-      "meta": {},
       "mode": "full",
-      "sections": undefined,
-      "subtitle": undefined,
       "title": {
         "formatted": "Main Section",
         "plain": "Main Section",
       },
     },
   ],
-  "subtitle": undefined,
   "title": {
     "formatted": "Page with Sections",
     "plain": "Page with Sections",
@@ -226,62 +185,40 @@ exports[`binotype.Context.Article > binotype.Context.Article.load > ('page with 
 {
   "articles": [
     {
-      "articles": undefined,
-      "author": undefined,
-      "changed": undefined,
-      "class": [],
       "content": "Second post content",
       "id": "post2",
       "link": "/blog/post2",
       "list": {
         "mode": "full",
       },
-      "meta": {},
       "mode": "full",
       "published": "2024-01-02T10:00:00Z",
-      "sections": undefined,
-      "subtitle": undefined,
       "title": {
         "formatted": "Second Post",
         "plain": "Second Post",
       },
     },
     {
-      "articles": undefined,
-      "author": undefined,
-      "changed": undefined,
-      "class": [],
       "content": "First post content",
       "id": "post1",
       "link": "/blog/post1",
       "list": {
         "mode": "full",
       },
-      "meta": {},
       "mode": "full",
       "published": "2024-01-01T10:00:00Z",
-      "sections": undefined,
-      "subtitle": undefined,
       "title": {
         "formatted": "First Post",
         "plain": "First Post",
       },
     },
   ],
-  "author": undefined,
-  "changed": undefined,
-  "class": [],
-  "content": undefined,
   "id": "blog",
   "link": "/blog",
   "list": {
     "mode": "full",
   },
-  "meta": {},
   "mode": "full",
-  "published": undefined,
-  "sections": undefined,
-  "subtitle": undefined,
   "title": {
     "formatted": "Blog",
     "plain": "Blog",

@@ -1,4 +1,4 @@
-import { binotype } from "./index"
+import { binotype } from "../index"
 
 describe("binotype.Title", () => {
 	describe("from", () => {

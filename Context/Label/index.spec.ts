@@ -1,3 +1,4 @@
+import { Clean } from "../../Clean"
 import { binotype } from "../../index"
 
 describe("binotype.Context.Label", () => {
@@ -5,7 +6,7 @@ describe("binotype.Context.Label", () => {
 		it("should return a Label for a valid Title", () => {
 			const title: binotype.Title<string> = { short: "Short", long: "Long" }
 			const label = binotype.Context.Label.get(title)
-			expect(label).toMatchSnapshot()
+			expect(Clean.clean(label)).toMatchSnapshot()
 		})
 
 		it("should return undefined for undefined Title", () => {

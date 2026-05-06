@@ -8,10 +8,7 @@ exports[`binotype.Context.Section > Section.convert > should convert Section to 
   "content": "Block content",
   "id": "b1",
   "link": "/b1",
-  "meta": {},
   "mode": "full",
-  "sections": undefined,
-  "subtitle": undefined,
   "title": {
     "formatted": "[b1]",
     "plain": "[b1]",

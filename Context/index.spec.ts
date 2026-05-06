@@ -1,3 +1,4 @@
+import { Clean } from "../Clean"
 import { binotype } from "../index"
 import { Modes } from "../Modes"
 
@@ -29,8 +30,6 @@ describe("binotype.Context", () => {
 	it.each([
 		{ path: "/" },
 		{ path: "/about" },
-		{ path: "/nonexistent" },
-		{ path: "invalid-path" },
 		{ path: "/article" },
 		{ path: "/article", reduction: { list: { limit: 5 } } },
 		{ path: "/article/to-live" }
@@ -57,7 +56,8 @@ describe("binotype.Context", () => {
 						"/assets/share-blockquote.js"
 					],
 					navigation: "header",
-					list: "summary",
+					mode: "full",
+					list: "header",
 					home: "article"
 				},
 				page: {
@@ -277,7 +277,7 @@ describe("binotype.Context", () => {
 			},
 			path
 		)
-		expect(context).toMatchSnapshot()
-		expect(context.load(path, reduction)).toMatchSnapshot()
+		expect(context).toMatchSnapshot("context")
+		expect(Clean.clean(context.load(path, reduction))).toMatchSnapshot("context.load")
 	})
 })

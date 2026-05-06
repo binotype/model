@@ -56,7 +56,7 @@ export namespace Section {
 						class: block.class ?? [],
 						title: Label.get<Node>(block.title ?? `[${path.fragment ?? path.getId("camel") ?? ""}]`),
 						subtitle: block.subtitle,
-						...(mode == "full" || mode == "body"
+						...(mode == "full" || mode == "body" || mode == "summary"
 							? {
 									content: block.content ? block.content : undefined,
 									sections: load<Node>(block.blocks, path, reduction, fallback)

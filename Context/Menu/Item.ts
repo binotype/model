@@ -8,8 +8,8 @@ export interface Item<Node = any> {
 	label: string
 	description: Content<Node>
 	url: string
-	selected: "current" | "parent" | undefined
-	items: Item<Node>[]
+	selected?: "current" | "parent"
+	items?: Item<Node>[]
 }
 export namespace Item {
 	export function load<Node = any>(block: Block<Node>, path: Path, current: string): Item<Node>
@@ -43,24 +43,26 @@ export namespace Item {
 							label: Title.get((block as Block<Node>).title, "short"),
 							description: Title.get((block as Block<Node>).title, "long-short") as Content<Node>,
 							url: path.toString(),
-							selected:
-								current == path.toString()
-									? "current"
-									: current.startsWith(path.toString() + "/")
-										? "parent"
-										: undefined,
-							items: [
+							...(current == path.toString()
+								? { selected: "current" }
+								: current.startsWith(path.toString() + "/")
+									? { selected: "parent" }
+									: {}),
+							...(items => (items.length > 0 ? { items } : {}))([
 								...(load<Node>((block as Block<Node>).blocks, path, current, "block") ?? []),
 								...(Page.hasPages(block as any) ? load<Node>((block as any).pages, path, current, "page") : [])
-							]
+							])
 						}
 					: undefined
 	}
-	export function convert<Node, Target>(item: Item<Node>, convert: (node: Node) => Target): Item<Content<Target>> {
+	export function convert<Node, Target>(
+		{ description, items, ...item }: Item<Node>,
+		convert: (node: Node) => Target
+	): Item<Content<Target>> {
 		return {
-			...item,
-			description: item.description && Content.convert(item.description, convert),
-			items: item.items && item.items.map(i => Item.convert(i, convert))
+			description: description && Content.convert(description, convert),
+			...(items ? { items: items.map(i => Item.convert(i, convert)) } : {}),
+			...item
 		}
 	}
 }

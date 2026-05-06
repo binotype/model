@@ -1,4 +1,5 @@
 import { Block } from "../../Block"
+import { Clean } from "../../Clean"
 import { Path } from "../../Path"
 import { Section } from "./index"
 
@@ -29,9 +30,11 @@ describe("binotype.Context.Section", () => {
 	describe("Section.convert", () =>
 		it("should convert Section to object", () =>
 			expect(
-				Section.convert(
-					Section.load({ mode: "full", class: ["main"], meta: {}, content: "Block content" }, Path.parse("/b1"), {}),
-					node => node
+				Clean.clean(
+					Section.convert(
+						Section.load({ mode: "full", class: ["main"], meta: {}, content: "Block content" }, Path.parse("/b1"), {}),
+						node => node
+					)
 				)
 			).toMatchSnapshot()))
 })

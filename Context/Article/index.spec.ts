@@ -1,3 +1,4 @@
+import { Clean } from "../../Clean"
 import { binotype } from "../../index"
 
 describe("binotype.Context.Article", () => {
@@ -95,7 +96,7 @@ describe("binotype.Context.Article", () => {
 			fallback: { mode?: binotype.Mode; list?: binotype.Mode }
 		}[])("($name)", ({ page, path, fallback }) =>
 			expect(
-				binotype.Context.Article.convert(binotype.Context.Article.load(page, path, fallback), node => node)
+				Clean.clean(binotype.Context.Article.convert(binotype.Context.Article.load(page, path, fallback), node => node))
 			).toMatchSnapshot())
 	})
 })
