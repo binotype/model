@@ -1,6 +1,6 @@
 {
 	"name": "@binotype/model",
-	"version": "2.0.0-beta.12",
+	"version": "2.0.0-beta.13",
 	"description": "Library with data types for Binotype Sites.",
 	"author": "Binotype Contributors",
 	"license": "MIT",
