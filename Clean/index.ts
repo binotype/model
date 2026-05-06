@@ -11,8 +11,9 @@ export namespace Clean {
 		[K in keyof T as Clean<T[K]> extends never | Record<string, never> ? never : K]: Clean<T[K]>
 	}
 	export type Result<T> = T extends null | undefined | [] | Record<string, never> ? undefined : Clean<T>
-	export function clean<T extends object>(dirty: T): Object<T> | undefined
-	export function clean<T>(dirty: T): Clean.Result<T>
+	export function clean<T extends object>(dirty: T | undefined | null): Object<T> | undefined
+	export function clean<T>(dirty: T | undefined | null): Clean.Result<T>
+	export function clean(dirty: unknown): unknown
 	export function clean(dirty: unknown): unknown {
 		return dirty == null
 			? undefined

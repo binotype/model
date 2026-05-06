@@ -278,6 +278,6 @@ describe("binotype.Context", () => {
 			path
 		)
 		expect(context).toMatchSnapshot("context")
-		expect(Clean.clean(context.load(path, reduction))).toMatchSnapshot("context.load")
+		expect(Clean.clean(context.load(path, reduction) as unknown)).toMatchSnapshot("context.load")
 	})
 })

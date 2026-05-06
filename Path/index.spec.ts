@@ -69,7 +69,7 @@ describe("binotype.Path", () => {
 		{ path: binotype.Path.empty, casing: "snake", expected: "" },
 		{ path: binotype.Path.parse("/hello-world"), casing: "camel", expected: "helloWorld" }
 	] as const)("getId('$path', '$casing') == '$expected'", ({ path, casing, expected }) =>
-		expect(path.getId(casing)).toBe(expected))
+		expect(path.get("head", casing)).toBe(expected))
 	it.each([
 		{ path: binotype.Path.empty, id: "home", expected: "/home" },
 		{ path: binotype.Path.parse("/home"), id: "user", expected: "/home/user" },

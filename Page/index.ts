@@ -37,7 +37,11 @@ export namespace Page {
 		)
 	}
 	export function locate<Node>(page: Page<Node> | undefined, path: Path): Page<Node> | undefined {
-		return path.empty ? page : page?.pages ? locate<Node>(page.pages[path.getId("camel")], path.tail) : undefined
+		return path.empty
+			? page
+			: !page?.pages || !path.head
+				? undefined
+				: locate<Node>(page.pages[path.get("head")], path.tail)
 	}
 	export function toArray<Node>(
 		pages: Record<string, Page<Node> | undefined> | undefined

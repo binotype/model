@@ -23,8 +23,13 @@ export class Path {
 	) {
 		this.fragment = fragment
 	}
-	getId(casing: "snake" | "camel" = "snake"): string {
-		return Path.getId(this.last ?? "", casing)
+	get(position: "head" | "last" | number = "last", casing: "snake" | "camel" = "camel"): string {
+		return (
+			Path.getId(
+				typeof position == "number" ? this.parts[position] : position == "head" ? this.head : (this.last ?? ""),
+				casing
+			) ?? ""
+		)
 	}
 	append(id: string): Path {
 		return new Path([...(this.parts ?? []), Path.getId(id, "snake")])
@@ -45,18 +50,22 @@ export class Path {
 			fragment
 		)
 	}
-	static getId(id: string, casing: "snake" | "camel" = "snake"): string {
-		return casing == "snake"
-			? (id
-					.replace(/([a-z0-9])([A-Z])/g, "$1-$2")
-					.replace(/([A-Z])([A-Z][a-z])/g, "$1-$2")
-					.toLowerCase()
-					.normalize("NFKD")
-					.replace(/[\u0300-\u036f]/g, "")
-					.replace(/[^a-z0-9-]+/g, "-")
-					.replace(/-+/g, "-")
-					.replace(/^-+|-+$/g, "") ?? "untitled")
-			: id.toLowerCase().replace(/-([a-z])/g, (_, letter) => letter.toUpperCase())
+	static getId(id: string, casing?: "snake" | "camel"): string
+	static getId(id: string | undefined, casing?: "snake" | "camel"): string | undefined
+	static getId(id: string | undefined, casing: "snake" | "camel" = "camel"): string | undefined {
+		return id === undefined
+			? undefined
+			: casing == "snake"
+				? (id
+						.replace(/([a-z0-9])([A-Z])/g, "$1-$2")
+						.replace(/([A-Z])([A-Z][a-z])/g, "$1-$2")
+						.toLowerCase()
+						.normalize("NFKD")
+						.replace(/[\u0300-\u036f]/g, "")
+						.replace(/[^a-z0-9-]+/g, "-")
+						.replace(/-+/g, "-")
+						.replace(/^-+|-+$/g, "") ?? "untitled")
+				: id.toLowerCase().replace(/-([a-z])/g, (_, letter) => letter.toUpperCase())
 	}
 	static absolutify(path: string): string {
 		return (path.startsWith("/") || path.includes("://") ? "" : "/") + path
@@ -74,7 +83,7 @@ export namespace Path {
 			tail: isly.any().readonly(),
 			last: isly.string().optional().readonly(),
 			fragment: isly.string().optional().readonly(),
-			getId: isly.function(),
+			get: isly.function(),
 			append: isly.function(),
 			appendFragment: isly.function(),
 			toString: isly.function()

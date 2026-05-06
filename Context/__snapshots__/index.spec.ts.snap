@@ -1176,15 +1176,23 @@ exports[`binotype.Context > create(simonmika.com, '/article', undefined) > conte
 exports[`binotype.Context > create(simonmika.com, '/article/to-live', undefined) > context 1`] = `
 {
   "article": {
+    "content": "Life is about three fundamental activities:
+These three pillars are deeply interconnected. When we create, we inevitably learn from the process. When we learn, we become better equipped to help others. And when we help others, we often end up creating something valuable in the process.
+They are all about improving ourselves and the world around us. Each day presents opportunities to engage in these activities, even in small ways. The magic happens when we consciously combine them:
+> We make a living by what we get, but we make a life by what we give.
+The choice is yours: Will you be a passive observer of life, or an active participant? Will you consume what others create, or contribute something of your own? Will you stay in your comfort zone, or push its boundaries?
+Because tomorrow isn't guaranteed - but today's actions shape all our tomorrows.
+",
     "id": "toLive",
     "link": "/article/to-live",
     "list": {
-      "mode": "full",
+      "mode": "header",
     },
     "mode": "full",
+    "published": "2016-08-18T21:31:21+02:00",
     "title": {
-      "formatted": "Not Found",
-      "plain": "Not Found",
+      "formatted": "To Live",
+      "plain": "To Live",
     },
   },
   "base": "https://simonmika.com",
@@ -1313,7 +1321,28 @@ exports[`binotype.Context > create(simonmika.com, '/article/to-live', undefined)
 }
 `;
 
-exports[`binotype.Context > create(simonmika.com, '/article/to-live', undefined) > context.load 1`] = `undefined`;
+exports[`binotype.Context > create(simonmika.com, '/article/to-live', undefined) > context.load 1`] = `
+{
+  "content": "Life is about three fundamental activities:
+These three pillars are deeply interconnected. When we create, we inevitably learn from the process. When we learn, we become better equipped to help others. And when we help others, we often end up creating something valuable in the process.
+They are all about improving ourselves and the world around us. Each day presents opportunities to engage in these activities, even in small ways. The magic happens when we consciously combine them:
+> We make a living by what we get, but we make a life by what we give.
+The choice is yours: Will you be a passive observer of life, or an active participant? Will you consume what others create, or contribute something of your own? Will you stay in your comfort zone, or push its boundaries?
+Because tomorrow isn't guaranteed - but today's actions shape all our tomorrows.
+",
+  "id": "toLive",
+  "link": "/article/to-live",
+  "list": {
+    "mode": "header",
+  },
+  "mode": "full",
+  "published": "2016-08-18T21:31:21+02:00",
+  "title": {
+    "formatted": "To Live",
+    "plain": "To Live",
+  },
+}
+`;
 
 exports[`binotype.Context > create(site, /) 1`] = `
 {
