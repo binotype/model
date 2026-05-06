@@ -47,53 +47,11 @@ exports[`binotype.Context.Menu > load > load(''simonmika.com'', ''article/to-liv
 {
   "items": [
     {
-      "description": "Articles",
-      "items": [
-        {
-          "description": "Taking Risk When Dying",
-          "label": "Taking Risk When Dying",
-          "url": "/article/taking-risk-when-dying",
-        },
-        {
-          "description": "Optimizing Software",
-          "label": "Optimizing Software",
-          "url": "/article/optimizing-software",
-        },
-        {
-          "description": "Naming",
-          "label": "Naming",
-          "url": "/article/naming",
-        },
-        {
-          "description": "The Programming Interview",
-          "label": "The Programming Interview",
-          "url": "/article/programming-interview",
-        },
-        {
-          "description": "Recruiting Process",
-          "label": "Recruiting Process",
-          "url": "/article/recruiting-process",
-        },
-        {
-          "description": "Rock Star Programmers",
-          "label": "Rock Star Programmers",
-          "url": "/article/rock-star-programmers",
-        },
-        {
-          "description": "To Live",
-          "label": "To Live",
-          "url": "/article/to-live",
-        },
-      ],
-      "label": "Articles",
-      "url": "/article",
-    },
-    {
       "description": "Talks",
       "items": [
         {
           "description": "Egenanställd Konsult",
-          "label": "Egenanställd Konsult",
+          "label": "Self-Employed Consultant",
           "url": "/talk/egen-konsult",
         },
         {
@@ -124,21 +82,6 @@ exports[`binotype.Context.Menu > load > load(''simonmika.com'', ''article/to-liv
       ],
       "label": "Talks",
       "url": "/talk",
-    },
-    {
-      "description": "Contact",
-      "label": "Contact",
-      "url": "/contact",
-    },
-    {
-      "description": "Description",
-      "label": "Description",
-      "url": "/description",
-    },
-    {
-      "description": "Subscribe",
-      "label": "Subscribe",
-      "url": "/subscribe",
     },
     {
       "description": "About",

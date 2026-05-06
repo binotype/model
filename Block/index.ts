@@ -12,7 +12,7 @@ export interface Block<Node> {
 	mode?: Mode
 	type?: string
 	class?: string[]
-	menu?: false
+	menu?: false | string
 	content?: Content<Node>
 	blocks?: Record<string, Block<Node> | undefined>
 }
@@ -27,7 +27,7 @@ export namespace Block {
 				mode: Mode.type.optional(),
 				type: isly.string().optional(),
 				class: isly.array(isly.string()).optional(),
-				menu: isly.boolean(false).optional(),
+				menu: isly.union(isly.boolean(false), isly.string()).optional(),
 				content: Content.getType<Node>(nodeType).optional(),
 				blocks: isly
 					.record(

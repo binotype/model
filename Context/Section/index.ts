@@ -11,6 +11,7 @@ export interface Section<Node> {
 	link?: string
 	meta: Meta
 	mode: Mode
+	menu?: false | string
 	type?: string
 	class: string[]
 	title?: Label<Node>
@@ -52,6 +53,7 @@ export namespace Section {
 						link: path.toString(),
 						meta: block.meta ?? {},
 						mode,
+						menu: block.menu,
 						type: block.type,
 						class: block.class ?? [],
 						title: Label.get<Node>(block.title ?? `[${path.fragment ?? path.get("last") ?? ""}]`),

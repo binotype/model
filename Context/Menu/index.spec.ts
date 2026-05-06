@@ -145,6 +145,7 @@ describe("binotype.Context.Menu", () => {
 						pages: {
 							article: {
 								title: "Articles",
+								menu: false,
 								pages: {
 									naming: {
 										title: "Naming",
@@ -272,6 +273,7 @@ describe("binotype.Context.Menu", () => {
 									},
 									egenKonsult: {
 										title: "Egenanställd Konsult",
+										menu: "Self-Employed Consultant",
 										subtitle: [],
 										meta: {},
 										published: "2025-11-28T10:00:00+02:00",
@@ -330,7 +332,8 @@ describe("binotype.Context.Menu", () => {
 							contact: {
 								title: "Contact",
 								subtitle: [],
-								meta: { menu: "false" },
+								meta: {},
+								menu: false,
 								content:
 									'<form method="post">\n<label for="name">Name</label>\n<input type="text" name="name" />\n<label for="email">Email</label>\n<input type="email" name="email" />\n<label for="message">Message</label>\n<textarea name="message"></textarea>\n<button type="submit">Send</button>\n</form>\n',
 								blocks: {},
@@ -339,7 +342,8 @@ describe("binotype.Context.Menu", () => {
 							description: {
 								title: "Description",
 								subtitle: [],
-								meta: { menu: "false" },
+								meta: {},
+								menu: false,
 								content:
 									"Simon says contains opinionated articles on subjects such as software development, software startups and engineering recruitment.\nThe articles convey lessons learned during work as software engineer, engineering manager and a consultant.\n",
 								blocks: {},
@@ -348,7 +352,8 @@ describe("binotype.Context.Menu", () => {
 							subscribe: {
 								title: "Subscribe",
 								subtitle: [],
-								meta: { menu: "false" },
+								meta: {},
+								menu: false,
 								content: '<script type="text/javascript" src="\n',
 								blocks: {},
 								pages: {}
