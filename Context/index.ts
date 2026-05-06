@@ -56,7 +56,7 @@ export class Context<Node> {
 		const page = Page.locate(this.site.page, path)
 		return page && Context.Article.load(page, path, reduction, fallback)
 	}
-	toJSON() {
+	toJSON(): unknown {
 		return Clean.clean({
 			title: this.title,
 			tagline: this.tagline,
@@ -67,7 +67,7 @@ export class Context<Node> {
 			design: this.design,
 			menu: Context.Menu.convert(this.menu, node => node),
 			article: this.article && Context.Article.convert(this.article, node => node)
-		})
+		}) as any
 	}
 	static create<Node>(site: Site<Node>, path: Path | string): Context<Node> {
 		return new Context(site, path)

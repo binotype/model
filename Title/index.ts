@@ -1,5 +1,5 @@
 import { isly } from "isly"
-import { Content } from "./Content"
+import { Content } from "../Content"
 
 export type Title<Node> = string | { short: string; long: Content<Node> }
 export namespace Title {
